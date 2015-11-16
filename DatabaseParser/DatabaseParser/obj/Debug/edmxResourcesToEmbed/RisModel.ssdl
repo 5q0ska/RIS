@@ -1,0 +1,908 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="risModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="akcia">
+    <Key>
+      <PropertyRef Name="id_akcie" />
+    </Key>
+    <Property Name="id_akcie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_menu" Type="int" Nullable="false" />
+    <Property Name="id_podniku" Type="int" Nullable="false" />
+    <Property Name="id_obrazka" Type="int" />
+    <Property Name="text_id" Type="int" />
+    <Property Name="platnost_od" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="platnost_do" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="akciova_cena" Type="int" />
+  </EntityType>
+  <EntityType Name="den_v_tyzdni">
+    <Key>
+      <PropertyRef Name="cislo_dna" />
+    </Key>
+    <Property Name="cislo_dna" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="text_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="denne_menu">
+    <Key>
+      <PropertyRef Name="datum_platnosti" />
+    </Key>
+    <Property Name="datum_platnosti" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="id_menu" Type="int" Nullable="false" />
+    <Property Name="id_podniku" Type="int" Nullable="false" />
+    <Property Name="id_obrazka" Type="int" />
+    <Property Name="cena" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="jazyk">
+    <Key>
+      <PropertyRef Name="kod_jazyka" />
+    </Key>
+    <Property Name="kod_jazyka" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="nazov" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="jedlo">
+    <Key>
+      <PropertyRef Name="id_jedla" />
+      <PropertyRef Name="id_typu" />
+    </Key>
+    <Property Name="id_jedla" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nazov" Type="int" Nullable="false" />
+    <Property Name="id_typu" Type="int" Nullable="false" />
+    <Property Name="mnozstvo_kalorii" Type="int" />
+    <Property Name="dlzka_pripravy" Type="int" />
+  </EntityType>
+  <EntityType Name="jedlo_surovina">
+    <Key>
+      <PropertyRef Name="id_surovina" />
+      <PropertyRef Name="id_jedla" />
+      <PropertyRef Name="id_typu" />
+    </Key>
+    <Property Name="id_surovina" Type="int" Nullable="false" />
+    <Property Name="id_jedla" Type="int" Nullable="false" />
+    <Property Name="id_typu" Type="int" Nullable="false" />
+    <Property Name="mnozstvo" Type="double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="menu">
+    <Key>
+      <PropertyRef Name="id_menu" />
+      <PropertyRef Name="id_podniku" />
+    </Key>
+    <Property Name="text_id" Type="int" />
+    <Property Name="id_menu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_podniku" Type="int" Nullable="false" />
+    <Property Name="id_obrazka" Type="int" />
+    <Property Name="nazov" Type="int" />
+    <Property Name="typ_platnosti" Type="int" />
+  </EntityType>
+  <EntityType Name="menu_jedlo">
+    <Key>
+      <PropertyRef Name="id_jedla" />
+      <PropertyRef Name="id_menu" />
+      <PropertyRef Name="id_typu" />
+      <PropertyRef Name="id_podniku" />
+    </Key>
+    <Property Name="id_jedla" Type="int" Nullable="false" />
+    <Property Name="id_menu" Type="int" Nullable="false" />
+    <Property Name="cena" Type="double" Nullable="false" />
+    <Property Name="id_typu" Type="int" Nullable="false" />
+    <Property Name="id_podniku" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="menu_napoj">
+    <Key>
+      <PropertyRef Name="id_napoja" />
+      <PropertyRef Name="id_menu" />
+      <PropertyRef Name="id_podniku" />
+    </Key>
+    <Property Name="id_napoja" Type="int" Nullable="false" />
+    <Property Name="id_menu" Type="int" Nullable="false" />
+    <Property Name="cena" Type="double" Nullable="false" />
+    <Property Name="mnozstvo" Type="double" Nullable="false" />
+    <Property Name="id_podniku" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="napoj">
+    <Key>
+      <PropertyRef Name="id_napoja" />
+    </Key>
+    <Property Name="id_napoja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nazov" Type="int" Nullable="false" />
+    <Property Name="alkoholicky" Type="int" Nullable="false" />
+    <Property Name="mnozstvo_kalorii" Type="int" />
+    <Property Name="dlzka_pripravy" Type="int" />
+  </EntityType>
+  <EntityType Name="napoj_surovina">
+    <Key>
+      <PropertyRef Name="id_surovina" />
+      <PropertyRef Name="id_napoja" />
+    </Key>
+    <Property Name="id_surovina" Type="int" Nullable="false" />
+    <Property Name="id_napoja" Type="int" Nullable="false" />
+    <Property Name="mnozstvo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="napoj_typy">
+    <Key>
+      <PropertyRef Name="id_napoja" />
+      <PropertyRef Name="id_typu" />
+    </Key>
+    <Property Name="id_napoja" Type="int" Nullable="false" />
+    <Property Name="id_typu" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="objednavka">
+    <Key>
+      <PropertyRef Name="id_objednavky" />
+    </Key>
+    <Property Name="id_objednavky" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_stola" Type="int" Nullable="false" />
+    <Property Name="id_uctu" Type="int" Nullable="false" />
+    <Property Name="datum_objednania" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="potvrdena" Type="int" />
+    <Property Name="datum_zaplatenia" Type="datetime" Precision="0" />
+    <Property Name="suma" Type="double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="objednavka_menu">
+    <Key>
+      <PropertyRef Name="id_polozky" />
+      <PropertyRef Name="id_menu" />
+      <PropertyRef Name="id_objednavky" />
+      <PropertyRef Name="id_podniku" />
+    </Key>
+    <Property Name="id_polozky" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_menu" Type="int" Nullable="false" />
+    <Property Name="id_objednavky" Type="int" Nullable="false" />
+    <Property Name="id_podniku" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="obrazok">
+    <Key>
+      <PropertyRef Name="id_obrazka" />
+    </Key>
+    <Property Name="id_obrazka" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="metadata" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="otvaracie_hodiny">
+    <Key>
+      <PropertyRef Name="id_podniku" />
+      <PropertyRef Name="cislo_dna" />
+    </Key>
+    <Property Name="id_podniku" Type="int" Nullable="false" />
+    <Property Name="cislo_dna" Type="int" Nullable="false" />
+    <Property Name="cas_otvorenia" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="doba_otvorenia" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="platnost_zaznamu">
+    <Key>
+      <PropertyRef Name="typ_platnosti" />
+    </Key>
+    <Property Name="typ_platnosti" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="podnik">
+    <Key>
+      <PropertyRef Name="id_podniku" />
+    </Key>
+    <Property Name="id_podniku" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nazov" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="telefon_cislo" Type="int" Nullable="false" />
+    <Property Name="ico" Type="int" Nullable="false" />
+    <Property Name="adresa" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="preklad">
+    <Key>
+      <PropertyRef Name="kod_jazyka" />
+      <PropertyRef Name="text_id" />
+    </Key>
+    <Property Name="kod_jazyka" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="text_id" Type="int" Nullable="false" />
+    <Property Name="preklad" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="stol">
+    <Key>
+      <PropertyRef Name="id_stola" />
+    </Key>
+    <Property Name="id_stola" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pocet_miest" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="surovina">
+    <Key>
+      <PropertyRef Name="id_surovina" />
+    </Key>
+    <Property Name="id_surovina" Type="int" Nullable="false" />
+    <Property Name="nazov" Type="int" Nullable="false" />
+    <Property Name="alergen" Type="int" Nullable="false" />
+    <Property Name="jednotka" Type="char" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="text">
+    <Key>
+      <PropertyRef Name="text_id" />
+    </Key>
+    <Property Name="text_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="typ_jedla">
+    <Key>
+      <PropertyRef Name="id_typu" />
+    </Key>
+    <Property Name="id_typu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="typ" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="typ_napoja">
+    <Key>
+      <PropertyRef Name="id_typu" />
+    </Key>
+    <Property Name="id_typu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="text_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="typ_uctu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nazov" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ucet">
+    <Key>
+      <PropertyRef Name="id_uctu" />
+    </Key>
+    <Property Name="id_uctu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="login" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="heslo" Type="char" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="zmena_otvaracich_hodin">
+    <Key>
+      <PropertyRef Name="zaciatok_platnosti" />
+      <PropertyRef Name="id_podniku" />
+      <PropertyRef Name="cislo_dna" />
+    </Key>
+    <Property Name="zaciatok_platnosti" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="id_podniku" Type="int" Nullable="false" />
+    <Property Name="cislo_dna" Type="int" Nullable="false" />
+    <Property Name="koniec_platnosti" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="cas_otvorenia" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="doba_otvorenia" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="a">
+    <End Role="jedlo" Type="Self.jedlo" Multiplicity="1" />
+    <End Role="menu_jedlo" Type="Self.menu_jedlo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jedlo">
+        <PropertyRef Name="id_jedla" />
+        <PropertyRef Name="id_typu" />
+      </Principal>
+      <Dependent Role="menu_jedlo">
+        <PropertyRef Name="id_jedla" />
+        <PropertyRef Name="id_typu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="aa">
+    <End Role="menu" Type="Self.menu" Multiplicity="1" />
+    <End Role="menu_jedlo" Type="Self.menu_jedlo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="menu">
+        <PropertyRef Name="id_menu" />
+        <PropertyRef Name="id_podniku" />
+      </Principal>
+      <Dependent Role="menu_jedlo">
+        <PropertyRef Name="id_menu" />
+        <PropertyRef Name="id_podniku" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="aaa">
+    <End Role="jedlo" Type="Self.jedlo" Multiplicity="1" />
+    <End Role="jedlo_surovina" Type="Self.jedlo_surovina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jedlo">
+        <PropertyRef Name="id_jedla" />
+        <PropertyRef Name="id_typu" />
+      </Principal>
+      <Dependent Role="jedlo_surovina">
+        <PropertyRef Name="id_jedla" />
+        <PropertyRef Name="id_typu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="aaaa">
+    <End Role="menu" Type="Self.menu" Multiplicity="1" />
+    <End Role="menu_napoj" Type="Self.menu_napoj" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="menu">
+        <PropertyRef Name="id_menu" />
+        <PropertyRef Name="id_podniku" />
+      </Principal>
+      <Dependent Role="menu_napoj">
+        <PropertyRef Name="id_menu" />
+        <PropertyRef Name="id_podniku" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="denne_menu_v_menu">
+    <End Role="menu" Type="Self.menu" Multiplicity="1" />
+    <End Role="denne_menu" Type="Self.denne_menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="menu">
+        <PropertyRef Name="id_menu" />
+        <PropertyRef Name="id_podniku" />
+      </Principal>
+      <Dependent Role="denne_menu">
+        <PropertyRef Name="id_menu" />
+        <PropertyRef Name="id_podniku" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="jedlo_typy">
+    <End Role="typ_jedla" Type="Self.typ_jedla" Multiplicity="1" />
+    <End Role="jedlo" Type="Self.jedlo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="typ_jedla">
+        <PropertyRef Name="id_typu" />
+      </Principal>
+      <Dependent Role="jedlo">
+        <PropertyRef Name="id_typu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="menu_podniku">
+    <End Role="podnik" Type="Self.podnik" Multiplicity="1" />
+    <End Role="menu" Type="Self.menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="podnik">
+        <PropertyRef Name="id_podniku" />
+      </Principal>
+      <Dependent Role="menu">
+        <PropertyRef Name="id_podniku" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="napoje_k_surovinam">
+    <End Role="napoj" Type="Self.napoj" Multiplicity="1" />
+    <End Role="napoj_surovina" Type="Self.napoj_surovina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="napoj">
+        <PropertyRef Name="id_napoja" />
+      </Principal>
+      <Dependent Role="napoj_surovina">
+        <PropertyRef Name="id_napoja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="napoje_v_menu">
+    <End Role="napoj" Type="Self.napoj" Multiplicity="1" />
+    <End Role="menu_napoj" Type="Self.menu_napoj" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="napoj">
+        <PropertyRef Name="id_napoja" />
+      </Principal>
+      <Dependent Role="menu_napoj">
+        <PropertyRef Name="id_napoja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="objednavka_menu_prepojenie">
+    <End Role="menu" Type="Self.menu" Multiplicity="1" />
+    <End Role="objednavka_menu" Type="Self.objednavka_menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="menu">
+        <PropertyRef Name="id_menu" />
+        <PropertyRef Name="id_podniku" />
+      </Principal>
+      <Dependent Role="objednavka_menu">
+        <PropertyRef Name="id_menu" />
+        <PropertyRef Name="id_podniku" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="objednavky_stolu">
+    <End Role="stol" Type="Self.stol" Multiplicity="1" />
+    <End Role="objednavka" Type="Self.objednavka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="stol">
+        <PropertyRef Name="id_stola" />
+      </Principal>
+      <Dependent Role="objednavka">
+        <PropertyRef Name="id_stola" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="objednavky_z_menu">
+    <End Role="objednavka" Type="Self.objednavka" Multiplicity="1" />
+    <End Role="objednavka_menu" Type="Self.objednavka_menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="objednavka">
+        <PropertyRef Name="id_objednavky" />
+      </Principal>
+      <Dependent Role="objednavka_menu">
+        <PropertyRef Name="id_objednavky" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship10">
+    <End Role="obrazok" Type="Self.obrazok" Multiplicity="0..1" />
+    <End Role="denne_menu" Type="Self.denne_menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="obrazok">
+        <PropertyRef Name="id_obrazka" />
+      </Principal>
+      <Dependent Role="denne_menu">
+        <PropertyRef Name="id_obrazka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship11">
+    <End Role="podnik" Type="Self.podnik" Multiplicity="1" />
+    <End Role="otvaracie_hodiny" Type="Self.otvaracie_hodiny" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="podnik">
+        <PropertyRef Name="id_podniku" />
+      </Principal>
+      <Dependent Role="otvaracie_hodiny">
+        <PropertyRef Name="id_podniku" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship12">
+    <End Role="den_v_tyzdni" Type="Self.den_v_tyzdni" Multiplicity="1" />
+    <End Role="otvaracie_hodiny" Type="Self.otvaracie_hodiny" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="den_v_tyzdni">
+        <PropertyRef Name="cislo_dna" />
+      </Principal>
+      <Dependent Role="otvaracie_hodiny">
+        <PropertyRef Name="cislo_dna" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship13">
+    <End Role="podnik" Type="Self.podnik" Multiplicity="1" />
+    <End Role="zmena_otvaracich_hodin" Type="Self.zmena_otvaracich_hodin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="podnik">
+        <PropertyRef Name="id_podniku" />
+      </Principal>
+      <Dependent Role="zmena_otvaracich_hodin">
+        <PropertyRef Name="id_podniku" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship14">
+    <End Role="den_v_tyzdni" Type="Self.den_v_tyzdni" Multiplicity="1" />
+    <End Role="zmena_otvaracich_hodin" Type="Self.zmena_otvaracich_hodin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="den_v_tyzdni">
+        <PropertyRef Name="cislo_dna" />
+      </Principal>
+      <Dependent Role="zmena_otvaracich_hodin">
+        <PropertyRef Name="cislo_dna" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship15">
+    <End Role="obrazok" Type="Self.obrazok" Multiplicity="0..1" />
+    <End Role="menu" Type="Self.menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="obrazok">
+        <PropertyRef Name="id_obrazka" />
+      </Principal>
+      <Dependent Role="menu">
+        <PropertyRef Name="id_obrazka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship16">
+    <End Role="jazyk" Type="Self.jazyk" Multiplicity="1" />
+    <End Role="preklad" Type="Self.preklad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jazyk">
+        <PropertyRef Name="kod_jazyka" />
+      </Principal>
+      <Dependent Role="preklad">
+        <PropertyRef Name="kod_jazyka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship23">
+    <End Role="text" Type="Self.text" Multiplicity="1" />
+    <End Role="preklad" Type="Self.preklad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="text">
+        <PropertyRef Name="text_id" />
+      </Principal>
+      <Dependent Role="preklad">
+        <PropertyRef Name="text_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship24">
+    <End Role="text" Type="Self.text" Multiplicity="1" />
+    <End Role="napoj" Type="Self.napoj" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="text">
+        <PropertyRef Name="text_id" />
+      </Principal>
+      <Dependent Role="napoj">
+        <PropertyRef Name="nazov" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship25">
+    <End Role="text" Type="Self.text" Multiplicity="1" />
+    <End Role="surovina" Type="Self.surovina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="text">
+        <PropertyRef Name="text_id" />
+      </Principal>
+      <Dependent Role="surovina">
+        <PropertyRef Name="nazov" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship26">
+    <End Role="text" Type="Self.text" Multiplicity="1" />
+    <End Role="typ_jedla" Type="Self.typ_jedla" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="text">
+        <PropertyRef Name="text_id" />
+      </Principal>
+      <Dependent Role="typ_jedla">
+        <PropertyRef Name="typ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship27">
+    <End Role="text" Type="Self.text" Multiplicity="1" />
+    <End Role="jedlo" Type="Self.jedlo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="text">
+        <PropertyRef Name="text_id" />
+      </Principal>
+      <Dependent Role="jedlo">
+        <PropertyRef Name="nazov" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship28">
+    <End Role="text" Type="Self.text" Multiplicity="1" />
+    <End Role="den_v_tyzdni" Type="Self.den_v_tyzdni" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="text">
+        <PropertyRef Name="text_id" />
+      </Principal>
+      <Dependent Role="den_v_tyzdni">
+        <PropertyRef Name="text_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship29">
+    <End Role="text" Type="Self.text" Multiplicity="0..1" />
+    <End Role="menu" Type="Self.menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="text">
+        <PropertyRef Name="text_id" />
+      </Principal>
+      <Dependent Role="menu">
+        <PropertyRef Name="text_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship31">
+    <End Role="text" Type="Self.text" Multiplicity="0..1" />
+    <End Role="menu" Type="Self.menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="text">
+        <PropertyRef Name="text_id" />
+      </Principal>
+      <Dependent Role="menu">
+        <PropertyRef Name="nazov" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship32">
+    <End Role="text" Type="Self.text" Multiplicity="0..1" />
+    <End Role="akcia" Type="Self.akcia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="text">
+        <PropertyRef Name="text_id" />
+      </Principal>
+      <Dependent Role="akcia">
+        <PropertyRef Name="text_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship33">
+    <End Role="text" Type="Self.text" Multiplicity="1" />
+    <End Role="typ_napoja" Type="Self.typ_napoja" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="text">
+        <PropertyRef Name="text_id" />
+      </Principal>
+      <Dependent Role="typ_napoja">
+        <PropertyRef Name="text_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship34">
+    <End Role="napoj" Type="Self.napoj" Multiplicity="1" />
+    <End Role="napoj_typy" Type="Self.napoj_typy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="napoj">
+        <PropertyRef Name="id_napoja" />
+      </Principal>
+      <Dependent Role="napoj_typy">
+        <PropertyRef Name="id_napoja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship35">
+    <End Role="typ_napoja" Type="Self.typ_napoja" Multiplicity="1" />
+    <End Role="napoj_typy" Type="Self.napoj_typy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="typ_napoja">
+        <PropertyRef Name="id_typu" />
+      </Principal>
+      <Dependent Role="napoj_typy">
+        <PropertyRef Name="id_typu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship37">
+    <End Role="platnost_zaznamu" Type="Self.platnost_zaznamu" Multiplicity="0..1" />
+    <End Role="menu" Type="Self.menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="platnost_zaznamu">
+        <PropertyRef Name="typ_platnosti" />
+      </Principal>
+      <Dependent Role="menu">
+        <PropertyRef Name="typ_platnosti" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship4">
+    <End Role="ucet" Type="Self.ucet" Multiplicity="1" />
+    <End Role="objednavka" Type="Self.objednavka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ucet">
+        <PropertyRef Name="id_uctu" />
+      </Principal>
+      <Dependent Role="objednavka">
+        <PropertyRef Name="id_uctu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship7">
+    <End Role="typ_uctu" Type="Self.typ_uctu" Multiplicity="1" />
+    <End Role="ucet" Type="Self.ucet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="typ_uctu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ucet">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship8">
+    <End Role="menu" Type="Self.menu" Multiplicity="1" />
+    <End Role="akcia" Type="Self.akcia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="menu">
+        <PropertyRef Name="id_menu" />
+        <PropertyRef Name="id_podniku" />
+      </Principal>
+      <Dependent Role="akcia">
+        <PropertyRef Name="id_menu" />
+        <PropertyRef Name="id_podniku" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relationship9">
+    <End Role="obrazok" Type="Self.obrazok" Multiplicity="0..1" />
+    <End Role="akcia" Type="Self.akcia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="obrazok">
+        <PropertyRef Name="id_obrazka" />
+      </Principal>
+      <Dependent Role="akcia">
+        <PropertyRef Name="id_obrazka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="suroviny_jedla">
+    <End Role="surovina" Type="Self.surovina" Multiplicity="1" />
+    <End Role="jedlo_surovina" Type="Self.jedlo_surovina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="surovina">
+        <PropertyRef Name="id_surovina" />
+      </Principal>
+      <Dependent Role="jedlo_surovina">
+        <PropertyRef Name="id_surovina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="suroviny_k_napojom">
+    <End Role="surovina" Type="Self.surovina" Multiplicity="1" />
+    <End Role="napoj_surovina" Type="Self.napoj_surovina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="surovina">
+        <PropertyRef Name="id_surovina" />
+      </Principal>
+      <Dependent Role="napoj_surovina">
+        <PropertyRef Name="id_surovina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="risModelStoreContainer">
+    <EntitySet Name="akcia" EntityType="Self.akcia" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="den_v_tyzdni" EntityType="Self.den_v_tyzdni" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="denne_menu" EntityType="Self.denne_menu" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="jazyk" EntityType="Self.jazyk" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="jedlo" EntityType="Self.jedlo" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="jedlo_surovina" EntityType="Self.jedlo_surovina" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="menu" EntityType="Self.menu" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="menu_jedlo" EntityType="Self.menu_jedlo" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="menu_napoj" EntityType="Self.menu_napoj" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="napoj" EntityType="Self.napoj" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="napoj_surovina" EntityType="Self.napoj_surovina" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="napoj_typy" EntityType="Self.napoj_typy" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="objednavka" EntityType="Self.objednavka" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="objednavka_menu" EntityType="Self.objednavka_menu" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="obrazok" EntityType="Self.obrazok" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="otvaracie_hodiny" EntityType="Self.otvaracie_hodiny" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="platnost_zaznamu" EntityType="Self.platnost_zaznamu" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="podnik" EntityType="Self.podnik" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="preklad" EntityType="Self.preklad" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="stol" EntityType="Self.stol" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="surovina" EntityType="Self.surovina" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="text" EntityType="Self.text" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="typ_jedla" EntityType="Self.typ_jedla" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="typ_napoja" EntityType="Self.typ_napoja" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="typ_uctu" EntityType="Self.typ_uctu" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="ucet" EntityType="Self.ucet" Schema="ris" store:Type="Tables" />
+    <EntitySet Name="zmena_otvaracich_hodin" EntityType="Self.zmena_otvaracich_hodin" Schema="ris" store:Type="Tables" />
+    <AssociationSet Name="a" Association="Self.a">
+      <End Role="jedlo" EntitySet="jedlo" />
+      <End Role="menu_jedlo" EntitySet="menu_jedlo" />
+    </AssociationSet>
+    <AssociationSet Name="aa" Association="Self.aa">
+      <End Role="menu" EntitySet="menu" />
+      <End Role="menu_jedlo" EntitySet="menu_jedlo" />
+    </AssociationSet>
+    <AssociationSet Name="aaa" Association="Self.aaa">
+      <End Role="jedlo" EntitySet="jedlo" />
+      <End Role="jedlo_surovina" EntitySet="jedlo_surovina" />
+    </AssociationSet>
+    <AssociationSet Name="aaaa" Association="Self.aaaa">
+      <End Role="menu" EntitySet="menu" />
+      <End Role="menu_napoj" EntitySet="menu_napoj" />
+    </AssociationSet>
+    <AssociationSet Name="denne_menu_v_menu" Association="Self.denne_menu_v_menu">
+      <End Role="menu" EntitySet="menu" />
+      <End Role="denne_menu" EntitySet="denne_menu" />
+    </AssociationSet>
+    <AssociationSet Name="jedlo_typy" Association="Self.jedlo_typy">
+      <End Role="typ_jedla" EntitySet="typ_jedla" />
+      <End Role="jedlo" EntitySet="jedlo" />
+    </AssociationSet>
+    <AssociationSet Name="menu_podniku" Association="Self.menu_podniku">
+      <End Role="podnik" EntitySet="podnik" />
+      <End Role="menu" EntitySet="menu" />
+    </AssociationSet>
+    <AssociationSet Name="napoje_k_surovinam" Association="Self.napoje_k_surovinam">
+      <End Role="napoj" EntitySet="napoj" />
+      <End Role="napoj_surovina" EntitySet="napoj_surovina" />
+    </AssociationSet>
+    <AssociationSet Name="napoje_v_menu" Association="Self.napoje_v_menu">
+      <End Role="napoj" EntitySet="napoj" />
+      <End Role="menu_napoj" EntitySet="menu_napoj" />
+    </AssociationSet>
+    <AssociationSet Name="objednavka_menu_prepojenie" Association="Self.objednavka_menu_prepojenie">
+      <End Role="menu" EntitySet="menu" />
+      <End Role="objednavka_menu" EntitySet="objednavka_menu" />
+    </AssociationSet>
+    <AssociationSet Name="objednavky_stolu" Association="Self.objednavky_stolu">
+      <End Role="stol" EntitySet="stol" />
+      <End Role="objednavka" EntitySet="objednavka" />
+    </AssociationSet>
+    <AssociationSet Name="objednavky_z_menu" Association="Self.objednavky_z_menu">
+      <End Role="objednavka" EntitySet="objednavka" />
+      <End Role="objednavka_menu" EntitySet="objednavka_menu" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship10" Association="Self.Relationship10">
+      <End Role="obrazok" EntitySet="obrazok" />
+      <End Role="denne_menu" EntitySet="denne_menu" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship11" Association="Self.Relationship11">
+      <End Role="podnik" EntitySet="podnik" />
+      <End Role="otvaracie_hodiny" EntitySet="otvaracie_hodiny" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship12" Association="Self.Relationship12">
+      <End Role="den_v_tyzdni" EntitySet="den_v_tyzdni" />
+      <End Role="otvaracie_hodiny" EntitySet="otvaracie_hodiny" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship13" Association="Self.Relationship13">
+      <End Role="podnik" EntitySet="podnik" />
+      <End Role="zmena_otvaracich_hodin" EntitySet="zmena_otvaracich_hodin" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship14" Association="Self.Relationship14">
+      <End Role="den_v_tyzdni" EntitySet="den_v_tyzdni" />
+      <End Role="zmena_otvaracich_hodin" EntitySet="zmena_otvaracich_hodin" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship15" Association="Self.Relationship15">
+      <End Role="obrazok" EntitySet="obrazok" />
+      <End Role="menu" EntitySet="menu" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship16" Association="Self.Relationship16">
+      <End Role="jazyk" EntitySet="jazyk" />
+      <End Role="preklad" EntitySet="preklad" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship23" Association="Self.Relationship23">
+      <End Role="text" EntitySet="text" />
+      <End Role="preklad" EntitySet="preklad" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship24" Association="Self.Relationship24">
+      <End Role="text" EntitySet="text" />
+      <End Role="napoj" EntitySet="napoj" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship25" Association="Self.Relationship25">
+      <End Role="text" EntitySet="text" />
+      <End Role="surovina" EntitySet="surovina" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship26" Association="Self.Relationship26">
+      <End Role="text" EntitySet="text" />
+      <End Role="typ_jedla" EntitySet="typ_jedla" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship27" Association="Self.Relationship27">
+      <End Role="text" EntitySet="text" />
+      <End Role="jedlo" EntitySet="jedlo" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship28" Association="Self.Relationship28">
+      <End Role="text" EntitySet="text" />
+      <End Role="den_v_tyzdni" EntitySet="den_v_tyzdni" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship29" Association="Self.Relationship29">
+      <End Role="text" EntitySet="text" />
+      <End Role="menu" EntitySet="menu" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship31" Association="Self.Relationship31">
+      <End Role="text" EntitySet="text" />
+      <End Role="menu" EntitySet="menu" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship32" Association="Self.Relationship32">
+      <End Role="text" EntitySet="text" />
+      <End Role="akcia" EntitySet="akcia" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship33" Association="Self.Relationship33">
+      <End Role="text" EntitySet="text" />
+      <End Role="typ_napoja" EntitySet="typ_napoja" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship34" Association="Self.Relationship34">
+      <End Role="napoj" EntitySet="napoj" />
+      <End Role="napoj_typy" EntitySet="napoj_typy" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship35" Association="Self.Relationship35">
+      <End Role="typ_napoja" EntitySet="typ_napoja" />
+      <End Role="napoj_typy" EntitySet="napoj_typy" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship37" Association="Self.Relationship37">
+      <End Role="platnost_zaznamu" EntitySet="platnost_zaznamu" />
+      <End Role="menu" EntitySet="menu" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship4" Association="Self.Relationship4">
+      <End Role="ucet" EntitySet="ucet" />
+      <End Role="objednavka" EntitySet="objednavka" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship7" Association="Self.Relationship7">
+      <End Role="typ_uctu" EntitySet="typ_uctu" />
+      <End Role="ucet" EntitySet="ucet" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship8" Association="Self.Relationship8">
+      <End Role="menu" EntitySet="menu" />
+      <End Role="akcia" EntitySet="akcia" />
+    </AssociationSet>
+    <AssociationSet Name="Relationship9" Association="Self.Relationship9">
+      <End Role="obrazok" EntitySet="obrazok" />
+      <End Role="akcia" EntitySet="akcia" />
+    </AssociationSet>
+    <AssociationSet Name="suroviny_jedla" Association="Self.suroviny_jedla">
+      <End Role="surovina" EntitySet="surovina" />
+      <End Role="jedlo_surovina" EntitySet="jedlo_surovina" />
+    </AssociationSet>
+    <AssociationSet Name="suroviny_k_napojom" Association="Self.suroviny_k_napojom">
+      <End Role="surovina" EntitySet="surovina" />
+      <End Role="napoj_surovina" EntitySet="napoj_surovina" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
