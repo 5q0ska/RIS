@@ -22,6 +22,7 @@ namespace DataBaseWorker
                 if (aJedloList == null)
                 {
                     IList list = aComm.jedloList;
+
                     //napln aJedloList z list
                 }
                 return aJedloList;

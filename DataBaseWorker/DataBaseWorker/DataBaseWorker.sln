@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseWorker", "DataBaseWorker\DataBaseWorker.csproj", "{271E5C20-BE3D-4380-B183-30F2CE21F3B6}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDataExecutor", "IDataExecutor\IDataExecutor.csproj", "{BC759B64-0D96-4C27-A654-16AC6278ECA7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klient", "Klient\Klient.csproj", "{59B87EAC-BC5B-4CEB-B65A-EEE1D5AE8413}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestovaciKlient", "TestovaciKlient\TestovaciKlient.csproj", "{0174D45B-804A-4843-8676-B0B37E099699}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{59B87EAC-BC5B-4CEB-B65A-EEE1D5AE8413}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59B87EAC-BC5B-4CEB-B65A-EEE1D5AE8413}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59B87EAC-BC5B-4CEB-B65A-EEE1D5AE8413}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0174D45B-804A-4843-8676-B0B37E099699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0174D45B-804A-4843-8676-B0B37E099699}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0174D45B-804A-4843-8676-B0B37E099699}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0174D45B-804A-4843-8676-B0B37E099699}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
