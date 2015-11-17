@@ -8,6 +8,8 @@ using DatabaseParser;
 
 namespace ICommunicationDMDB
 {
+
+    //tralal
     public interface ICommunication
     {
         risTabulky risContext { get; }
