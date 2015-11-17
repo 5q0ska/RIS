@@ -16,7 +16,12 @@ namespace DataBaseWorker
         public ICollection<BDenne_menu> denne_menu { get; set; }
         public ICollection<BMenu> menu { get; set; }
 
-        private obrazok entityObrazok;
+        public obrazok entityObrazok { get; set; }
+
+        public BObrazok()
+        {
+
+        }
 
         public BObrazok(obrazok o)
         {

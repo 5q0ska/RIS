@@ -22,7 +22,12 @@ namespace DataBaseWorker
         public ICollection<BTyp_jedla> typ_jedla { get; set; }
         public ICollection<BTyp_napoja> typ_napoja { get; set; }
 
-        private text entityText;
+        public text entityText { get; set; }
+
+        public BText()
+        {
+
+        }
 
         public BText(text t)
         {

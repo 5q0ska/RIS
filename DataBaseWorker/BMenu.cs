@@ -28,7 +28,12 @@ namespace DataBaseWorker
         public BText text1 { get; set; }
         public BPlatnost_zaznamu platnost_zaznamu { get; set; }
 
-        private menu entityMenu; 
+        public menu entityMenu { get; set; }
+
+        public BMenu()
+        {
+
+        }
 
         public BMenu(menu m)
         {

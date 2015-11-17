@@ -13,7 +13,7 @@ namespace Klient
         {
             BManager BM = new BManager();
             List<BJedlo> risContext = BM.jedloList;
-
+            
             //stol stol = new stol
             //{
             //    id_stola = 1,
