@@ -116,7 +116,8 @@ namespace DataBaseWorker
                     entityAkcia = temp.Single();
                     this.FillEntity();
                     risContext.SaveChanges();
-				    success = true;
+				    this.FillBObject();
+                    success = true;
 				}
 			}
 			catch (Exception ex)
@@ -137,6 +138,7 @@ namespace DataBaseWorker
                 risContext.akcia.Remove(temp);
                 risContext.SaveChanges();
                 success = true;
+                this.Reset();
             }
             catch (Exception ex)
             {
