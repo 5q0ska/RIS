@@ -12,5 +12,8 @@ namespace IDataExecutor
     public interface IDBDataExecutor
     {
         risTabulky risContext { get; }
+
+
+
     }
 }
