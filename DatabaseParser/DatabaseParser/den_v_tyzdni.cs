@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Collections;
+
 namespace DatabaseParser
 {
     using System;
@@ -22,7 +24,7 @@ namespace DatabaseParser
     
         public int cislo_dna { get; set; }
         public int text_id { get; set; }
-    
+
         public virtual ICollection<otvaracie_hodiny> otvaracie_hodiny { get; set; }
         public virtual ICollection<zmena_otvaracich_hodin> zmena_otvaracich_hodin { get; set; }
         public virtual text text { get; set; }

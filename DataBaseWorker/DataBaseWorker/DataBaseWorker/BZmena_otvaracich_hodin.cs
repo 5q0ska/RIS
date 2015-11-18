@@ -7,7 +7,7 @@ using DatabaseParser;
 
 namespace DataBaseWorker
 {
-    class BZmena_otvaracich_hodin
+    public class BZmena_otvaracich_hodin
     {
         public DateTime zaciatok_platnosti { get; set; }
         public int id_podniku { get; set; }
@@ -19,7 +19,7 @@ namespace DataBaseWorker
         public BDen_v_tyzdni den_v_tyzdni { get; set; }
         public BPodnik podnik { get; set; }
 
-        private zmena_otvaracich_hodin entityZmenaOtvaracichHodin;
+        public zmena_otvaracich_hodin entityZmenaOtvaracichHodin { get; set; }
 
         public BZmena_otvaracich_hodin(zmena_otvaracich_hodin zoh)
         {
