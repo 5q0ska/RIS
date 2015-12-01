@@ -7,7 +7,7 @@ using DatabaseParser;
 
 namespace DataBaseWorker
 {
-    class BDenne_menu
+    public class BDenne_menu
     {
         public DateTime datum_platnosti { get; set; }
         public int id_menu { get; set; }

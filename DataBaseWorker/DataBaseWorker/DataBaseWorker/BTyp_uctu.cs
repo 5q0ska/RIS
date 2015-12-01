@@ -7,7 +7,7 @@ using DatabaseParser;
 
 namespace DataBaseWorker
 {
-    class BTyp_uctu
+    public class BTyp_uctu
     {
         public int id { get; set; }
         public string nazov { get; set; }

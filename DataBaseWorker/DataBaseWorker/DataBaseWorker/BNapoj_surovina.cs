@@ -7,7 +7,7 @@ using DatabaseParser;
 
 namespace DataBaseWorker
 {
-    class BNapoj_surovina
+    public class BNapoj_surovina
     {
         public int id_surovina { get; set; }
         public int id_napoja { get; set; }
@@ -16,7 +16,7 @@ namespace DataBaseWorker
         public BNapoj napoj { get; set; }
         public BSurovina surovina { get; set; }
 
-        private napoj_surovina entityNapojSurovina;
+        public napoj_surovina entityNapojSurovina;
 
         public BNapoj_surovina(napoj_surovina ns)
         {

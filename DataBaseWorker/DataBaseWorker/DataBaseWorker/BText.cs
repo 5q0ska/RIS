@@ -24,6 +24,15 @@ namespace DataBaseWorker
 
         public text entityText { get; set; }
 
+        public String getPreklad(String kodJazyka)
+        {
+           /** var temp = from a in risContext.preklad where a.text_id == text_id && a.kod_jazyka==kodJazyka select a;
+            preklad entityPreklad = temp.Single();
+            return entityPreklad.preklad1;*/
+            IEnumerable<string> preklad=from a in entityText.preklad.OfType<preklad>() where a.kod_jazyka == kodJazyka select a.preklad1;
+            return preklad.FirstOrDefault();
+        }
+
         public BText()
         {
 
@@ -32,67 +41,7 @@ namespace DataBaseWorker
         public BText(text t)
         {
             text_id = t.text_id;
-            akcia = new List<BAkcia>();
-            foreach (var akcia1 in t.akcia)
-            {
-                BAkcia pom = new BAkcia(akcia1);
-                akcia.Add(pom);
-            }
-            den_v_tyzdni = new List<BDen_v_tyzdni>();
-            foreach (var denVTyzdni in t.den_v_tyzdni)
-            {
-                BDen_v_tyzdni pom = new BDen_v_tyzdni(denVTyzdni);
-                den_v_tyzdni.Add(pom);
-            }
-            jedlo = new List<BJedlo>();
-            foreach (var jedlo1 in t.jedlo)
-            {
-                BJedlo pom = new BJedlo(jedlo1);
-                jedlo.Add(pom);
-            }
-            menu = new List<BMenu>();
-            foreach (var menu2 in t.menu)
-            {
-                BMenu pom = new BMenu(menu2);
-                menu.Add(pom);
-            }
-            menu1 = new List<BMenu>();
-            foreach (var menu2 in t.menu1)
-            {
-                BMenu pom = new BMenu(menu2);
-                menu1.Add(pom);
-            }
-            napoj = new List<BNapoj>();
-            foreach (var napoj1 in t.napoj)
-            {
-                BNapoj pom = new BNapoj(napoj1);
-                napoj.Add(pom);
-            }
-            preklad = new List<BPreklad>();
-            foreach (var preklad1 in t.preklad)
-            {
-                BPreklad pom = new BPreklad(preklad1);
-                preklad.Add(pom);
-            }
-            surovina = new List<BSurovina>();
-            foreach (var surovina1 in t.surovina)
-            {
-                BSurovina pom = new BSurovina(surovina1);
-                surovina.Add(pom);
-            }
-            typ_jedla = new List<BTyp_jedla>();
-            foreach (var typJedla in t.typ_jedla)
-            {
-                BTyp_jedla pom = new BTyp_jedla(typJedla);
-                typ_jedla.Add(pom);
-            }
-            typ_napoja = new List<BTyp_napoja>();
-            foreach (var typNapoja in t.typ_napoja)
-            {
-                BTyp_napoja pom = new BTyp_napoja(typNapoja);
-                typ_napoja.Add(pom);
-            }
-
+           
             entityText = t;
         }
     }

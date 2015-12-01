@@ -17,7 +17,7 @@ namespace DataBaseWorker
 
         public BText text { get; set; }
 
-        private den_v_tyzdni entityDenVTyzdni;
+        public den_v_tyzdni entityDenVTyzdni;
 
         public BDen_v_tyzdni(den_v_tyzdni denVTyzdni)
         {

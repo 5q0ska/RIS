@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DatabaseParser;
 using DataBaseWorker;
 
 namespace Klient
@@ -11,9 +12,19 @@ namespace Klient
     {
         static void Main(string[] args)
         {
-            BManager BM = new BManager();
-            List<BJedlo> risContext = BM.jedloList;
+            risTabulky risContext = new risTabulky();
+            BTyp_jedla.BTypJedlaCol typyJedla = new BTyp_jedla.BTypJedlaCol(risContext);
+            typyJedla.GetAll();
             
+            foreach (var typ in typyJedla)
+            {
+                Console.WriteLine(typ.Value.text.getPreklad("sk"));
+            }
+            Console.ReadLine();
+            int a = 0;
+            /*  BManager BM = new BManager();
+            List<BJedlo> risContext = BM.jedloList;*/
+
             //stol stol = new stol
             //{
             //    id_stola = 1,

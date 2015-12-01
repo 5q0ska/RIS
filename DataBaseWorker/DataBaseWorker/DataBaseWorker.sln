@@ -7,17 +7,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseWorker", "DataBaseW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseParser", "..\..\DatabaseParser\DatabaseParser\DatabaseParser.csproj", "{8F5D620C-1C39-4FBA-B432-30ADDD018631}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICommunicationDMDB", "ICommunicationDMDB\ICommunicationDMDB.csproj", "{2D244896-31F4-4A99-8DCE-AA4B13781541}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectCommunication", "DirectCommunication\DirectCommunication.csproj", "{C2AB5866-02C5-444E-AA5A-76683054D676}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBExecutor", "DBExecutor\DBExecutor.csproj", "{CA5D604E-B0F7-495D-A29E-23BDD9C60DF4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDataExecutor", "IDataExecutor\IDataExecutor.csproj", "{BC759B64-0D96-4C27-A654-16AC6278ECA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klient", "Klient\Klient.csproj", "{59B87EAC-BC5B-4CEB-B65A-EEE1D5AE8413}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlientPokusny", "Klient\KlientPokusny.csproj", "{59B87EAC-BC5B-4CEB-B65A-EEE1D5AE8413}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestovaciKlient", "TestovaciKlient\TestovaciKlient.csproj", "{0174D45B-804A-4843-8676-B0B37E099699}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataHolder", "DataHolder\DataHolder.csproj", "{59C66EF8-F6D3-4815-949F-73FAC11FB896}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectCommunicationHost", "DirectCommunicationHost\DirectCommunicationHost.csproj", "{7D7667C0-3F1B-469D-AA8B-B13325131893}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDirectCommunication", "IDirectCommunication\IDirectCommunication.csproj", "{EC790990-3A38-4107-B054-F404B58DEB63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +37,6 @@ Global
 		{8F5D620C-1C39-4FBA-B432-30ADDD018631}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F5D620C-1C39-4FBA-B432-30ADDD018631}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F5D620C-1C39-4FBA-B432-30ADDD018631}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2D244896-31F4-4A99-8DCE-AA4B13781541}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D244896-31F4-4A99-8DCE-AA4B13781541}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D244896-31F4-4A99-8DCE-AA4B13781541}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D244896-31F4-4A99-8DCE-AA4B13781541}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C2AB5866-02C5-444E-AA5A-76683054D676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C2AB5866-02C5-444E-AA5A-76683054D676}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2AB5866-02C5-444E-AA5A-76683054D676}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -57,6 +57,18 @@ Global
 		{0174D45B-804A-4843-8676-B0B37E099699}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0174D45B-804A-4843-8676-B0B37E099699}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0174D45B-804A-4843-8676-B0B37E099699}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59C66EF8-F6D3-4815-949F-73FAC11FB896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59C66EF8-F6D3-4815-949F-73FAC11FB896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59C66EF8-F6D3-4815-949F-73FAC11FB896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59C66EF8-F6D3-4815-949F-73FAC11FB896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D7667C0-3F1B-469D-AA8B-B13325131893}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D7667C0-3F1B-469D-AA8B-B13325131893}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D7667C0-3F1B-469D-AA8B-B13325131893}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D7667C0-3F1B-469D-AA8B-B13325131893}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC790990-3A38-4107-B054-F404B58DEB63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC790990-3A38-4107-B054-F404B58DEB63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC790990-3A38-4107-B054-F404B58DEB63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC790990-3A38-4107-B054-F404B58DEB63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

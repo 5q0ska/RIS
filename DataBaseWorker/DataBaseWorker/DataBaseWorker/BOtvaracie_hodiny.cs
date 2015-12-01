@@ -8,7 +8,7 @@ using DatabaseParser;
 
 namespace DataBaseWorker
 {
-    class BOtvaracie_hodiny
+    public class BOtvaracie_hodiny
     {
         public int id_podniku { get; set; }
         public int cislo_dna { get; set; }

@@ -7,7 +7,7 @@ using DatabaseParser;
 
 namespace DataBaseWorker
 {
-    class BObjednavka
+    public class BObjednavka
     {
         public int id_objednavky { get; set; }
         public int id_stola { get; set; }
@@ -21,7 +21,7 @@ namespace DataBaseWorker
         public ICollection<BObjednavka_menu> objednavka_menu { get; set; }
         public BUcet ucet { get; set; }
 
-        private objednavka entityObjednavka;
+        public objednavka entityObjednavka;
 
         public BObjednavka(objednavka o)
         {

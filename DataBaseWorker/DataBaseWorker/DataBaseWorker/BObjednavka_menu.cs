@@ -7,7 +7,7 @@ using DatabaseParser;
 
 namespace DataBaseWorker
 {
-    class BObjednavka_menu
+    public class BObjednavka_menu
     {
         public int id_polozky { get; set; }
         public int id_menu { get; set; }

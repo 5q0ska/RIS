@@ -4,15 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DBExecutor;
-using ICommunicationDMDB;
-using IDataExecutor;
+
 
 namespace DataBaseWorker
 {
     public class BManager
     {
-        private ICommunication aComm;
+       /* private IRestaurantStolService aComm;
         private readonly List<BJedlo> aJedloList = null;
 
         public List<BJedlo> jedloList
@@ -21,12 +19,12 @@ namespace DataBaseWorker
             {
                 if (aJedloList == null)
                 {
-                    IList list = aComm.jedloList;
+                  //  IList list = aComm.jedloList;
 
                     //napln aJedloList z list
                 }
                 return aJedloList;
             }
-        }
+        }*/
     }
 }

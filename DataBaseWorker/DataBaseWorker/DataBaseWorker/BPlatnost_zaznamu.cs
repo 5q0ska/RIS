@@ -7,7 +7,7 @@ using DatabaseParser;
 
 namespace DataBaseWorker
 {
-    class BPlatnost_zaznamu
+    public class BPlatnost_zaznamu
     {
         public int typ_platnosti { get; set; }
 

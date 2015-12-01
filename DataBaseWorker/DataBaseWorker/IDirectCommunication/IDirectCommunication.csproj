@@ -1,16 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2D244896-31F4-4A99-8DCE-AA4B13781541}</ProjectGuid>
+    <ProjectGuid>{EC790990-3A38-4107-B054-F404B58DEB63}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ICommunicationDMDB</RootNamespace>
-    <AssemblyName>ICommunicationDMDB</AssemblyName>
+    <RootNamespace>IDirectCommunication</RootNamespace>
+    <AssemblyName>IDirectCommunication</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,15 +30,15 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Routing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,13 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICommunication.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="IServiceStoly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\DatabaseParser\DatabaseParser\DatabaseParser.csproj">
-      <Project>{8F5D620C-1C39-4FBA-B432-30ADDD018631}</Project>
+      <Project>{8f5d620c-1c39-4fba-b432-30addd018631}</Project>
       <Name>DatabaseParser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataBaseWorker\DataBaseWorker.csproj">
+      <Project>{271e5c20-be3d-4380-b183-30f2ce21f3b6}</Project>
+      <Name>DataBaseWorker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataHolder\DataHolder.csproj">
+      <Project>{59c66ef8-f6d3-4815-949f-73fac11fb896}</Project>
+      <Name>DataHolder</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

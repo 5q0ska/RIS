@@ -7,7 +7,7 @@ using DatabaseParser;
 
 namespace DataBaseWorker
 {
-    class BJazyk
+    public class BJazyk
     {
         public string kod_jazyka { get; set; }
         public string nazov { get; set; }
@@ -22,11 +22,7 @@ namespace DataBaseWorker
             nazov = j.nazov;
 
             preklad = new List<BPreklad>();
-            foreach (var p in j.preklad)
-            {
-                BPreklad pom = new BPreklad(p);
-                preklad.Add(pom);
-            }
+     
 
             entityJazyk = j;
         }

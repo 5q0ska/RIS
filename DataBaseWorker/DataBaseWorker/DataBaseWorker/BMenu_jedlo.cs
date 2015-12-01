@@ -19,7 +19,7 @@ namespace DataBaseWorker
         public BJedlo jedlo { get; set; }
         public BMenu menu { get; set; }
 
-        private menu_jedlo entityMenuJedlo;
+        public menu_jedlo entityMenuJedlo;
 
         public BMenu_jedlo(menu_jedlo mj)
         {

@@ -11,6 +11,7 @@
     <AssemblyName>DirectCommunication</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,6 +38,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,29 +47,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DirectCommDMDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceStoly.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\DatabaseParser\DatabaseParser\DatabaseParser.csproj">
       <Project>{8F5D620C-1C39-4FBA-B432-30ADDD018631}</Project>
       <Name>DatabaseParser</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataBaseWorker\DataBaseWorker.csproj">
+      <Project>{271e5c20-be3d-4380-b183-30f2ce21f3b6}</Project>
+      <Name>DataBaseWorker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataHolder\DataHolder.csproj">
+      <Project>{59C66EF8-F6D3-4815-949F-73FAC11FB896}</Project>
+      <Name>DataHolder</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DBExecutor\DBExecutor.csproj">
       <Project>{CA5D604E-B0F7-495D-A29E-23BDD9C60DF4}</Project>
       <Name>DBExecutor</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ICommunicationDMDB\ICommunicationDMDB.csproj">
-      <Project>{2d244896-31f4-4a99-8dce-aa4b13781541}</Project>
-      <Name>ICommunicationDMDB</Name>
     </ProjectReference>
     <ProjectReference Include="..\IDataExecutor\IDataExecutor.csproj">
       <Project>{BC759B64-0D96-4C27-A654-16AC6278ECA7}</Project>
       <Name>IDataExecutor</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IDirectCommunication\IDirectCommunication.csproj">
+      <Project>{ec790990-3a38-4107-b054-f404b58deb63}</Project>
+      <Name>IDirectCommunication</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

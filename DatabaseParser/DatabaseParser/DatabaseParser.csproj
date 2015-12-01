@@ -171,6 +171,12 @@
       <LastGenOutput>RisModel.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DataBaseWorker\DataBaseWorker\DataHolder\DataHolder.csproj">
+      <Project>{59c66ef8-f6d3-4815-949f-73fac11fb896}</Project>
+      <Name>DataHolder</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -7,7 +7,7 @@ using DatabaseParser;
 
 namespace DataBaseWorker
 {
-    class BPodnik
+    public class BPodnik
     {
         public int id_podniku { get; set; }
         public string nazov { get; set; }
@@ -19,7 +19,7 @@ namespace DataBaseWorker
         public virtual List<BOtvaracie_hodiny> otvaracie_hodiny { get; set; }
         public virtual List<BZmena_otvaracich_hodin> zmena_otvaracich_hodin { get; set; }
 
-        private podnik entityPodnik;
+        public podnik entityPodnik;
 
         public BPodnik(podnik p)
         {

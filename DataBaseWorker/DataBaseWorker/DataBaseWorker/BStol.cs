@@ -7,7 +7,7 @@ using DatabaseParser;
 
 namespace DataBaseWorker
 {
-    class BStol
+    public class BStol
     {
         public int id_stola { get; set; }
         public int pocet_miest { get; set; }

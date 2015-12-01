@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ICommunicationDMDB")]
+[assembly: AssemblyTitle("DataHolder")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ICommunicationDMDB")]
+[assembly: AssemblyProduct("DataHolder")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ae3e98c7-9c7f-45b8-8857-78f7cdc9571d")]
+[assembly: Guid("59c66ef8-f6d3-4815-949f-73fac11fb896")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -32,8 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,8 +52,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\DatabaseParser\DatabaseParser\DatabaseParser.csproj">
+      <Project>{8f5d620c-1c39-4fba-b432-30addd018631}</Project>
+      <Name>DatabaseParser</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataBaseWorker\DataBaseWorker.csproj">
       <Project>{271E5C20-BE3D-4380-B183-30F2CE21F3B6}</Project>
       <Name>DataBaseWorker</Name>

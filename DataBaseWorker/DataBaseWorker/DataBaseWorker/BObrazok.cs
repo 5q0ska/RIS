@@ -7,7 +7,7 @@ using DatabaseParser;
 
 namespace DataBaseWorker
 {
-    class BObrazok
+    public class BObrazok
     {
         public int id_obrazka { get; set; }
         public string metadata { get; set; }

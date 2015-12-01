@@ -93,21 +93,9 @@
       <Project>{8f5d620c-1c39-4fba-b432-30addd018631}</Project>
       <Name>DatabaseParser</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DBExecutor\DBExecutor.csproj">
-      <Project>{CA5D604E-B0F7-495D-A29E-23BDD9C60DF4}</Project>
-      <Name>DBExecutor</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DirectCommunication\DirectCommunication.csproj">
-      <Project>{C2AB5866-02C5-444E-AA5A-76683054D676}</Project>
-      <Name>DirectCommunication</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ICommunicationDMDB\ICommunicationDMDB.csproj">
-      <Project>{2D244896-31F4-4A99-8DCE-AA4B13781541}</Project>
-      <Name>ICommunicationDMDB</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IDataExecutor\IDataExecutor.csproj">
-      <Project>{BC759B64-0D96-4C27-A654-16AC6278ECA7}</Project>
-      <Name>IDataExecutor</Name>
+    <ProjectReference Include="..\DataHolder\DataHolder.csproj">
+      <Project>{59c66ef8-f6d3-4815-949f-73fac11fb896}</Project>
+      <Name>DataHolder</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
