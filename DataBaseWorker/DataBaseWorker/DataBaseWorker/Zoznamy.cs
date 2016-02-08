@@ -71,14 +71,22 @@ namespace DataBaseWorker
         }
 
         /// <summary>
-        ///   Vrácia jedlo z databázy s daným identifikátorom
+        ///   Vrácia účet s daným loginom
         /// </summary>
-        /// <param name="id">identifikátor jedla</param>
+        /// <param name="login">prihlasovací login</param>
         /// <param name="risContext">kontext databázy</param>
-        /// <returns></returns>
+        /// <returns>ucet s danym loginom</returns>
         public static BUcet dajUcet(String login, risTabulky risContext)
         {
-            return new BUcet(risContext.ucet.First(p => p.login==(login)));
+            ucet uct = risContext.ucet.First(p => p.login == (login));
+            if (uct != null)
+            {
+                return new BUcet(uct);
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
