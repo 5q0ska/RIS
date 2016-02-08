@@ -32,14 +32,14 @@ namespace DataBaseWorker
             }
         }
 
-        public List<Jedlo> toListJedlo(String id_jazyka)
+        public List<TJedlo> toListJedlo(String id_jazyka)
         {
-            List<Jedlo> jedlo_temp = new List<Jedlo>();
+            List<TJedlo> jedlo_temp = new List<TJedlo>();
             foreach (var jedlo1 in entityTypJedla.jedlo)
             {
                 BJedlo jedlo_pom=new BJedlo(jedlo1);
                 
-                jedlo_temp.Add(new Jedlo(jedlo_pom.id_jedla, jedlo_pom.text.getPreklad(id_jazyka),jedlo_pom.id_typu,jedlo_pom.text.getPreklad(id_jazyka)));
+                jedlo_temp.Add(new TJedlo(jedlo_pom.id_jedla, jedlo_pom.text.getPreklad(id_jazyka),jedlo_pom.id_typu,jedlo_pom.text.getPreklad(id_jazyka)));
             }
             return jedlo_temp;
         }
@@ -48,7 +48,7 @@ namespace DataBaseWorker
 
         public BText text { get; set; }
 
-        private typ_jedla entityTypJedla;
+        public typ_jedla entityTypJedla;
 
         public BTyp_jedla(typ_jedla tj)
         {
@@ -209,12 +209,12 @@ namespace DataBaseWorker
             }
 
 
-            public IList<TypJedla> toList(String id_jazyka)
+            public IList<TTypJedla> toList(String id_jazyka)
             {
-                IList<TypJedla> result = new List<TypJedla>();
+                IList<TTypJedla> result = new List<TTypJedla>();
                 foreach (var typJedla in this)
                 {
-                    result.Add(new TypJedla(typJedla.Value.id_typu, typJedla.Value.text.getPreklad(id_jazyka)));
+                    result.Add(new TTypJedla(typJedla.Value.id_typu, typJedla.Value.text.getPreklad(id_jazyka)));
                 }
                 return result;
             }

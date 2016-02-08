@@ -15,14 +15,14 @@ namespace DataBaseWorker
     {
 
 
-        private ICollection<BJedlo_surovina> jedlo_surovina
+        private ICollection<BSurovinaJedla> jedlo_surovina
         {
             get
             {
-                ICollection<BJedlo_surovina> jedlo_surovina_temp = new List<BJedlo_surovina>();
+                ICollection<BSurovinaJedla> jedlo_surovina_temp = new List<BSurovinaJedla>();
                 foreach (var jedloSurovina in entitySurovina.jedlo_surovina)
                 {
-                    BJedlo_surovina pom = new BJedlo_surovina(jedloSurovina);
+                    BSurovinaJedla pom = new BSurovinaJedla(jedloSurovina);
                     jedlo_surovina_temp.Add(pom);
                 }
                 return jedlo_surovina_temp;
@@ -129,7 +129,9 @@ namespace DataBaseWorker
 
         }
 
-
+        /// <summary>
+        /// Merná jednotka suroviny
+        /// </summary>
         public string jednotka
         {
             get
@@ -178,6 +180,14 @@ namespace DataBaseWorker
             this.Reset();
         }
 
+
+        public BSurovina(TSurovina surovina,risTabulky risContext)
+        {
+            BSurovina temp = Zoznamy.dajSurovinu(surovina.Id, risContext);
+            if (temp!=null) entitySurovina = temp.entitySurovina;
+            
+        }
+
         /// <summary>
         /// Vytovrí suorvinu na základe údajov z databázy 
         /// </summary>
@@ -203,21 +213,12 @@ namespace DataBaseWorker
                 if (temp.Count() > 0)
                 {
                     entitySurovina = temp.First();
-              
+
                 }
                 else
                 {
-                    Reset();
-                    entitySurovina.id_surovina = id_suroviny;
-                    Save(risContext);
-                    temp = from a in risContext.surovina where a.id_surovina == id_suroviny select a;
-                    if (temp.Count() > 0)
-                    {
-                        entitySurovina = temp.First();
-
-                    }
+                    throw new ItemNotExistsExcpetion();
                 }
-                
             }
             catch (Exception ex)
             {
@@ -288,9 +289,14 @@ namespace DataBaseWorker
 
         public TransferEntity toTransferObject(string id_jazyka)
         {
-            Surovina transferSurovina=new Surovina(ID,nazov.getPreklad(id_jazyka),alergen,jednotka);
+            TSurovina transferSurovina=new TSurovina(ID,nazov.getPreklad(id_jazyka),alergen,jednotka);
             transferSurovina.Id_jazyka = id_jazyka;
             return transferSurovina;
+        }
+
+        public void updatefromTransferObject(TransferEntity transferEntity, risTabulky risContext)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -366,7 +372,11 @@ namespace DataBaseWorker
                 }
             }
 
-
+            /// <summary>
+            ///    Konverzia do zoznamu prenosových entít
+            /// </summary>
+            /// <param name="id_jazyka">id_jazyka pre text v prenosovej entite</param>
+            /// <returns>zoznam surovin ako prenosových entít</returns>
            public IList<TransferEntity> toTransferList(string id_jazyka)
             {
                 List<TransferEntity> result=new List<TransferEntity>();

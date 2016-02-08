@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DirectCommunication
 {
-    class ServiceStoly
+    class ServiceCasnik
     {
     }
 }

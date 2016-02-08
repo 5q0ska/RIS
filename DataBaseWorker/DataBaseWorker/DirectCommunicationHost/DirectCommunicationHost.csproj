@@ -59,6 +59,10 @@
       <Project>{c2ab5866-02c5-444e-aa5a-76683054d676}</Project>
       <Name>DirectCommunication</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IDirectCommunication\IDirectCommunication.csproj">
+      <Project>{ec790990-3a38-4107-b054-f404b58deb63}</Project>
+      <Name>IDirectCommunication</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

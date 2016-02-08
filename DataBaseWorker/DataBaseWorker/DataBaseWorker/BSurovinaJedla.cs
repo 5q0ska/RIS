@@ -8,8 +8,10 @@ using DataHolder;
 
 namespace DataBaseWorker
 {
-    public class BJedlo_surovina
+    public class BSurovinaJedla
     {
+
+       
         public int id_surovina { get; set; }
         public int id_jedla { get; set; }
         public int id_typu { get; set; }
@@ -20,9 +22,15 @@ namespace DataBaseWorker
 
         public jedlo_surovina entityJedloSurovina;
 
+
+        public BSurovinaJedla(BJedlo jedlo, BSurovina surovina, double mnozstvo)
+        {
+            Reset();
+            entityJedloSurovina entity=new 
+        }
        
 
-        public BJedlo_surovina(jedlo_surovina js)
+        public BSurovinaJedla(jedlo_surovina js)
         {
             id_surovina = js.id_surovina;
             id_jedla = js.id_jedla;

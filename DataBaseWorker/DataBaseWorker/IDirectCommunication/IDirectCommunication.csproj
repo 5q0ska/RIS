@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="IServiceCasnik.cs" />
+    <Compile Include="IServiceKuchyna.cs" />
+    <Compile Include="IServiceSprava.cs" />
     <Compile Include="IServiceStoly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

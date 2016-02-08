@@ -240,6 +240,17 @@ namespace DataBaseWorker
             return success;
         }
 
+
+        public Dictionary<String, String> PrekladyToDictionary()
+        {
+            Dictionary<String, String> result=new Dictionary<string, string>();
+            foreach (var preklad1 in entityText.preklad)
+            {
+                result.Add(preklad1.kod_jazyka, preklad1.preklad1);
+            }
+            return result;
+        }
+
         public class BTextCol : Dictionary<int, BText>
         {
 

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace IDirectCommunication
+namespace DataHolder
 {
-    public class Class1
+    class TAkcia
     {
     }
 }

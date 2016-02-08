@@ -10,12 +10,14 @@ namespace DataHolder
     /// Prenosová entita surovina
     /// </summary>
     [DataContract]
-    public class Surovina:TransferEntity
+    public class TSurovina:TransferEntity
     {
         int id;
         String nazov;
         bool alergen;
         String jednotka;
+
+        double mnozstvo;
 
         /// <summary>
         /// Vytvorí novú prenosovú entitu surovinu
@@ -24,7 +26,7 @@ namespace DataHolder
         /// <param name="nazov">názov suroviny vo vybranom jazyku</param>
         /// <param name="alergen">je surovina alergen</param>
         /// <param name="jednotka">merná jednotka suroviny</param>
-        public Surovina(int id, string nazov, bool alergen, string jednotka)
+        public TSurovina(int id, string nazov, bool alergen, string jednotka)
         {
             this.id = id;
             this.nazov = nazov;
@@ -32,6 +34,12 @@ namespace DataHolder
             this.jednotka = jednotka;
         }
 
+
+        public TSurovina(int id,double mnozstvo)
+        {
+            this.id = id;
+            this.mnozstvo = mnozstvo;
+        }
 
         [DataMember]
         public int Id
@@ -59,6 +67,13 @@ namespace DataHolder
         {
             get { return jednotka; }
             set { jednotka = value; }
+        }
+
+
+        public double Mnozstvo
+        {
+            get { return mnozstvo; }
+            set { mnozstvo = value; }
         }
     }
 }

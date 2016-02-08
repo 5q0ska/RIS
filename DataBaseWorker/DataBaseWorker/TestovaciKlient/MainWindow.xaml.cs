@@ -36,12 +36,12 @@ namespace TestovaciKlient
 
         public void nacitajTypyJedal()
         {
-            IList<TypJedla> typyJedal=new List<TypJedla>();
-            using (ChannelFactory<IServiceStoly> stolyServiceProxy =
-                new ChannelFactory<IServiceStoly>("MyServiceStolyEndpoint"))
+            IList<TTypJedla> typyJedal=new List<TTypJedla>();
+            using (ChannelFactory<IServiceSprava> stolyServiceProxy =
+                new ChannelFactory<IServiceSprava>("MyServiceStolyEndpoint"))
             {
                 stolyServiceProxy.Open();
-                IServiceStoly stolyService = stolyServiceProxy.CreateChannel();
+                IServiceSprava stolyService = stolyServiceProxy.CreateChannel();
                 typyJedal = stolyService.typyJedal("sk");
 
                 stolyServiceProxy.Close();
@@ -61,7 +61,7 @@ namespace TestovaciKlient
 
         private void listBoxTypyJedal_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            IList<TypJedla> items=(IList<TypJedla>) listBoxTypyJedal.SelectedItems;
+            IList<TTypJedla> items=(IList<TTypJedla>) listBoxTypyJedal.SelectedItems;
             if (items.Count > 0)
             {
                 int index = items[0].Id;

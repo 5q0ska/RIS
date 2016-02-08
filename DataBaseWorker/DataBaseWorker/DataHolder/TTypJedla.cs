@@ -7,13 +7,13 @@ using System.Text;
 namespace DataHolder
 {
     [DataContract]
-    public class TypJedla
+    public class TTypJedla
     {
         int id;
         String typ;
 
         
-        public TypJedla(int id, string typ)
+        public TTypJedla(int id, string typ)
         {
             this.id = id;
             this.typ = typ;
