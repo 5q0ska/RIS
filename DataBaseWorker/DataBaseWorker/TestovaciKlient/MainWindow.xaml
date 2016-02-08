@@ -7,9 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="537.727" Width="1206.969">
     <Grid>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="475" Margin="10,10,0,0" TextWrapping="Wrap" Text="Jedla:&#xD;&#xA;&#xD;&#xA;" VerticalAlignment="Top" Width="585"/>
-        <Button x:Name="button" Content="Pridať" HorizontalAlignment="Left" Height="48" Margin="714,420,0,0" VerticalAlignment="Top" Width="185"/>
-        <Button x:Name="button1" Content="Zobraziť" HorizontalAlignment="Left" Margin="904,420,0,0" VerticalAlignment="Top" Width="164" Height="48"/>
-
+        <ListBox x:Name="listBoxTypyJedal" HorizontalAlignment="Left" Height="436" Margin="10,49,0,0" VerticalAlignment="Top" Width="361" MouseDoubleClick="listBoxTypyJedal_MouseDoubleClick" SelectionChanged="listBoxTypyJedal_SelectionChanged" />
+        <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="437" Margin="393,48,0,0" VerticalAlignment="Top" Width="411"/>
+        <ListBox x:Name="listBox2" HorizontalAlignment="Left" Height="435" Margin="820,50,0,0" VerticalAlignment="Top" Width="358" />
     </Grid>
 </Window>

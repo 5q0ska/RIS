@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DatabaseParser;
-using DBExecutor;
 
 namespace DataBaseWorker
 {
@@ -108,6 +107,7 @@ namespace DataBaseWorker
                     this.FillEntity();
                     risContext.akcia.Add(entityAkcia);
                     risContext.SaveChanges();
+				    id_akcie = entityAkcia.id_akcie; //treba ostestovat automaticke vygenerovanie id po ulozeni
                     success = true;	
 				}
 				else // UPDATE
@@ -137,6 +137,7 @@ namespace DataBaseWorker
                 var temp = risContext.akcia.First(i => i.id_akcie == id_akcie);
                 risContext.akcia.Remove(temp);
                 risContext.SaveChanges();
+                Reset();
                 success = true;
                 this.Reset();
             }

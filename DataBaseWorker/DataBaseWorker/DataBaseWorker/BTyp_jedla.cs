@@ -39,7 +39,7 @@ namespace DataBaseWorker
             {
                 BJedlo jedlo_pom=new BJedlo(jedlo1);
                 
-                jedlo_temp.Add(new TJedlo(jedlo_pom.ID, jedlo_pom.nazov.getPreklad(id_jazyka),jedlo_pom.typ_jedla.id_typu,jedlo_pom.nazov.getPreklad(id_jazyka)));
+                jedlo_temp.Add(new TJedlo(jedlo_pom.id_jedla, jedlo_pom.text.getPreklad(id_jazyka),jedlo_pom.id_typu,jedlo_pom.text.getPreklad(id_jazyka)));
             }
             return jedlo_temp;
         }
