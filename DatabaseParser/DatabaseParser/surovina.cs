@@ -24,6 +24,7 @@ namespace DatabaseParser
         public int nazov { get; set; }
         public int alergen { get; set; }
         public string jednotka { get; set; }
+        public int platna { get; set; }
     
         public virtual ICollection<jedlo_surovina> jedlo_surovina { get; set; }
         public virtual ICollection<napoj_surovina> napoj_surovina { get; set; }

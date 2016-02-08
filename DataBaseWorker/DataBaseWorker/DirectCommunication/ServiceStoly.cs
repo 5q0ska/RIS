@@ -48,6 +48,16 @@ namespace DirectCommunication
 
         }
 
+        public IList<Surovina> vsetkySuroviny(String id_jazyka,String searchString)
+        {
+            risTabulky risContext = aDBExecutor.risContext;
+            BSurovina.BSurovinaCollection surovinaCol=new BSurovina.BSurovinaCollection();
+            surovinaCol.GetNameStartingWith(searchString,risContext);
+            return surovinaCol.ToList();
+
+
+        }
+
 
     }
 }

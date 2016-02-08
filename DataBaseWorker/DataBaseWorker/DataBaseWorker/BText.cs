@@ -27,9 +27,6 @@ namespace DataBaseWorker
 
         public String getPreklad(String kodJazyka)
         {
-           /** var temp = from a in risContext.preklad where a.text_id == text_id && a.kod_jazyka==kodJazyka select a;
-            preklad entityPreklad = temp.Single();
-            return entityPreklad.preklad1;*/
             IEnumerable<string> preklad=from a in entityText.preklad.OfType<preklad>() where a.kod_jazyka == kodJazyka select a.preklad1;
             return preklad.FirstOrDefault();
         }
@@ -38,7 +35,8 @@ namespace DataBaseWorker
         {
             this.Reset();
         }
-
+   
+   
         public BText(text t)
         {
             text_id = t.text_id;

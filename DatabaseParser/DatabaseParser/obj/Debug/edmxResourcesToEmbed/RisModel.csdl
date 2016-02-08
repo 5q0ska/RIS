@@ -251,6 +251,7 @@
     <NavigationProperty Name="jedlo_surovina" Relationship="Self.suroviny_jedla" FromRole="surovina" ToRole="jedlo_surovina" />
     <NavigationProperty Name="napoj_surovina" Relationship="Self.suroviny_k_napojom" FromRole="surovina" ToRole="napoj_surovina" />
     <NavigationProperty Name="text" Relationship="Self.Relationship25" FromRole="surovina" ToRole="text" />
+    <Property Name="platna" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="text">
     <Key>

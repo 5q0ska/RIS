@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="risModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="risModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="akcia">
           <Key>
             <PropertyRef Name="id_akcie" />
@@ -205,10 +205,11 @@
           <Key>
             <PropertyRef Name="id_surovina" />
           </Key>
-          <Property Name="id_surovina" Type="int" Nullable="false" />
+          <Property Name="id_surovina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nazov" Type="int" Nullable="false" />
           <Property Name="alergen" Type="int" Nullable="false" />
           <Property Name="jednotka" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="platna" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="text">
           <Key>
@@ -910,8 +911,7 @@
             <End Role="napoj_surovina" EntitySet="napoj_surovina" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="risModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1166,6 +1166,7 @@
           <NavigationProperty Name="jedlo_surovina" Relationship="Self.suroviny_jedla" FromRole="surovina" ToRole="jedlo_surovina" />
           <NavigationProperty Name="napoj_surovina" Relationship="Self.suroviny_k_napojom" FromRole="surovina" ToRole="napoj_surovina" />
           <NavigationProperty Name="text" Relationship="Self.Relationship25" FromRole="surovina" ToRole="text" />
+          <Property Name="platna" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="text">
           <Key>
@@ -2062,6 +2063,7 @@
           <EntitySetMapping Name="surovina">
             <EntityTypeMapping TypeName="risModel.surovina">
               <MappingFragment StoreEntitySet="surovina">
+                <ScalarProperty Name="platna" ColumnName="platna" />
                 <ScalarProperty Name="id_surovina" ColumnName="id_surovina" />
                 <ScalarProperty Name="nazov" ColumnName="nazov" />
                 <ScalarProperty Name="alergen" ColumnName="alergen" />

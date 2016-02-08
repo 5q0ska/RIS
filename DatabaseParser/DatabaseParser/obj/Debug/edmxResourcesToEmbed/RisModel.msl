@@ -196,6 +196,7 @@
     <EntitySetMapping Name="surovina">
       <EntityTypeMapping TypeName="risModel.surovina">
         <MappingFragment StoreEntitySet="surovina">
+          <ScalarProperty Name="platna" ColumnName="platna" />
           <ScalarProperty Name="id_surovina" ColumnName="id_surovina" />
           <ScalarProperty Name="nazov" ColumnName="nazov" />
           <ScalarProperty Name="alergen" ColumnName="alergen" />

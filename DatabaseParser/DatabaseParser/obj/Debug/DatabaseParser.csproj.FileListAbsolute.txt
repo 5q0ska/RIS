@@ -15,9 +15,9 @@ c:\Vyuka\VIZAMIS\2015\RIS\DatabaseParser\DatabaseParser\obj\Debug\DatabaseParser
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\bin\Debug\DatabaseParser.dll.config
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\bin\Debug\DatabaseParser.dll
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\bin\Debug\DatabaseParser.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\bin\Debug\DataHolder.dll
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\bin\Debug\EntityFramework.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\bin\Debug\DataHolder.pdb
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\obj\Debug\DatabaseParser.csprojResolveAssemblyReference.cache
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\obj\Debug\DatabaseParser.dll
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\obj\Debug\DatabaseParser.pdb
-C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\bin\Debug\DataHolder.dll
-C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\bin\Debug\DataHolder.pdb

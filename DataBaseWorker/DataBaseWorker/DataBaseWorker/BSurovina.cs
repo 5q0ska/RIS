@@ -4,17 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DatabaseParser;
+using DataHolder;
 
 namespace DataBaseWorker
 {
-    public class BSurovina
+    /// <summary>
+    /// Reprezentuje surovinu z ktorej sa skladajú jedla a nápoje
+    /// </summary>
+    public class BSurovina : TransferTemplate
     {
-        public int id_surovina { get; set; }
-        public int nazov { get; set; }
-        public int alergen { get; set; }
-        public string jednotka { get; set; }
 
-        public ICollection<BJedlo_surovina> jedlo_surovina
+
+        private ICollection<BJedlo_surovina> jedlo_surovina
         {
             get
             {
@@ -33,7 +34,48 @@ namespace DataBaseWorker
             }
         }
 
-        public ICollection<BNapoj_surovina> napoj_surovina
+        /// <summary>
+        /// Jedla obsahujúce túto surovinu
+        /// </summary>
+        /// <value>
+        /// Navrácia kolekciu jedál obsahujúcich túto surovinu
+        /// </value>
+        public ICollection<BJedlo> jedla_obsahujuce_surovinu
+        {
+            get
+            {
+                ICollection<BJedlo> jedla = new List<BJedlo>();
+                foreach (var bjedlo_surovina in jedlo_surovina)
+                {
+                    jedla.Add(bjedlo_surovina.jedlo);
+                }
+                return jedla;
+
+            }
+        }
+
+        /// <summary>
+        /// Nápoje obsahujúce túto surovinu
+        /// </summary>
+        /// <value>
+        /// Navrácia kolekciu nápojov obsahujúcich túto surovinu
+        /// </value>
+        public ICollection<BNapoj> napoje_obsahujuce_surovinu
+        {
+            get
+            {
+                ICollection<BNapoj> napoje = new List<BNapoj>();
+                foreach (var bnapoj_surovina in napoj_surovina)
+                {
+                    napoje.Add(bnapoj_surovina.napoj);
+                }
+                return napoje;
+
+            }
+        }
+
+
+        private ICollection<BNapoj_surovina> napoj_surovina
         {
             get
             {
@@ -52,109 +94,161 @@ namespace DataBaseWorker
             }
         }
 
-        public BText text { get; set; }
-
+        /// <summary>
+        /// Datbazová entita prisluchájuca tejto surovine
+        /// </summary>
         public surovina entitySurovina;
 
+        /// <summary>
+        /// Názov suroviny
+        /// </summary>
+        /// <value>
+        ///   navrácia názov suroviny
+        /// </value>
+        public BText nazov {
+            get
+            {
+                return new BText(entitySurovina.text);
+            }
+         }
+
+        /// <summary>
+        /// Vrácia id suroviny
+        /// </summary>
+        /// <value>
+        ///  id suroviny
+        /// </value>
+        public int ID
+        {
+            get
+            {
+                return entitySurovina.id_surovina;
+            }
+
+            
+
+        }
+
+
+        public string jednotka
+        {
+            get
+            {
+                return entitySurovina.jednotka;
+                
+            }
+            set
+            {
+                entitySurovina.jednotka = value;
+            }
+        }
+
+        /// <summary>
+        /// Je surovina alergénom?
+        /// </summary>
+        /// <value>Alergén</value>
+        public bool alergen
+        {
+            get
+            {
+                return entitySurovina.alergen == 1;
+                
+            }
+            set
+            {
+                if (value)
+                {
+                    entitySurovina.alergen = 1;
+                }
+                else
+                {
+                    entitySurovina.alergen = 0;
+                }
+            }
+        }
+
+        
+
+
+        /// <summary>
+        /// Vytvorí novú suroviny bez žiadných informácii
+        /// </summary>
         public BSurovina()
         {
             this.Reset();
         }
 
+        /// <summary>
+        /// Vytovrí suorvinu na základe údajov z databázy 
+        /// </summary>
+        /// <param name="s">Informácie o surovine v databáze</param>
         public BSurovina(surovina s)
         {
-            id_surovina = s.id_surovina;
-            nazov = s.nazov;
-            alergen = s.alergen;
-            jednotka = s.jednotka;
-            text = new BText(s.text);
-
-        
-            
-
+           
             entitySurovina = s;
+        }
+
+
+        /// <summary>
+        /// Vytvorí surovinu s daným ID, ak sa taká nachádza uložená v databáze ,tak jej data naplní tými z databázy
+        /// </summary>
+        /// <param name="id_suroviny">ID suroviny</param>
+        /// <param name="risContext">kontext databázy</param>
+        public BSurovina(int id_suroviny, risTabulky risContext)
+        {
+        
+            try
+            {
+                var temp = from a in risContext.surovina where a.id_surovina == id_suroviny select a;
+                if (temp.Count() > 0)
+                {
+                    entitySurovina = temp.First();
+              
+                }
+                else
+                {
+                    Reset();
+                    entitySurovina.id_surovina = id_suroviny;
+                    Save(risContext);
+                    temp = from a in risContext.surovina where a.id_surovina == id_suroviny select a;
+                    if (temp.Count() > 0)
+                    {
+                        entitySurovina = temp.First();
+
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException(String.Format("{0}.{1}", this.GetType(), "Get()"), ex);
+            }
+
+           
         }
 
         private void Reset()
         {
-            id_surovina = -1;
-            nazov = 0;
-            alergen = 0;
-            jednotka = null;
-            text = new BText();
-
-            jedlo_surovina = new List<BJedlo_surovina>();
-            
-            napoj_surovina = new List<BNapoj_surovina>();
-            
-
-        }
-
-        private void FillBObject()
-        {
-            id_surovina = entitySurovina.id_surovina;
-            nazov = entitySurovina.nazov;
-            alergen = entitySurovina.alergen;
-            jednotka = entitySurovina.jednotka;
-            text = new BText(entitySurovina.text);
-
-            jedlo_surovina = new List<BJedlo_surovina>();
-       /*     foreach (var jedloSurovina in entitySurovina.jedlo_surovina)
-            {
-                BJedlo_surovina pom = new BJedlo_surovina(jedloSurovina);
-                jedlo_surovina.Add(pom);
-            }
-            napoj_surovina = new List<BNapoj_surovina>();
-            foreach (var napojSurovina in entitySurovina.napoj_surovina)
-            {
-                BNapoj_surovina pom = new BNapoj_surovina(napojSurovina);
-                napoj_surovina.Add(pom);
-            }*/
-
-        }
-
-        private void FillEntity()
-        {
-            entitySurovina.id_surovina = id_surovina;
-            entitySurovina.alergen = alergen;
-            entitySurovina.jednotka = jednotka;
-            entitySurovina.nazov = nazov;
-            entitySurovina.text = text.entityText;
-        /*    foreach (var jedloSurovina in jedlo_surovina)
-            {
-                entitySurovina.jedlo_surovina.Add(jedloSurovina.entityJedloSurovina);
-            }
-            foreach (var napojSurovina in napoj_surovina)
-            {
-                entitySurovina.napoj_surovina.Add(napojSurovina.entityNapojSurovina);
-            }*/
-
+            entitySurovina = null;
 
         }
 
 
+        /// <summary>
+        /// Metóda uloží aktuálny stav biznis objektu surovina do databázy
+        /// </summary>
+        /// <param name="risContext">Kontext databázy</param>
+        /// <returns>
+        ///    <c>TRUE</c> , ak bola zmena úspešne uložena
+        ///    <c>FALSE</c> , ak nebola zmena úspešne uložená
+        /// </returns>
         public bool Save(risTabulky risContext)
         {
             bool success = false;
-
             try
             {
-                if (id_surovina == -1) // INSERT
-                {
-                    this.FillEntity();
-                    risContext.surovina.Add(entitySurovina);
-                    risContext.SaveChanges();
-                    this.FillBObject();
-                    success = true;
-                }
-                else // UPDATE
-                {
-                    var temp = from a in risContext.surovina where a.id_surovina == id_surovina select a;
-                    entitySurovina = temp.Single();
-                    this.FillEntity();
-                    risContext.SaveChanges();
-                    success = true;
-                }
+                risContext.SaveChanges();
+                success = true;
             }
             catch (Exception ex)
             {
@@ -164,57 +258,68 @@ namespace DataBaseWorker
             return success;
         }
 
+
+        /// <summary>
+        /// Metóda zmaže aktuálnu surovinu z databázy
+        /// </summary>
+        /// <param name="risContext">Kontext databázy</param>
+        /// <returns>
+        ///    <c>TRUE</c> , ak došlo k úspešnému vymazaniu
+        ///    <c>FALSE</c> , ak nedošlo k úspešenému vymazaniu
+        /// </returns>
         public bool Del(risTabulky risContext)
         {
-            bool success = false;
-
-            try
+            bool result = false;
+            if (jedlo_surovina.Count > 0 || napoj_surovina.Count > 0)
             {
-                var temp = risContext.surovina.First(i => i.id_surovina == id_surovina);
-                risContext.surovina.Remove(temp);
+                entitySurovina.platna = 0;
+                Save(risContext);
+                result = true;
+            }
+            else
+            {
+                risContext.surovina.Remove(entitySurovina);
                 risContext.SaveChanges();
-                success = true;
-                this.Reset();
+                Reset();
+                result = true;
             }
-            catch (Exception ex)
-            {
-                throw new ApplicationException(String.Format("{0}.{1}", this.GetType(), "Del()"), ex);
-            }
-
-            return success;
+            return result;
         }
 
-        public bool Get(risTabulky risContext, int id)
+        public TransferEntity toTransferObject(string id_jazyka)
         {
-            bool success = false;
-            try
-            {
-                var temp = from a in risContext.surovina where a.id_surovina == id select a;
-                entitySurovina = temp.Single();
-                this.FillBObject();
-                success = true;
-            }
-            catch (Exception ex)
-            {
-                throw new ApplicationException(String.Format("{0}.{1}", this.GetType(), "Get()"), ex);
-            }
-
-            return success;
+            Surovina transferSurovina=new Surovina(ID,nazov.getPreklad(id_jazyka),alergen,jednotka);
+            transferSurovina.Id_jazyka = id_jazyka;
+            return transferSurovina;
         }
 
-        public class BSurovinaCol : Dictionary<int, BSurovina>
+        /// <summary>
+        /// Zoznam surovín
+        /// </summary>
+        public class BSurovinaCollection : Dictionary<int, BSurovina>, TransferTemplateList
         {
-
-            public BSurovinaCol()
+            /// <summary>
+            /// Vytvorí nový zoznám surovín
+            /// </summary>
+            public BSurovinaCollection()
             {
             }
 
+            /// <summary>
+            /// Naplní zoznám surovín všetkými surovinamy v databáze
+            /// </summary>
+            /// <param name="risContext"></param>
+            /// <returns>
+            ///    <c>TRUE</c> , ak došlo k úspešnému načitaniu
+            ///    <c>FALSE</c> , ak nedošlo k úspešenému načitaniu
+            /// </returns>
             public bool GetAll(risTabulky risContext)
             {
                 try
                 {
                     var temp = from a in risContext.surovina select a;
                     List<surovina> tempList = temp.ToList();
+                    this.Clear();
                     foreach (var a in tempList)
                     {
                         this.Add(a.id_surovina, new BSurovina(a));
@@ -228,6 +333,49 @@ namespace DataBaseWorker
                 }
             }
 
+            /// <summary>
+            /// Naplní zoznam surovín všetkými surovinamy v databáze ,ktorých názvy začínajú na text ,ktorý je parametrom
+            /// </summary>
+            /// <param name="startingString">text, na ktorý majú začínať nazvy , aspoň 3 písmena</param>
+            /// <param name="risContext">kontext databázy</param>
+            /// <returns>
+            ///    <c>TRUE</c> , ak došlo k úspešnému načitaniu
+            ///    <c>FALSE</c> , ak nedošlo k úspešenému načitaniu
+            /// </returns>
+            public bool GetNameStartingWith(String startingString,risTabulky risContext)
+            {
+                try
+                {
+                    var temp = risContext.surovina.Where(x => x.platna == 1).Select(x => x.id_surovina);
+                    var tempPreklady = from a in risContext.preklad where temp.Contains(a.text_id) && a.preklad1.StartsWith(startingString)  select a.text_id;
+                    var suroviny = from a in risContext.surovina where tempPreklady.Contains(a.text.text_id) select a;
+
+
+                    List < surovina > tempList = suroviny.ToList();
+                    this.Clear();
+                    foreach (var a in tempList)
+                    {
+                        this.Add(a.id_surovina, new BSurovina(a));
+                    }
+
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+
+
+           public IList<TransferEntity> toTransferList(string id_jazyka)
+            {
+                List<TransferEntity> result=new List<TransferEntity>();
+                foreach (var surovina in this)
+                {
+                    result.Add(surovina.Value.toTransferObject(id_jazyka));
+                }
+               return result;
+            }
         }
 
     }

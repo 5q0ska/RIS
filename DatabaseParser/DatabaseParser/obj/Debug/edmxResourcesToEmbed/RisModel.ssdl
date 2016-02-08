@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="risModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="risModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="akcia">
     <Key>
       <PropertyRef Name="id_akcie" />
@@ -200,10 +200,11 @@
     <Key>
       <PropertyRef Name="id_surovina" />
     </Key>
-    <Property Name="id_surovina" Type="int" Nullable="false" />
+    <Property Name="id_surovina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nazov" Type="int" Nullable="false" />
     <Property Name="alergen" Type="int" Nullable="false" />
     <Property Name="jednotka" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="platna" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="text">
     <Key>
