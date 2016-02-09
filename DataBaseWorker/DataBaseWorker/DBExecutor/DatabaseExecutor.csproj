@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BC759B64-0D96-4C27-A654-16AC6278ECA7}</ProjectGuid>
+    <ProjectGuid>{CA5D604E-B0F7-495D-A29E-23BDD9C60DF4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IDataExecutor</RootNamespace>
-    <AssemblyName>IDataExecutor</AssemblyName>
+    <RootNamespace>DBExecutor</RootNamespace>
+    <AssemblyName>DBExecutor</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -37,6 +37,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,18 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDBDataExecutor.cs" />
+    <Compile Include="DBDataExecutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DatabaseParser\DatabaseParser\DatabaseEntities.csproj">
+      <Project>{8F5D620C-1C39-4FBA-B432-30ADDD018631}</Project>
+      <Name>DatabaseEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDataExecutor\IDatabaseExecutor.csproj">
+      <Project>{BC759B64-0D96-4C27-A654-16AC6278ECA7}</Project>
+      <Name>IDatabaseExecutor</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\DatabaseParser\DatabaseParser\DatabaseParser.csproj">
-      <Project>{8F5D620C-1C39-4FBA-B432-30ADDD018631}</Project>
-      <Name>DatabaseParser</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

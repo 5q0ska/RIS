@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services
+
+namespace IServices
 {
-    class ServiceKuchyna
+    [ServiceContract]
+    interface IServiceStoly
     {
     }
 }

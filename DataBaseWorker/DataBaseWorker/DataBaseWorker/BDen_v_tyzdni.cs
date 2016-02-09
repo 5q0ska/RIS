@@ -43,7 +43,8 @@ namespace DataBaseWorker
             entityDenVTyzdni = denVTyzdni;
         }
 
-        
-
+        public BDen_v_tyzdni()
+        {
+        }
     }
 }

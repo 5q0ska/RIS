@@ -1,8 +1,8 @@
 ﻿using System.Data.Entity;
 using DatabaseParser;
-using IDataExecutor;
+using IDatabaseExecutor;
 
-namespace DBExecutor
+namespace DataBaseExecutor
 {
     public class DBDataExecutor : IDBDataExecutor
     {

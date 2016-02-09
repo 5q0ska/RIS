@@ -26,7 +26,9 @@ namespace DataBaseWorker
         public BSurovinaJedla(BJedlo jedlo, BSurovina surovina, double mnozstvo)
         {
             Reset();
-            entityJedloSurovina entity=new 
+            entityJedloSurovina.id_jedla = jedlo.ID;
+            entityJedloSurovina.id_surovina = surovina.ID;
+            entityJedloSurovina.mnozstvo = mnozstvo;
         }
        
 
@@ -70,7 +72,7 @@ namespace DataBaseWorker
             entityJedloSurovina.id_surovina = id_surovina;
             entityJedloSurovina.id_typu = id_typu;
             entityJedloSurovina.id_jedla = id_jedla;
-            entityJedloSurovina.jedlo = jedlo.entityJedlo;
+            entityJedloSurovina.jedlo = jedlo.entity;
             entityJedloSurovina.surovina = surovina.entitySurovina;
         }
 

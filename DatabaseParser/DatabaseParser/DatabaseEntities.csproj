@@ -172,9 +172,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DataBaseWorker\DataBaseWorker\DataHolder\DataHolder.csproj">
+    <ProjectReference Include="..\..\DataBaseWorker\DataBaseWorker\DataHolder\TransferObjects.csproj">
       <Project>{59c66ef8-f6d3-4815-949f-73fac11fb896}</Project>
-      <Name>DataHolder</Name>
+      <Name>TransferObjects</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

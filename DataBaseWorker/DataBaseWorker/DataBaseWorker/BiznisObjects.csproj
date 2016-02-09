@@ -92,13 +92,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\DatabaseParser\DatabaseParser\DatabaseParser.csproj">
+    <ProjectReference Include="..\..\..\DatabaseParser\DatabaseParser\DatabaseEntities.csproj">
       <Project>{8f5d620c-1c39-4fba-b432-30addd018631}</Project>
-      <Name>DatabaseParser</Name>
+      <Name>DatabaseEntities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataHolder\DataHolder.csproj">
+    <ProjectReference Include="..\DataHolder\TransferObjects.csproj">
       <Project>{59c66ef8-f6d3-4815-949f-73fac11fb896}</Project>
-      <Name>DataHolder</Name>
+      <Name>TransferObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IDataExecutor\IDatabaseExecutor.csproj">
+      <Project>{bc759b64-0d96-4c27-a654-16ac6278eca7}</Project>
+      <Name>IDatabaseExecutor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

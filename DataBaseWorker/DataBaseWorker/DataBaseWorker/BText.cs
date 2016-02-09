@@ -139,7 +139,7 @@ namespace DataBaseWorker
             }
             foreach (var jedlo1 in jedlo)
             {
-                entityText.jedlo.Add(jedlo1.entityJedlo);
+                entityText.jedlo.Add(jedlo1.entity);
             }
             foreach (var menu2 in menu)
             {

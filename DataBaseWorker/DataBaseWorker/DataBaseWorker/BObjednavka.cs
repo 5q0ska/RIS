@@ -43,5 +43,9 @@ namespace DataBaseWorker
                 objednavka_menu.Add(pom);
             }
         }
+
+        public BObjednavka()
+        {
+        }
     }
 }

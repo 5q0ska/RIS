@@ -6,7 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DatabaseParser;
 
-namespace IDataExecutor
+
+namespace IDatabaseExecutor
 {
 
     public interface IDBDataExecutor

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services
+namespace DataBaseWorker
 {
-    class ServiceKuchyna
+    class ItemNotExistsExcpetion : Exception
     {
     }
 }
