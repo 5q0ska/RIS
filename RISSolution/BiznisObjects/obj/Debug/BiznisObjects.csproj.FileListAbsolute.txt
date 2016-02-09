@@ -21,3 +21,13 @@ C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\B
 C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\BiznisObjects\bin\Debug\EntityFramework.xml
 C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\BiznisObjects\obj\Debug\BiznisObjects.dll
 C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\BiznisObjects\obj\Debug\BiznisObjects.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\BiznisObjects\bin\Debug\BiznisObjects.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\BiznisObjects\bin\Debug\BiznisObjects.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\BiznisObjects\bin\Debug\DatabaseEntities.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\BiznisObjects\bin\Debug\TransferObjects.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\BiznisObjects\bin\Debug\DatabaseEntities.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\BiznisObjects\bin\Debug\TransferObjects.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\BiznisObjects\bin\Debug\EntityFramework.xml
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\BiznisObjects\obj\Debug\BiznisObjects.csprojResolveAssemblyReference.cache
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\BiznisObjects\obj\Debug\BiznisObjects.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\BiznisObjects\obj\Debug\BiznisObjects.pdb

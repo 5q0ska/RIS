@@ -31,7 +31,7 @@ namespace IServices
         IList<TTypJedla> typyJedal(String id_jazyka);
 
         [OperationContract]
-        Boolean jedlo(String session,TJedlo jedlo);
+        Boolean update_jedlo(String session,TJedlo jedlo);
 
     }
 }

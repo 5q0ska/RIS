@@ -13,3 +13,11 @@ C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\D
 C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseEntities\DatabaseParser\obj\Debug\DatabaseEntities.csprojResolveAssemblyReference.cache
 C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseEntities\DatabaseParser\obj\Debug\DatabaseEntities.dll
 C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseEntities\DatabaseParser\obj\Debug\DatabaseEntities.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\DatabaseEntities\DatabaseParser\bin\Debug\DatabaseEntities.dll.config
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\DatabaseEntities\DatabaseParser\bin\Debug\DatabaseEntities.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\DatabaseEntities\DatabaseParser\bin\Debug\DatabaseEntities.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\DatabaseEntities\DatabaseParser\bin\Debug\TransferObjects.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\DatabaseEntities\DatabaseParser\bin\Debug\TransferObjects.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\DatabaseEntities\DatabaseParser\obj\Debug\DatabaseEntities.csprojResolveAssemblyReference.cache
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\DatabaseEntities\DatabaseParser\obj\Debug\DatabaseEntities.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\DatabaseEntities\DatabaseParser\obj\Debug\DatabaseEntities.pdb

@@ -28,10 +28,10 @@ namespace Services
         /// Vytvorí novú službu pre správu reštauracie
         /// </summary>
         /// <param name="sessions">zoznam prihlasení</param>
-        public ServiceSprava(Sessions sessions)
+        public ServiceSprava()
         {
             aDBExecutor = new DBDataExecutor();
-            this.sessions = sessions;
+            this.sessions = new Sessions(aDBExecutor.risContext);
         }
 
         public risTabulky risContext
@@ -81,7 +81,7 @@ namespace Services
         /// <returns> <c>TRUE</c> ,ak sa podarilo
         ///         <c>FALSE</cd> , ak sa nepodarilo
         ///  </returns>
-        public Boolean jedlo(String session,TJedlo jedlo)
+        public Boolean update_jedlo(String session,TJedlo jedlo)
         {
             if (sessions.jeAdmin(session))
             {

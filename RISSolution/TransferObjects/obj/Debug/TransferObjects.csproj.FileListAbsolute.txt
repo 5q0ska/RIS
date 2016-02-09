@@ -8,3 +8,8 @@ C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\T
 C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\TransferObjects\obj\Debug\TransferObjects.csprojResolveAssemblyReference.cache
 C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\TransferObjects\obj\Debug\TransferObjects.dll
 C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\TransferObjects\obj\Debug\TransferObjects.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\TransferObjects\bin\Debug\TransferObjects.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\TransferObjects\bin\Debug\TransferObjects.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\TransferObjects\obj\Debug\TransferObjects.csprojResolveAssemblyReference.cache
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\TransferObjects\obj\Debug\TransferObjects.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\TransferObjects\obj\Debug\TransferObjects.pdb

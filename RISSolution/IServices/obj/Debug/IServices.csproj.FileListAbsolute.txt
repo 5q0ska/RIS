@@ -28,3 +28,18 @@ C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\I
 C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\IServices\bin\Debug\IDatabaseExecutor.pdb
 C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\IServices\obj\Debug\IServices.dll
 C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\IServices\obj\Debug\IServices.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\bin\Debug\IServices.dll.config
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\bin\Debug\IServices.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\bin\Debug\IServices.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\bin\Debug\BiznisObjects.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\bin\Debug\DatabaseEntities.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\bin\Debug\IDatabaseExecutor.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\bin\Debug\TransferObjects.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\bin\Debug\EntityFramework.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\bin\Debug\DatabaseEntities.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\bin\Debug\BiznisObjects.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\bin\Debug\TransferObjects.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\bin\Debug\IDatabaseExecutor.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\obj\Debug\IServices.csprojResolveAssemblyReference.cache
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\obj\Debug\IServices.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\obj\Debug\IServices.pdb
