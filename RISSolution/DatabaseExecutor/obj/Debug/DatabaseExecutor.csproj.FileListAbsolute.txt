@@ -1,0 +1,23 @@
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DBExecutor\bin\Debug\DBExecutor.dll.config
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DBExecutor\bin\Debug\DBExecutor.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DBExecutor\bin\Debug\DBExecutor.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DBExecutor\bin\Debug\DatabaseParser.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DBExecutor\bin\Debug\EntityFramework.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DBExecutor\bin\Debug\IDataExecutor.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DBExecutor\bin\Debug\DatabaseParser.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DBExecutor\bin\Debug\IDataExecutor.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DBExecutor\bin\Debug\EntityFramework.xml
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DBExecutor\obj\Debug\DatabaseExecutor.csprojResolveAssemblyReference.cache
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DBExecutor\obj\Debug\DBExecutor.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DBExecutor\obj\Debug\DBExecutor.pdb
+C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseExecutor\obj\Debug\DatabaseExecutor.csprojResolveAssemblyReference.cache
+C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseExecutor\bin\Debug\DatabaseExecutor.dll.config
+C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseExecutor\bin\Debug\DatabaseExecutor.dll
+C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseExecutor\bin\Debug\DatabaseExecutor.pdb
+C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseExecutor\bin\Debug\DatabaseEntities.dll
+C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseExecutor\bin\Debug\IDatabaseExecutor.dll
+C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseExecutor\bin\Debug\DatabaseEntities.pdb
+C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseExecutor\bin\Debug\IDatabaseExecutor.pdb
+C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseExecutor\bin\Debug\EntityFramework.xml
+C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseExecutor\obj\Debug\DatabaseExecutor.dll
+C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseExecutor\obj\Debug\DatabaseExecutor.pdb

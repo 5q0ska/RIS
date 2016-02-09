@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="risModelStoreContainer" CdmEntityContainer="risTabulky">
+    <EntitySetMapping Name="akcia">
+      <EntityTypeMapping TypeName="risModel.akcia">
+        <MappingFragment StoreEntitySet="akcia">
+          <ScalarProperty Name="id_akcie" ColumnName="id_akcie" />
+          <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+          <ScalarProperty Name="id_podniku" ColumnName="id_podniku" />
+          <ScalarProperty Name="id_obrazka" ColumnName="id_obrazka" />
+          <ScalarProperty Name="text_id" ColumnName="text_id" />
+          <ScalarProperty Name="platnost_od" ColumnName="platnost_od" />
+          <ScalarProperty Name="platnost_do" ColumnName="platnost_do" />
+          <ScalarProperty Name="akciova_cena" ColumnName="akciova_cena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="den_v_tyzdni">
+      <EntityTypeMapping TypeName="risModel.den_v_tyzdni">
+        <MappingFragment StoreEntitySet="den_v_tyzdni">
+          <ScalarProperty Name="cislo_dna" ColumnName="cislo_dna" />
+          <ScalarProperty Name="text_id" ColumnName="text_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="denne_menu">
+      <EntityTypeMapping TypeName="risModel.denne_menu">
+        <MappingFragment StoreEntitySet="denne_menu">
+          <ScalarProperty Name="datum_platnosti" ColumnName="datum_platnosti" />
+          <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+          <ScalarProperty Name="id_podniku" ColumnName="id_podniku" />
+          <ScalarProperty Name="id_obrazka" ColumnName="id_obrazka" />
+          <ScalarProperty Name="cena" ColumnName="cena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jazyk">
+      <EntityTypeMapping TypeName="risModel.jazyk">
+        <MappingFragment StoreEntitySet="jazyk">
+          <ScalarProperty Name="kod_jazyka" ColumnName="kod_jazyka" />
+          <ScalarProperty Name="nazov" ColumnName="nazov" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jedlo">
+      <EntityTypeMapping TypeName="risModel.jedlo">
+        <MappingFragment StoreEntitySet="jedlo">
+          <ScalarProperty Name="id_jedla" ColumnName="id_jedla" />
+          <ScalarProperty Name="nazov" ColumnName="nazov" />
+          <ScalarProperty Name="id_typu" ColumnName="id_typu" />
+          <ScalarProperty Name="mnozstvo_kalorii" ColumnName="mnozstvo_kalorii" />
+          <ScalarProperty Name="dlzka_pripravy" ColumnName="dlzka_pripravy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jedlo_surovina">
+      <EntityTypeMapping TypeName="risModel.jedlo_surovina">
+        <MappingFragment StoreEntitySet="jedlo_surovina">
+          <ScalarProperty Name="id_surovina" ColumnName="id_surovina" />
+          <ScalarProperty Name="id_jedla" ColumnName="id_jedla" />
+          <ScalarProperty Name="id_typu" ColumnName="id_typu" />
+          <ScalarProperty Name="mnozstvo" ColumnName="mnozstvo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="menu">
+      <EntityTypeMapping TypeName="risModel.menu">
+        <MappingFragment StoreEntitySet="menu">
+          <ScalarProperty Name="text_id" ColumnName="text_id" />
+          <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+          <ScalarProperty Name="id_podniku" ColumnName="id_podniku" />
+          <ScalarProperty Name="id_obrazka" ColumnName="id_obrazka" />
+          <ScalarProperty Name="nazov" ColumnName="nazov" />
+          <ScalarProperty Name="typ_platnosti" ColumnName="typ_platnosti" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="menu_jedlo">
+      <EntityTypeMapping TypeName="risModel.menu_jedlo">
+        <MappingFragment StoreEntitySet="menu_jedlo">
+          <ScalarProperty Name="id_jedla" ColumnName="id_jedla" />
+          <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+          <ScalarProperty Name="cena" ColumnName="cena" />
+          <ScalarProperty Name="id_typu" ColumnName="id_typu" />
+          <ScalarProperty Name="id_podniku" ColumnName="id_podniku" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="menu_napoj">
+      <EntityTypeMapping TypeName="risModel.menu_napoj">
+        <MappingFragment StoreEntitySet="menu_napoj">
+          <ScalarProperty Name="id_napoja" ColumnName="id_napoja" />
+          <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+          <ScalarProperty Name="cena" ColumnName="cena" />
+          <ScalarProperty Name="mnozstvo" ColumnName="mnozstvo" />
+          <ScalarProperty Name="id_podniku" ColumnName="id_podniku" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="napoj">
+      <EntityTypeMapping TypeName="risModel.napoj">
+        <MappingFragment StoreEntitySet="napoj">
+          <ScalarProperty Name="id_napoja" ColumnName="id_napoja" />
+          <ScalarProperty Name="nazov" ColumnName="nazov" />
+          <ScalarProperty Name="alkoholicky" ColumnName="alkoholicky" />
+          <ScalarProperty Name="mnozstvo_kalorii" ColumnName="mnozstvo_kalorii" />
+          <ScalarProperty Name="dlzka_pripravy" ColumnName="dlzka_pripravy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="napoj_surovina">
+      <EntityTypeMapping TypeName="risModel.napoj_surovina">
+        <MappingFragment StoreEntitySet="napoj_surovina">
+          <ScalarProperty Name="id_surovina" ColumnName="id_surovina" />
+          <ScalarProperty Name="id_napoja" ColumnName="id_napoja" />
+          <ScalarProperty Name="mnozstvo" ColumnName="mnozstvo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="objednavka">
+      <EntityTypeMapping TypeName="risModel.objednavka">
+        <MappingFragment StoreEntitySet="objednavka">
+          <ScalarProperty Name="id_objednavky" ColumnName="id_objednavky" />
+          <ScalarProperty Name="id_stola" ColumnName="id_stola" />
+          <ScalarProperty Name="id_uctu" ColumnName="id_uctu" />
+          <ScalarProperty Name="datum_objednania" ColumnName="datum_objednania" />
+          <ScalarProperty Name="potvrdena" ColumnName="potvrdena" />
+          <ScalarProperty Name="datum_zaplatenia" ColumnName="datum_zaplatenia" />
+          <ScalarProperty Name="suma" ColumnName="suma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="objednavka_menu">
+      <EntityTypeMapping TypeName="risModel.objednavka_menu">
+        <MappingFragment StoreEntitySet="objednavka_menu">
+          <ScalarProperty Name="id_polozky" ColumnName="id_polozky" />
+          <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+          <ScalarProperty Name="id_objednavky" ColumnName="id_objednavky" />
+          <ScalarProperty Name="id_podniku" ColumnName="id_podniku" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="obrazok">
+      <EntityTypeMapping TypeName="risModel.obrazok">
+        <MappingFragment StoreEntitySet="obrazok">
+          <ScalarProperty Name="id_obrazka" ColumnName="id_obrazka" />
+          <ScalarProperty Name="metadata" ColumnName="metadata" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="otvaracie_hodiny">
+      <EntityTypeMapping TypeName="risModel.otvaracie_hodiny">
+        <MappingFragment StoreEntitySet="otvaracie_hodiny">
+          <ScalarProperty Name="id_podniku" ColumnName="id_podniku" />
+          <ScalarProperty Name="cislo_dna" ColumnName="cislo_dna" />
+          <ScalarProperty Name="cas_otvorenia" ColumnName="cas_otvorenia" />
+          <ScalarProperty Name="doba_otvorenia" ColumnName="doba_otvorenia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="platnost_zaznamu">
+      <EntityTypeMapping TypeName="risModel.platnost_zaznamu">
+        <MappingFragment StoreEntitySet="platnost_zaznamu">
+          <ScalarProperty Name="typ_platnosti" ColumnName="typ_platnosti" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="podnik">
+      <EntityTypeMapping TypeName="risModel.podnik">
+        <MappingFragment StoreEntitySet="podnik">
+          <ScalarProperty Name="id_podniku" ColumnName="id_podniku" />
+          <ScalarProperty Name="nazov" ColumnName="nazov" />
+          <ScalarProperty Name="telefon_cislo" ColumnName="telefon_cislo" />
+          <ScalarProperty Name="ico" ColumnName="ico" />
+          <ScalarProperty Name="adresa" ColumnName="adresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="preklad">
+      <EntityTypeMapping TypeName="risModel.preklad">
+        <MappingFragment StoreEntitySet="preklad">
+          <ScalarProperty Name="kod_jazyka" ColumnName="kod_jazyka" />
+          <ScalarProperty Name="text_id" ColumnName="text_id" />
+          <ScalarProperty Name="preklad1" ColumnName="preklad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stol">
+      <EntityTypeMapping TypeName="risModel.stol">
+        <MappingFragment StoreEntitySet="stol">
+          <ScalarProperty Name="id_stola" ColumnName="id_stola" />
+          <ScalarProperty Name="pocet_miest" ColumnName="pocet_miest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="surovina">
+      <EntityTypeMapping TypeName="risModel.surovina">
+        <MappingFragment StoreEntitySet="surovina">
+          <ScalarProperty Name="platna" ColumnName="platna" />
+          <ScalarProperty Name="id_surovina" ColumnName="id_surovina" />
+          <ScalarProperty Name="nazov" ColumnName="nazov" />
+          <ScalarProperty Name="alergen" ColumnName="alergen" />
+          <ScalarProperty Name="jednotka" ColumnName="jednotka" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="text">
+      <EntityTypeMapping TypeName="risModel.text">
+        <MappingFragment StoreEntitySet="text">
+          <ScalarProperty Name="text_id" ColumnName="text_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="typ_jedla">
+      <EntityTypeMapping TypeName="risModel.typ_jedla">
+        <MappingFragment StoreEntitySet="typ_jedla">
+          <ScalarProperty Name="id_typu" ColumnName="id_typu" />
+          <ScalarProperty Name="typ" ColumnName="typ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="typ_napoja">
+      <EntityTypeMapping TypeName="risModel.typ_napoja">
+        <MappingFragment StoreEntitySet="typ_napoja">
+          <ScalarProperty Name="id_typu" ColumnName="id_typu" />
+          <ScalarProperty Name="text_id" ColumnName="text_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="typ_uctu">
+      <EntityTypeMapping TypeName="risModel.typ_uctu">
+        <MappingFragment StoreEntitySet="typ_uctu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nazov" ColumnName="nazov" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ucet">
+      <EntityTypeMapping TypeName="risModel.ucet">
+        <MappingFragment StoreEntitySet="ucet">
+          <ScalarProperty Name="id_uctu" ColumnName="id_uctu" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="heslo" ColumnName="heslo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="zmena_otvaracich_hodin">
+      <EntityTypeMapping TypeName="risModel.zmena_otvaracich_hodin">
+        <MappingFragment StoreEntitySet="zmena_otvaracich_hodin">
+          <ScalarProperty Name="zaciatok_platnosti" ColumnName="zaciatok_platnosti" />
+          <ScalarProperty Name="id_podniku" ColumnName="id_podniku" />
+          <ScalarProperty Name="cislo_dna" ColumnName="cislo_dna" />
+          <ScalarProperty Name="koniec_platnosti" ColumnName="koniec_platnosti" />
+          <ScalarProperty Name="cas_otvorenia" ColumnName="cas_otvorenia" />
+          <ScalarProperty Name="doba_otvorenia" ColumnName="doba_otvorenia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="napoj_typy" TypeName="risModel.napoj_typy" StoreEntitySet="napoj_typy">
+      <EndProperty Name="napoj">
+        <ScalarProperty Name="id_napoja" ColumnName="id_napoja" />
+      </EndProperty>
+      <EndProperty Name="typ_napoja">
+        <ScalarProperty Name="id_typu" ColumnName="id_typu" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

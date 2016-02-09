@@ -1,0 +1,5 @@
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DataHolder\bin\Debug\DataHolder.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DataHolder\bin\Debug\DataHolder.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DataHolder\obj\Debug\DataHolder.csprojResolveAssemblyReference.cache
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DataHolder\obj\Debug\DataHolder.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DataHolder\obj\Debug\DataHolder.pdb

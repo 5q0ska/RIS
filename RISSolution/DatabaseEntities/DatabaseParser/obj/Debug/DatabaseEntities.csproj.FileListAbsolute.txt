@@ -1,0 +1,15 @@
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\bin\Debug\DatabaseParser.dll.config
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\bin\Debug\DatabaseParser.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\bin\Debug\DatabaseParser.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\bin\Debug\DataHolder.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\bin\Debug\EntityFramework.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\bin\Debug\DataHolder.pdb
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\obj\Debug\DatabaseEntities.csprojResolveAssemblyReference.cache
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\obj\Debug\DatabaseParser.dll
+C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DatabaseParser\DatabaseParser\obj\Debug\DatabaseParser.pdb
+C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseEntities\DatabaseParser\bin\Debug\DatabaseEntities.dll.config
+C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseEntities\DatabaseParser\bin\Debug\DatabaseEntities.dll
+C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseEntities\DatabaseParser\bin\Debug\DatabaseEntities.pdb
+C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseEntities\DatabaseParser\obj\Debug\DatabaseEntities.csprojResolveAssemblyReference.cache
+C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseEntities\DatabaseParser\obj\Debug\DatabaseEntities.dll
+C:\Users\DjBoreC\Documents\Visual Studio 2015\Projects\RISSolution\RISSolution\DatabaseEntities\DatabaseParser\obj\Debug\DatabaseEntities.pdb
