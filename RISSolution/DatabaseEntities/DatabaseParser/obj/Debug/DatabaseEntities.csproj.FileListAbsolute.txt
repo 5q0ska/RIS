@@ -21,3 +21,11 @@ C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\DatabaseEntities\D
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\DatabaseEntities\DatabaseParser\obj\Debug\DatabaseEntities.csprojResolveAssemblyReference.cache
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\DatabaseEntities\DatabaseParser\obj\Debug\DatabaseEntities.dll
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\DatabaseEntities\DatabaseParser\obj\Debug\DatabaseEntities.pdb
+D:\Workspace\RIS\RIS\RISSolution\DatabaseEntities\DatabaseParser\bin\Debug\DatabaseEntities.dll.config
+D:\Workspace\RIS\RIS\RISSolution\DatabaseEntities\DatabaseParser\bin\Debug\DatabaseEntities.dll
+D:\Workspace\RIS\RIS\RISSolution\DatabaseEntities\DatabaseParser\bin\Debug\DatabaseEntities.pdb
+D:\Workspace\RIS\RIS\RISSolution\DatabaseEntities\DatabaseParser\bin\Debug\TransferObjects.dll
+D:\Workspace\RIS\RIS\RISSolution\DatabaseEntities\DatabaseParser\bin\Debug\TransferObjects.pdb
+D:\Workspace\RIS\RIS\RISSolution\DatabaseEntities\DatabaseParser\obj\Debug\DatabaseEntities.csprojResolveAssemblyReference.cache
+D:\Workspace\RIS\RIS\RISSolution\DatabaseEntities\DatabaseParser\obj\Debug\DatabaseEntities.dll
+D:\Workspace\RIS\RIS\RISSolution\DatabaseEntities\DatabaseParser\obj\Debug\DatabaseEntities.pdb

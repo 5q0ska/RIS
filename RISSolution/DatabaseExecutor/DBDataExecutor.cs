@@ -1,5 +1,4 @@
-﻿using System.Data.Entity;
-using DatabaseEntities;
+﻿using DatabaseEntities;
 using IDatabaseExecutor;
 
 namespace DataBaseExecutor

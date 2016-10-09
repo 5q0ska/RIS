@@ -26,3 +26,11 @@ C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IDatabaseExecutor\
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IDatabaseExecutor\obj\Debug\IDatabaseExecutor.csprojResolveAssemblyReference.cache
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IDatabaseExecutor\obj\Debug\IDatabaseExecutor.dll
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IDatabaseExecutor\obj\Debug\IDatabaseExecutor.pdb
+D:\Workspace\RIS\RIS\RISSolution\IDatabaseExecutor\bin\Debug\IDatabaseExecutor.dll.config
+D:\Workspace\RIS\RIS\RISSolution\IDatabaseExecutor\bin\Debug\IDatabaseExecutor.dll
+D:\Workspace\RIS\RIS\RISSolution\IDatabaseExecutor\bin\Debug\IDatabaseExecutor.pdb
+D:\Workspace\RIS\RIS\RISSolution\IDatabaseExecutor\bin\Debug\DatabaseEntities.dll
+D:\Workspace\RIS\RIS\RISSolution\IDatabaseExecutor\bin\Debug\DatabaseEntities.pdb
+D:\Workspace\RIS\RIS\RISSolution\IDatabaseExecutor\obj\Debug\IDatabaseExecutor.csprojResolveAssemblyReference.cache
+D:\Workspace\RIS\RIS\RISSolution\IDatabaseExecutor\obj\Debug\IDatabaseExecutor.dll
+D:\Workspace\RIS\RIS\RISSolution\IDatabaseExecutor\obj\Debug\IDatabaseExecutor.pdb

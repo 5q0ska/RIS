@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System;
-using System.Runtime.Remoting.Contexts;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;
-
 using System.Web.Services.Protocols;
-using System.Web.SessionState;
-using System.Xml.Serialization;
-using System.Xml;
 using BiznisObjects;
 using DatabaseEntities;
 
