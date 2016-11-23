@@ -9,10 +9,26 @@
   </startup>
   <system.serviceModel>
     <services>
-      <service name="Services.ServiceSprava">
-        <endpoint address="http://127.0.0.1:8732/rissprava" binding="wsHttpBinding" contract="IServices.IServiceSprava" />
+      <service name="Services.ServiceStoly">
+        <endpoint address="http://localhost:8000/ris/stolyservice" 
+                  binding="webHttpBinding" 
+                  contract="IServices.IServiceStoly" 
+                  behaviorConfiguration="Web"/>
       </service>
     </services>
+    <behaviors>
+      <serviceBehaviors>
+        <behavior name="ServiceBehavior">
+          <serviceMetadata httpGetEnabled="true"/>
+          <serviceDebug includeExceptionDetailInFaults="false"/>
+        </behavior>
+      </serviceBehaviors>
+      <endpointBehaviors>
+        <behavior name="Web">
+          <webHttp/>
+        </behavior>
+      </endpointBehaviors>
+    </behaviors>
   </system.serviceModel>
   <entityFramework>
     <defaultConnectionFactory type="System.Data.Entity.Infrastructure.SqlConnectionFactory, EntityFramework" />

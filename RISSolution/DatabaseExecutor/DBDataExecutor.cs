@@ -1,7 +1,7 @@
 ﻿using DatabaseEntities;
 using IDatabaseExecutor;
 
-namespace DataBaseExecutor
+namespace DatabaseExecutor
 {
     public class DBDataExecutor : IDBDatabaseExecutor
     {

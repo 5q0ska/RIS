@@ -1,4 +1,4 @@
-﻿namespace DataHolder
+﻿namespace TransferObjects
 {
     class TMenu
     {

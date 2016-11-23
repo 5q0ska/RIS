@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using BiznisObjects;
 using DatabaseEntities;
-using DataBaseExecutor;
-using DataHolder;
-using DirectCommunication;
+using DatabaseExecutor;
 using IDatabaseExecutor;
 
 using IServices;
+using TransferObjects;
 
 
 namespace Services
@@ -34,7 +33,7 @@ namespace Services
         {
             get { return aDBExecutor.risContext; }
         }
-
+        /*
         /// <summary>
         ///   Detailné informácie o jedle s daným ako prenosová entita
         /// </summary>
@@ -46,15 +45,15 @@ namespace Services
             risTabulky risContext = aDBExecutor.risContext;
             BJedlo jedlo = Zoznamy.dajJedlo(id_jedla, risContext);
             TJedlo result=new TJedlo(jedlo.ID);
-            result.IdTypu = jedlo.typ_jedla.id_typu;
-            if (jedlo.dlzka_pripravy.HasValue) result.DlzkaPripravy = jedlo.dlzka_pripravy;
-            if (jedlo.mnozstvo_kalorii.HasValue) result.MnozstvoKalorii = jedlo.mnozstvo_kalorii;
-            result.Id_jazyka = id_jazyka;
-            result.ZoznamSurovin = jedlo.PE_suroviny_jedla(id_jazyka);
-            result.Preklady = jedlo.nazov.PrekladyToDictionary();
+            result.typeId = jedlo.typ_jedla.id_typu;
+            if (jedlo.dlzka_pripravy.HasValue) result.length = jedlo.dlzka_pripravy;
+            if (jedlo.mnozstvo_kalorii.HasValue) result.amountOfCalories = jedlo.mnozstvo_kalorii;
+            result.LanguageCode = id_jazyka;
+            result.rawMaterial = jedlo.PE_suroviny_jedla(id_jazyka);
+            result.translations = jedlo.nazov.PrekladyToDictionary();
             return result;
         }
-
+        
 
         /// <summary>
         ///  Všetky jedla začínajúce na zadaný reťazec v danom jazyku
@@ -79,7 +78,7 @@ namespace Services
         ///  </returns>
         public Boolean update_jedlo(String session,TJedlo jedlo)
         {
-            if (sessions.jeAdmin(session))
+            if (sessions.JeAdmin(session))
             {
                 risTabulky risContext = aDBExecutor.risContext;
                 BJedlo bjedlo = new BJedlo();
@@ -115,7 +114,7 @@ namespace Services
 
         }
 
-
+        */
 
     }
 }

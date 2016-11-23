@@ -2,26 +2,16 @@
 using System.ServiceModel;
 using Services;
 
-namespace DirectCommunicationHost
-{
-    public class Program
-    {
+namespace ServerRunnable {
 
+    public class Program {
+        /**
         static ServiceHost host = null;
 
         static void StartService()
         {
             host = new ServiceHost(typeof(ServiceSprava));
-            
-            /***********
-             * if you don't want to use App.Config for the web service host, 
-                 * just uncomment below:
-             ***********
-                 host.AddServiceEndpoint(new ServiceEndpoint(
-                 ContractDescription.GetContract(typeof(IStudentEnrollmentService)),
-                 new WSHttpBinding(), 
-                 new EndpointAddress("http://localhost:8732/awesomeschoolservice"))); 
-             **********/
+
             host.Open();
         }
 
@@ -41,6 +31,24 @@ namespace DirectCommunicationHost
             Console.ReadKey();
 
             CloseService();
+        }  
+        */
+
+        public static void Main(string[] args) {
+
+            var selfHost = new ServiceHost(typeof(ServiceStoly));
+
+            try {
+                selfHost.Open();
+                Console.WriteLine("The service is ready. Press <ENTER> to terminate service.");
+                Console.ReadLine();
+
+                selfHost.Close();
+            } catch (CommunicationException ce) {
+                Console.WriteLine
+                ("An exception occurred: {0}", ce.Message);
+                selfHost.Abort();
+            }
         }
     }
 }

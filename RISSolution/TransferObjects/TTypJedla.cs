@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace DataHolder
+namespace TransferObjects
 {
     [DataContract]
     public class TTypJedla

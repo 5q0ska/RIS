@@ -61,3 +61,7 @@ D:\Workspace\RIS\RIS\RISSolution\ServerRunnable\bin\Debug\BiznisObjects.pdb
 D:\Workspace\RIS\RIS\RISSolution\ServerRunnable\bin\Debug\DatabaseExecutor.pdb
 D:\Workspace\RIS\RIS\RISSolution\ServerRunnable\obj\Debug\ServerRunnable.exe
 D:\Workspace\RIS\RIS\RISSolution\ServerRunnable\obj\Debug\ServerRunnable.pdb
+D:\Workspace\RIS\RIS\RISSolution\ServerRunnable\bin\Debug\ServerRunnable.exe.manifest
+D:\Workspace\RIS\RIS\RISSolution\ServerRunnable\bin\Debug\ServerRunnable.application
+D:\Workspace\RIS\RIS\RISSolution\ServerRunnable\obj\Debug\ServerRunnable.exe.manifest
+D:\Workspace\RIS\RIS\RISSolution\ServerRunnable\obj\Debug\ServerRunnable.application

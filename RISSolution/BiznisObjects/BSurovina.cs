@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using DatabaseEntities;
-using DataHolder;
+using TransferObjects;
+using TransferObjects;
 
 namespace BiznisObjects
 {
@@ -288,7 +289,7 @@ namespace BiznisObjects
         public TransferEntity toTransferObject(string id_jazyka)
         {
             TSurovina transferSurovina=new TSurovina(ID,nazov.getPreklad(id_jazyka),alergen,jednotka);
-            transferSurovina.Id_jazyka = id_jazyka;
+            transferSurovina.LanguageCode = id_jazyka;
             return transferSurovina;
         }
 
@@ -373,14 +374,14 @@ namespace BiznisObjects
             /// <summary>
             ///    Konverzia do zoznamu prenosových entít
             /// </summary>
-            /// <param name="id_jazyka">id_jazyka pre text v prenosovej entite</param>
+            /// <param name="kod_jazyka">kod_jazyka pre text v prenosovej entite</param>
             /// <returns>zoznam surovin ako prenosových entít</returns>
-           public IList<TransferEntity> toTransferList(string id_jazyka)
+           public IList<TransferEntity> toTransferList(string kod_jazyka)
             {
                 List<TransferEntity> result=new List<TransferEntity>();
                 foreach (var surovina in this)
                 {
-                    result.Add(surovina.Value.toTransferObject(id_jazyka));
+                    result.Add(surovina.Value.toTransferObject(kod_jazyka));
                 }
                return result;
             }

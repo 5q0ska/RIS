@@ -16,6 +16,19 @@ namespace BiznisObjects
 
         public obrazok entityObrazok { get; set; }
 
+        private readonly risTabulky _ctx = new risTabulky();
+
+        public String getObrazokMetadata()
+        {
+            IEnumerable<string> obrazok = from a in _ctx.obrazok select a.metadata;
+            return obrazok.FirstOrDefault();
+        }
+
+        public String getObrazok()
+        {
+            return metadata;
+        }
+
         public BObrazok()
         {
             this.Reset();

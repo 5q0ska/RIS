@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using DatabaseEntities;
-using DataHolder;
+using TransferObjects;
+using TransferObjects;
 
 namespace BiznisObjects
 {
@@ -33,9 +34,9 @@ namespace BiznisObjects
         /// <summary>
         ///   Skonvertuje kolekciu biznis objektov do odpovedajúcich prenosových objektov s čo najmenším množstvom dát
         /// </summary>
-        /// <param name="id_jazyka">id jazyka v ktorom je prenosový objekt</param>
+        /// <param name="kod_jazyka">id jazyka v ktorom je prenosový objekt</param>
         /// <returns>kolekcia prenosových objektov</returns>
-        IList<TransferEntity> toTransferList(String id_jazyka);
+        IList<TransferEntity> toTransferList(String kod_jazyka);
     }
 
 }

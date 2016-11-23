@@ -2,57 +2,89 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-
-namespace DataHolder
+namespace TransferObjects
 {
     [DataContract]
     public class TJedlo : TransferEntity
     {
-        int? id;
-        String nazov;
-        int id_typu;
-        String nazov_typu;
-        int? mnozstvo_kalorii;
-        int? dlzka_pripravy;
         private ICollection<TSurovina> zoznam_surovin;
-        private IDictionary<String, String> preklady; 
+        private IDictionary<String, String> _translations;
 
-        public TJedlo(int id, string nazov, int idTypu, string nazovTypu)
-        {
-            this.id = id;
-            this.nazov = nazov;
-            id_typu = idTypu;
-            nazov_typu = nazovTypu;
-            zoznam_surovin = new List<TSurovina>();
-        }
+        [DataMember]
+        public int? Id { get; set; }
 
+        [DataMember]
+        public string Name { get; set; }
+
+        [DataMember]
+        public int TypeId { get; set; }
+
+        [DataMember]
+        public string TypeName { get; set; }
+
+        [DataMember]
+        public int? AmountOfCalories { get; set; }
+
+        [DataMember]
+        public int? Length { get; set; }
         
+        [DataMember]
+        public string Image { get; set; }
 
-        public TJedlo(int id,string nazov, int idTypu, string nazovTypu,int? mnozstvoKalorii,int? dlzkaPripravy, ICollection<TSurovina> zoznamSurovin)
+        [DataMember]
+        public ICollection<TSurovina> RawMaterial
         {
-
-            this.id = id;
-            this.nazov = nazov;
-            id_typu = idTypu;
-            nazov_typu = nazovTypu;
-            this.mnozstvo_kalorii = mnozstvoKalorii;
-            this.dlzka_pripravy = dlzkaPripravy;
-            this.zoznam_surovin = zoznamSurovin;
+            get { return zoznam_surovin; }
+            set { zoznam_surovin = value; }
         }
 
-        public TJedlo(int id, string nazov, int idTypu, string nazovTypu, int? mnozstvoKalorii, int? dlzkaPripravy, ICollection<TSurovina> zoznamSurovin, IDictionary<String, String> preklady)
+        [DataMember]
+        public IDictionary<string, string> Translations
         {
-
-            this.id = id;
-            this.nazov = nazov;
-            id_typu = idTypu;
-            nazov_typu = nazovTypu;
-            this.mnozstvo_kalorii = mnozstvoKalorii;
-            this.dlzka_pripravy = dlzkaPripravy;
-            this.zoznam_surovin = zoznamSurovin;
-            this.preklady = preklady;
+            get { return _translations; }
+            set { _translations = value; }
         }
 
+        public TJedlo(int id, string name, int typeId, string typeName, int? length, int? amountOfCalories/*, string image*/)
+        {
+            this.Id = id;
+            this.Name = name;
+            TypeId = typeId;
+            TypeName = typeName;
+            zoznam_surovin = new List<TSurovina>();
+            this.AmountOfCalories = amountOfCalories;
+            this.Length = length;
+            //this.Image = image;
+        }
+
+
+
+        public TJedlo(int id, string name, int typeId, string typeName, int? amountOfCalories, int? length, ICollection<TSurovina> zoznamSurovin/*, string image*/)
+        {
+
+            this.Id = id;
+            this.Name = name;
+            TypeId = typeId;
+            TypeName = typeName;
+            this.AmountOfCalories = amountOfCalories;
+            this.Length = length;
+            this.zoznam_surovin = zoznamSurovin;
+            //this.Image = image;
+        }
+
+        public TJedlo(int id, string name, int typeId, string typeName, int? amountOfCalories, int? length, ICollection<TSurovina> zoznamSurovin, IDictionary<String, String> _translations/*, string image*/)
+        {
+
+            this.Id = id;
+            this.Name = name;
+            TypeId = typeId;
+            TypeName = typeName;
+            this.AmountOfCalories = amountOfCalories;
+            this.Length = length;
+            this.zoznam_surovin = zoznamSurovin;
+            this._translations = _translations;
+            //this.Image = image;
+        }
 
         public void PridajSurovinu(TSurovina surovina)
         {
@@ -61,68 +93,12 @@ namespace DataHolder
 
         public void PridajPreklad(String kodJazyka, String preklad)
         {
-            preklady.Add(kodJazyka,preklad);
+            _translations.Add(kodJazyka,preklad);
         }
 
         public TJedlo(int id)
         {
-            this.id = id;
-        }
-
-        [DataMember]
-        public int? Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        [DataMember]
-        public string Nazov
-        {
-            get { return nazov; }
-            set { nazov = value; }
-        }
-
-        [DataMember]
-        public int IdTypu
-        {
-            get { return id_typu; }
-            set { id_typu = value; }
-        }
-
-        [DataMember]
-        public string NazovTypu
-        {
-            get { return nazov_typu; }
-            set { nazov_typu = value; }
-        }
-
-        [DataMember]
-        public int? MnozstvoKalorii
-        {
-            get { return mnozstvo_kalorii; }
-            set { mnozstvo_kalorii = value; }
-        }
-
-        [DataMember]
-        public int? DlzkaPripravy
-        {
-            get { return dlzka_pripravy; }
-            set { dlzka_pripravy = value; }
-        }
-
-        [DataMember]
-        public ICollection<TSurovina> ZoznamSurovin
-        {
-            get { return zoznam_surovin; }
-            set { zoznam_surovin = value; }
-        }
-
-        [DataMember]
-        public IDictionary<string, string> Preklady
-        {
-            get { return preklady; }
-            set { preklady = value; }
+            this.Id = id;
         }
     }
 }

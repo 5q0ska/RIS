@@ -24,7 +24,7 @@ namespace BiznisObjects
 
         public String getPreklad(String kodJazyka)
         {
-            IEnumerable<string> preklad=from a in entityText.preklad.OfType<preklad>() where a.kod_jazyka == kodJazyka select a.preklad1;
+            IEnumerable<string> preklad=from a in entityText.preklad where a.kod_jazyka == kodJazyka select a.preklad1;
             return preklad.FirstOrDefault();
         }
 

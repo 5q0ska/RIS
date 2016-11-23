@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DatabaseEntities;
-using DataHolder;
+using TransferObjects;
 
 
 namespace BiznisObjects
@@ -56,6 +56,12 @@ namespace BiznisObjects
             get { return entity.dlzka_pripravy; }
             set { entity.dlzka_pripravy = value; }
         }
+        /*
+        public BObrazok obrazok
+        {
+            get { return new BObrazok(entity.obrazok); }
+            set { entity.obrazok = value.entityObrazok; }
+        }*/
 
         /// <summary>
         /// Položky menu ,v ktorých sa nachádza dané jedlo
@@ -182,7 +188,7 @@ namespace BiznisObjects
         /// <param name="mnozstvoKalorii">množstvo kalorii jedla</param>
         /// <param name="dlzka_pripravy">dĺžka prípravy jedla</param>
         /// <param name="risContext">kontext databázy</param>
-        public BJedlo(int id_nazvu, int id_typu, int? mnozstvoKalorii, int? dlzka_pripravy, risTabulky risContext)
+        public BJedlo(int id_nazvu, int id_typu, int? mnozstvoKalorii, int? dlzka_pripravy, risTabulky risContext/*, int id_obrazka*/)
         {
             entity = new jedlo();
             entity.id_typu = id_typu;
@@ -194,7 +200,7 @@ namespace BiznisObjects
                 risContext.jedlo.Add(entity);
                 risContext.SaveChanges();
             }
-
+            //entity.id_obrazka = id_obrazka;
 
         }
 
@@ -206,7 +212,7 @@ namespace BiznisObjects
         /// <param name="mnostvoKalorii">Množstvo kalorii jedla</param>
         /// <param name="dlzka_pripravy">Dĺžka prípravy jedla</param>
         /// <param name="risContext"></param>
-        public BJedlo(BText nazov, BTyp_jedla typ_jedla, int mnostvoKalorii, int dlzka_pripravy,risTabulky risContext)
+        public BJedlo(BText nazov, BTyp_jedla typ_jedla, int mnostvoKalorii, int dlzka_pripravy/*, BObrazok obrazok*/, risTabulky risContext)
         {
             entity = new jedlo();
             entity.id_typu = typ_jedla.id_typu;
@@ -218,14 +224,8 @@ namespace BiznisObjects
                 risContext.jedlo.Add(entity);
                 risContext.SaveChanges();
             }
-
+            //entity.id_obrazka = obrazok.id_obrazka;
         }
-
-
-
-
-
-       
 
         /// <summary>
         ///  Pridá surovinu k jedlu
@@ -369,7 +369,7 @@ namespace BiznisObjects
             public bool GetNameStartingWith(String startingString)
             {
                 try
-                {
+                {   
                     var temp = risContext.jedlo.Select(x => x.text.text_id);
                     var tempPreklady = from a in risContext.preklad where temp.Contains(a.text_id) && a.preklad1.StartsWith(startingString) select a.text_id;
                     var jedla = from a in risContext.jedlo where tempPreklady.Contains(a.text.text_id) select a;
@@ -390,28 +390,32 @@ namespace BiznisObjects
                 }
             }
 
-            public IList<TransferEntity> toTransferList(string id_jazyka)
+            public IList<TransferEntity> toTransferList(string kod_jazyka)
             {
                 IList<TransferEntity> result = new List<TransferEntity>();
                 foreach (var jedlo in this)
                 {
-                    TJedlo jedloTemp = new TJedlo(jedlo.Value.ID, jedlo.Value.nazov.getPreklad(id_jazyka),
-                        jedlo.Value.typ_jedla.id_typu, jedlo.Value.typ_jedla.text.getPreklad(id_jazyka));
-                    jedloTemp.Id_jazyka = id_jazyka;
+                    TJedlo jedloTemp = new TJedlo(jedlo.Value.ID, jedlo.Value.nazov.getPreklad(kod_jazyka),
+                        jedlo.Value.typ_jedla.id_typu, jedlo.Value.typ_jedla.text.getPreklad(kod_jazyka), jedlo.Value.dlzka_pripravy,
+                        jedlo.Value.mnozstvo_kalorii/*, jedlo.Value.obrazok.metadata*/);
+                    jedloTemp.LanguageCode = kod_jazyka;
                     result.Add(jedloTemp);
                 }
                 return result;
             }
         }
 
-
-        public TransferEntity toTransferObject(string id_jazyka)
+        public TransferEntity toTransferObject(string kod_jazyka)
         {
-            TJedlo result=new TJedlo(ID,nazov.getPreklad(id_jazyka),typ_jedla.id_typu,typ_jedla.text.getPreklad(id_jazyka));
+            TJedlo result = new TJedlo(ID, nazov.getPreklad(kod_jazyka), typ_jedla.id_typu, typ_jedla.text.getPreklad(kod_jazyka), dlzka_pripravy, mnozstvo_kalorii/*, obrazok.getObrazokMetadata()*/);
             foreach (var surovina in suroviny_jedla)
             {
-                result.PridajSurovinu(new TSurovina(surovina.id_surovina,surovina.mnozstvo));
+                TSurovina s = new TSurovina(surovina.surovina.ID, surovina.surovina.nazov.getPreklad(kod_jazyka),
+                    surovina.surovina.alergen, surovina.surovina.jednotka);
+                s.LanguageCode = kod_jazyka;
+                result.PridajSurovinu(s);
             }
+            result.LanguageCode = kod_jazyka;
             return result;
         }
 
@@ -422,24 +426,24 @@ namespace BiznisObjects
                 TJedlo jedlo = (TJedlo) transferEntity;
                 if (jedlo.Id.HasValue)
                 {
-                    if (!jedlo.DlzkaPripravy.Equals(dlzka_pripravy))
+                    if (!jedlo.Length.Equals(dlzka_pripravy))
                     {
-                        entity.dlzka_pripravy = jedlo.DlzkaPripravy;
+                        entity.dlzka_pripravy = jedlo.Length;
                     }
 
-                    if (!jedlo.IdTypu.Equals(typ_jedla.id_typu))
+                    if (!jedlo.TypeId.Equals(typ_jedla.id_typu))
                     {
-                        entity.id_typu = jedlo.IdTypu;
+                        entity.id_typu = jedlo.TypeId;
                     }
 
-                    if (!jedlo.MnozstvoKalorii.Equals(mnozstvo_kalorii))
+                    if (!jedlo.AmountOfCalories.Equals(mnozstvo_kalorii))
                     {
-                        entity.mnozstvo_kalorii = jedlo.MnozstvoKalorii;
+                        entity.mnozstvo_kalorii = jedlo.AmountOfCalories;
                     }
 
                     foreach (var surovina in suroviny_jedla)
                     {
-                        TSurovina tempSurovina=jedlo.ZoznamSurovin.First(p => p.Id == surovina.id_surovina);
+                        TSurovina tempSurovina=jedlo.RawMaterial.First(p => p.Id == surovina.id_surovina);
                         if (tempSurovina != null)
                         {
                             if (!surovina.mnozstvo.Equals(tempSurovina.Mnozstvo))
@@ -455,7 +459,7 @@ namespace BiznisObjects
                     }
 
 
-                    foreach (var surovina in jedlo.ZoznamSurovin)
+                    foreach (var surovina in jedlo.RawMaterial)
                     {
                         jedlo_surovina temp_bsurovina = entity.jedlo_surovina.First(p => p.id_surovina == surovina.Id);
                         if (temp_bsurovina == null)
@@ -465,7 +469,7 @@ namespace BiznisObjects
                     }
 
 
-                    foreach (var preklad in jedlo.Preklady)
+                    foreach (var preklad in jedlo.Translations)
                     {
                         preklad temp_preklad = entity.text.preklad.First(p => p.kod_jazyka.Equals(preklad.Key));
                         if (temp_preklad == null)
@@ -486,7 +490,7 @@ namespace BiznisObjects
 
                     foreach (var preklad in nazov.preklad)
                     {
-                        String temp_preklad = jedlo.Preklady.Keys.First(p => p.Equals(preklad.kod_jazyka));
+                        String temp_preklad = jedlo.Translations.Keys.First(p => p.Equals(preklad.kod_jazyka));
                         if (temp_preklad==null)
                         {
                             nazov.preklad.Remove(preklad);
@@ -501,10 +505,10 @@ namespace BiznisObjects
                     this.Reset();
                     entity = new jedlo();
                  
-                    entity.mnozstvo_kalorii = jedlo.MnozstvoKalorii;
-                    entity.dlzka_pripravy = jedlo.DlzkaPripravy;
+                    entity.mnozstvo_kalorii = jedlo.AmountOfCalories;
+                    entity.dlzka_pripravy = jedlo.Length;
 
-                    foreach (var suroviny in jedlo.ZoznamSurovin)
+                    foreach (var suroviny in jedlo.RawMaterial)
                     {
                         surovina surovinaTemp = risContext.surovina.First(p => p.id_surovina == suroviny.Id);
                         if (surovinaTemp != null)

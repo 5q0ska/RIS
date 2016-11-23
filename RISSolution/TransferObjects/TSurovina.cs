@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace DataHolder
+namespace TransferObjects
 {
     /// <summary>
     /// Prenosová entita surovina
@@ -30,7 +30,6 @@ namespace DataHolder
             this.alergen = alergen;
             this.jednotka = jednotka;
         }
-
 
         public TSurovina(int id,double mnozstvo)
         {

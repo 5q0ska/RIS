@@ -2,20 +2,16 @@
 using System.Collections.Generic;
 using System.ServiceModel;
 using DatabaseEntities;
-
-using DataHolder;
+using TransferObjects;
 
 
 namespace IServices
 {
-
-    
     [ServiceContract]
     public interface IServiceSprava
     {
         risTabulky risContext { get; }
-
-
+        /*
         [OperationContract]
         TJedlo jedlo(int id_jedla, String id_jazyka);
 
@@ -27,6 +23,6 @@ namespace IServices
 
         [OperationContract]
         Boolean update_jedlo(String session,TJedlo jedlo);
-
+        */
     }
 }

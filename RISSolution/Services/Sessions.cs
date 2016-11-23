@@ -6,7 +6,7 @@ using System.Web.Services.Protocols;
 using BiznisObjects;
 using DatabaseEntities;
 
-namespace DirectCommunication
+namespace Services
 {
     /// <summary>
     ///  Zoznám prihlasení
@@ -37,7 +37,7 @@ namespace DirectCommunication
         /// <returns><c>TRUE</c> ,áno ak dané prihlasenie má admin práva
         /// <c>FALSE</c> , nie ak dané prihlasenie nemá admin práva
         /// </returns>
-        public Boolean jeAdmin(String session)
+        public Boolean JeAdmin(String session)
         {
             if (prihlasenia[session] != null)
             {

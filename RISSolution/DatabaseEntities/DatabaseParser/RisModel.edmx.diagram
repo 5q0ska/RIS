@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="risModel.den_v_tyzdni" Width="1.5" PointX="3" PointY="20.125" IsExpanded="true" />
         <EntityTypeShape EntityType="risModel.denne_menu" Width="1.5" PointX="11.25" PointY="24.625" IsExpanded="true" />
         <EntityTypeShape EntityType="risModel.jazyk" Width="1.5" PointX="0.75" PointY="17" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.jedlo" Width="1.5" PointX="5.25" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="risModel.jedlo" Width="1.5" PointX="7.375" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="risModel.jedlo_surovina" Width="1.5" PointX="7.5" PointY="33.75" IsExpanded="true" />
         <EntityTypeShape EntityType="risModel.menu" Width="1.5" PointX="6" PointY="23.75" IsExpanded="true" />
         <EntityTypeShape EntityType="risModel.menu_jedlo" Width="1.5" PointX="11.25" PointY="28" IsExpanded="true" />
@@ -23,7 +23,7 @@
         <EntityTypeShape EntityType="risModel.platnost_zaznamu" Width="1.5" PointX="3.75" PointY="27.5" IsExpanded="true" />
         <EntityTypeShape EntityType="risModel.podnik" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
         <EntityTypeShape EntityType="risModel.preklad" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.stol" Width="1.5" PointX="6.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="risModel.stol" Width="1.875" PointX="1.875" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="risModel.surovina" Width="1.5" PointX="3" PointY="37.5" IsExpanded="true" />
         <EntityTypeShape EntityType="risModel.text" Width="1.5" PointX="0.75" PointY="20.25" IsExpanded="true" />
         <EntityTypeShape EntityType="risModel.typ_jedla" Width="1.5" PointX="3" PointY="40.625" IsExpanded="true" />
