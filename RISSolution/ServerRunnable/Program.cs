@@ -2,37 +2,9 @@
 using System.ServiceModel;
 using Services;
 
-namespace ServerRunnable {
+namespace RISServer {
 
     public class Program {
-        /**
-        static ServiceHost host = null;
-
-        static void StartService()
-        {
-            host = new ServiceHost(typeof(ServiceSprava));
-
-            host.Open();
-        }
-
-        static void CloseService()
-        {
-            if (host.State != CommunicationState.Closed)
-            {
-                host.Close();
-            }
-        }
-
-        static void Main(string[] args)
-        {
-            StartService();
-
-            Console.WriteLine("RIS sprava is running....");
-            Console.ReadKey();
-
-            CloseService();
-        }  
-        */
 
         public static void Main(string[] args) {
 

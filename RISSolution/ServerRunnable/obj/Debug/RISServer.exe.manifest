@@ -121,7 +121,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>sADQZk/4BGSTtzse8ts8akcwH5UgkhCi3+jjg/DGM5E=</dsig:DigestValue>
+        <dsig:DigestValue>gYWTqs7aQG0Nrjmo/F6PoasjV+i3p7hY2/ETUP0c5kU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -149,13 +149,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="RISServer.exe.config" size="2218">
+  <file name="RISServer.exe.config" size="2173">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>hdrvTvVnwxliSONuf4F4nDByYKj0ypuGe7kBpQS7fSA=</dsig:DigestValue>
+      <dsig:DigestValue>5ziHT7WphD49LW0+6d/l8dcx8g2p37utX3WGwtFAftI=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
