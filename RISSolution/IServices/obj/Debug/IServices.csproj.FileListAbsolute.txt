@@ -43,7 +43,6 @@ C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\bin\Debu
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\obj\Debug\IServices.csprojResolveAssemblyReference.cache
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\obj\Debug\IServices.dll
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\IServices\obj\Debug\IServices.pdb
-D:\Workspace\RIS\RIS\RISSolution\IServices\obj\Debug\IServices.csprojResolveAssemblyReference.cache
 D:\Workspace\RIS\RIS\RISSolution\IServices\bin\Debug\IServices.dll.config
 D:\Workspace\RIS\RIS\RISSolution\IServices\bin\Debug\IServices.dll
 D:\Workspace\RIS\RIS\RISSolution\IServices\bin\Debug\IServices.pdb
@@ -59,5 +58,6 @@ D:\Workspace\RIS\RIS\RISSolution\IServices\bin\Debug\TransferObjects.pdb
 D:\Workspace\RIS\RIS\RISSolution\IServices\bin\Debug\IDatabaseExecutor.pdb
 D:\Workspace\RIS\RIS\RISSolution\IServices\bin\Debug\EntityFramework.xml
 D:\Workspace\RIS\RIS\RISSolution\IServices\bin\Debug\EntityFramework.SqlServer.xml
+D:\Workspace\RIS\RIS\RISSolution\IServices\obj\Debug\IServices.csprojResolveAssemblyReference.cache
 D:\Workspace\RIS\RIS\RISSolution\IServices\obj\Debug\IServices.dll
 D:\Workspace\RIS\RIS\RISSolution\IServices\obj\Debug\IServices.pdb

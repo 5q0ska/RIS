@@ -1,0 +1,1 @@
+D:\Workspace\RIS\RIS\RISSolution\DatabaseEntities\DatabaseParser\obj\Release\DatabaseEntities.csprojResolveAssemblyReference.cache

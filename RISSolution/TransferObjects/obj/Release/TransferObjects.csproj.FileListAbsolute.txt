@@ -1,0 +1,5 @@
+D:\Workspace\RIS\RIS\RISSolution\TransferObjects\bin\Release\TransferObjects.dll
+D:\Workspace\RIS\RIS\RISSolution\TransferObjects\bin\Release\TransferObjects.pdb
+D:\Workspace\RIS\RIS\RISSolution\TransferObjects\obj\Release\TransferObjects.csprojResolveAssemblyReference.cache
+D:\Workspace\RIS\RIS\RISSolution\TransferObjects\obj\Release\TransferObjects.dll
+D:\Workspace\RIS\RIS\RISSolution\TransferObjects\obj\Release\TransferObjects.pdb

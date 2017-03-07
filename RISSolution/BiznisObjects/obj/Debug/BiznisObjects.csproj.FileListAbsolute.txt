@@ -31,7 +31,6 @@ C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\BiznisObjects\bin\
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\BiznisObjects\obj\Debug\BiznisObjects.csprojResolveAssemblyReference.cache
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\BiznisObjects\obj\Debug\BiznisObjects.dll
 C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\RISSolution\BiznisObjects\obj\Debug\BiznisObjects.pdb
-D:\Workspace\RIS\RIS\RISSolution\BiznisObjects\obj\Debug\BiznisObjects.csprojResolveAssemblyReference.cache
 D:\Workspace\RIS\RIS\RISSolution\BiznisObjects\bin\Debug\BiznisObjects.dll.config
 D:\Workspace\RIS\RIS\RISSolution\BiznisObjects\bin\Debug\BiznisObjects.dll
 D:\Workspace\RIS\RIS\RISSolution\BiznisObjects\bin\Debug\BiznisObjects.pdb
@@ -43,5 +42,6 @@ D:\Workspace\RIS\RIS\RISSolution\BiznisObjects\bin\Debug\DatabaseEntities.pdb
 D:\Workspace\RIS\RIS\RISSolution\BiznisObjects\bin\Debug\TransferObjects.pdb
 D:\Workspace\RIS\RIS\RISSolution\BiznisObjects\bin\Debug\EntityFramework.xml
 D:\Workspace\RIS\RIS\RISSolution\BiznisObjects\bin\Debug\EntityFramework.SqlServer.xml
+D:\Workspace\RIS\RIS\RISSolution\BiznisObjects\obj\Debug\BiznisObjects.csprojResolveAssemblyReference.cache
 D:\Workspace\RIS\RIS\RISSolution\BiznisObjects\obj\Debug\BiznisObjects.dll
 D:\Workspace\RIS\RIS\RISSolution\BiznisObjects\obj\Debug\BiznisObjects.pdb

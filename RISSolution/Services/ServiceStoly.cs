@@ -10,6 +10,7 @@ using TransferObjects;
 
 namespace Services
 {
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class ServiceStoly : IServiceStoly
     {
         private readonly risTabulky _ctx = new risTabulky();
@@ -28,6 +29,8 @@ namespace Services
             bjedla.GetAll();
 
             IList<TJedlo> listJedal = bjedla.toTransferList("sk").Cast<TJedlo>().ToList();
+
+            listJedal.Add(new TJedlo(1,"1",1,"1",1,1));
 
             return listJedal;
         }

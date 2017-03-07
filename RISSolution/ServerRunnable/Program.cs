@@ -12,7 +12,7 @@ namespace RISServer {
 
             try {
                 selfHost.Open();
-                Console.WriteLine("The service is ready. Press <ENTER> to terminate service.");
+                Console.WriteLine("The web service is running. Press <ENTER> to terminate service.");
                 Console.ReadLine();
 
                 selfHost.Close();

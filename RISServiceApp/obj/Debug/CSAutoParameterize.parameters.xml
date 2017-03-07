@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="risTabulky-Web.config Connection String" description="risTabulky Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/RisModel.csdl|res://*/RisModel.ssdl|res://*/RisModel.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=ris.kovalcik.me;user id=developer1;database=ris;password=risproject;persistsecurityinfo=True&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Workspace\\RIS\\RIS\\RISServiceApp\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='risTabulky']/@connectionString" />
+  </parameter>
+</parameters>
