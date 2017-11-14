@@ -33,24 +33,25 @@ namespace Services
         {
             get { return aDBExecutor.risContext; }
         }
-        /*
+        
         /// <summary>
         ///   Detailné informácie o jedle s daným ako prenosová entita
         /// </summary>
         /// <param name="id_jedla">identifikátor jedla</param>
         /// <param name="id_jazyka">identifikátor jazyka pre prenosovú entitu</param>
         /// <returns>informácie o jedle</returns>
-        public TJedlo jedlo(int id_jedla, String id_jazyka)
+        public TJedlo Jedlo(string id_jedla, string id_jazyka)
         {
             risTabulky risContext = aDBExecutor.risContext;
-            BJedlo jedlo = Zoznamy.dajJedlo(id_jedla, risContext);
-            TJedlo result=new TJedlo(jedlo.ID);
-            result.typeId = jedlo.typ_jedla.id_typu;
-            if (jedlo.dlzka_pripravy.HasValue) result.length = jedlo.dlzka_pripravy;
-            if (jedlo.mnozstvo_kalorii.HasValue) result.amountOfCalories = jedlo.mnozstvo_kalorii;
+            BJedlo jedlo = Zoznamy.dajJedlo(Int32.Parse(id_jedla), risContext);
+            
+            TJedlo result= (TJedlo) jedlo.toTransferObject(id_jazyka);
+           /* result.TypeId = jedlo.typ_jedla.id_typu;
+            if (jedlo.dlzka_pripravy.HasValue) result.Length = jedlo.dlzka_pripravy;
+            if (jedlo.mnozstvo_kalorii.HasValue) result.AmountOfCalories = jedlo.mnozstvo_kalorii;
             result.LanguageCode = id_jazyka;
-            result.rawMaterial = jedlo.PE_suroviny_jedla(id_jazyka);
-            result.translations = jedlo.nazov.PrekladyToDictionary();
+            result.RawMaterial = jedlo.PE_suroviny_jedla(id_jazyka);
+            result.Translations = jedlo.nazov.PrekladyToDictionary();*/
             return result;
         }
         
@@ -114,7 +115,7 @@ namespace Services
 
         }
 
-        */
+        
 
     }
 }

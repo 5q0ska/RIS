@@ -45,7 +45,7 @@ namespace TransferObjects
             set { _translations = value; }
         }
 
-        public TJedlo(int id, string name, int typeId, string typeName, int? length, int? amountOfCalories/*, string image*/)
+        public TJedlo(int id, string name, int typeId, string typeName, int? length, int? amountOfCalories, string image)
         {
             this.Id = id;
             this.Name = name;
@@ -54,7 +54,7 @@ namespace TransferObjects
             zoznam_surovin = new List<TSurovina>();
             this.AmountOfCalories = amountOfCalories;
             this.Length = length;
-            //this.Image = image;
+            this.Image = image;
         }
 
 

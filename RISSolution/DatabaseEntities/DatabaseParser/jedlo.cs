@@ -30,5 +30,6 @@ namespace DatabaseEntities
         public virtual ICollection<jedlo_surovina> jedlo_surovina { get; set; }
         public virtual typ_jedla typ_jedla { get; set; }
         public virtual text text { get; set; }
+        public virtual obrazok obrazok { get; set; }
     }
 }

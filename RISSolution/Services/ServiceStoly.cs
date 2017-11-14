@@ -27,11 +27,9 @@ namespace Services
         {
             BJedlo.BJedloCol bjedla = new BJedlo.BJedloCol(_ctx);
             bjedla.GetAll();
-
+            
             IList<TJedlo> listJedal = bjedla.toTransferList("sk").Cast<TJedlo>().ToList();
-
-            listJedal.Add(new TJedlo(1,"1",1,"1",1,1));
-
+            
             return listJedal;
         }
 

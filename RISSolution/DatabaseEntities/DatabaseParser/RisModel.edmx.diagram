@@ -68,6 +68,7 @@
         <AssociationConnector Association="risModel.Relationship33" ManuallyRouted="false" />
         <AssociationConnector Association="risModel.Relationship7" ManuallyRouted="false" />
         <AssociationConnector Association="risModel.napoj_typy" ManuallyRouted="false" />
+        <AssociationConnector Association="risModel.fk_jedlo_obrazok1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

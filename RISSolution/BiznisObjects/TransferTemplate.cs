@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using DatabaseEntities;
 using TransferObjects;
-using TransferObjects;
 
 namespace BiznisObjects
 {

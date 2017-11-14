@@ -52,6 +52,7 @@
           <Property Name="id_typu" Type="int" Nullable="false" />
           <Property Name="mnozstvo_kalorii" Type="int" />
           <Property Name="dlzka_pripravy" Type="int" />
+          <Property Name="image" Type="int" />
         </EntityType>
         <EntityType Name="jedlo_surovina">
           <Key>
@@ -157,7 +158,7 @@
             <PropertyRef Name="id_obrazka" />
           </Key>
           <Property Name="id_obrazka" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="metadata" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="metadata" Type="varchar" MaxLength="300" Nullable="false" />
         </EntityType>
         <EntityType Name="otvaracie_hodiny">
           <Key>
@@ -327,6 +328,18 @@
             <Dependent Role="denne_menu">
               <PropertyRef Name="id_menu" />
               <PropertyRef Name="id_podniku" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_jedlo_obrazok1">
+          <End Role="obrazok" Type="Self.obrazok" Multiplicity="0..1" />
+          <End Role="jedlo" Type="Self.jedlo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="obrazok">
+              <PropertyRef Name="id_obrazka" />
+            </Principal>
+            <Dependent Role="jedlo">
+              <PropertyRef Name="image" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -778,6 +791,10 @@
             <End Role="menu" EntitySet="menu" />
             <End Role="denne_menu" EntitySet="denne_menu" />
           </AssociationSet>
+          <AssociationSet Name="fk_jedlo_obrazok1" Association="Self.fk_jedlo_obrazok1">
+            <End Role="obrazok" EntitySet="obrazok" />
+            <End Role="jedlo" EntitySet="jedlo" />
+          </AssociationSet>
           <AssociationSet Name="jedlo_typy" Association="Self.jedlo_typy">
             <End Role="typ_jedla" EntitySet="typ_jedla" />
             <End Role="jedlo" EntitySet="jedlo" />
@@ -975,6 +992,8 @@
           <NavigationProperty Name="jedlo_surovina" Relationship="Self.aaa" FromRole="jedlo" ToRole="jedlo_surovina" />
           <NavigationProperty Name="typ_jedla" Relationship="Self.jedlo_typy" FromRole="jedlo" ToRole="typ_jedla" />
           <NavigationProperty Name="text" Relationship="Self.Relationship27" FromRole="jedlo" ToRole="text" />
+          <Property Name="image" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="obrazok" Relationship="risModel.fk_jedlo_obrazok1" FromRole="jedlo" ToRole="obrazok" />
         </EntityType>
         <EntityType Name="jedlo_surovina">
           <Key>
@@ -1103,6 +1122,7 @@
           <NavigationProperty Name="akcia" Relationship="Self.Relationship9" FromRole="obrazok" ToRole="akcia" />
           <NavigationProperty Name="denne_menu" Relationship="Self.Relationship10" FromRole="obrazok" ToRole="denne_menu" />
           <NavigationProperty Name="menu" Relationship="Self.Relationship15" FromRole="obrazok" ToRole="menu" />
+          <NavigationProperty Name="jedlo" Relationship="risModel.fk_jedlo_obrazok1" FromRole="obrazok" ToRole="jedlo" />
         </EntityType>
         <EntityType Name="otvaracie_hodiny">
           <Key>
@@ -1861,7 +1881,23 @@
             <End Role="napoj" EntitySet="napoj" />
             <End Role="typ_napoja" EntitySet="typ_napoja" />
           </AssociationSet>
+          <AssociationSet Name="fk_jedlo_obrazok1" Association="risModel.fk_jedlo_obrazok1">
+            <End Role="obrazok" EntitySet="obrazok" />
+            <End Role="jedlo" EntitySet="jedlo" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="fk_jedlo_obrazok1">
+          <End Type="risModel.obrazok" Role="obrazok" Multiplicity="0..1" />
+          <End Type="risModel.jedlo" Role="jedlo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="obrazok">
+              <PropertyRef Name="id_obrazka" />
+            </Principal>
+            <Dependent Role="jedlo">
+              <PropertyRef Name="image" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1912,6 +1948,7 @@
           <EntitySetMapping Name="jedlo">
             <EntityTypeMapping TypeName="risModel.jedlo">
               <MappingFragment StoreEntitySet="jedlo">
+                <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="id_jedla" ColumnName="id_jedla" />
                 <ScalarProperty Name="nazov" ColumnName="nazov" />
                 <ScalarProperty Name="id_typu" ColumnName="id_typu" />

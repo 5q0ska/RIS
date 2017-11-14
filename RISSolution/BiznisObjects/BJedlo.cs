@@ -395,9 +395,14 @@ namespace BiznisObjects
                 IList<TransferEntity> result = new List<TransferEntity>();
                 foreach (var jedlo in this)
                 {
+                    var metadata = "";
+                    if (jedlo.Value.obrazok != null)
+                    {
+                        metadata = jedlo.Value.obrazok.metadata;
+                    }
                     TJedlo jedloTemp = new TJedlo(jedlo.Value.ID, jedlo.Value.nazov.getPreklad(kod_jazyka),
                         jedlo.Value.typ_jedla.id_typu, jedlo.Value.typ_jedla.text.getPreklad(kod_jazyka), jedlo.Value.dlzka_pripravy,
-                        jedlo.Value.mnozstvo_kalorii/*, jedlo.Value.obrazok.metadata*/);
+                        jedlo.Value.mnozstvo_kalorii, metadata);
                     jedloTemp.LanguageCode = kod_jazyka;
                     result.Add(jedloTemp);
                 }
@@ -407,7 +412,7 @@ namespace BiznisObjects
 
         public TransferEntity toTransferObject(string kod_jazyka)
         {
-            TJedlo result = new TJedlo(ID, nazov.getPreklad(kod_jazyka), typ_jedla.id_typu, typ_jedla.text.getPreklad(kod_jazyka), dlzka_pripravy, mnozstvo_kalorii/*, obrazok.getObrazokMetadata()*/);
+            TJedlo result = new TJedlo(ID, nazov.getPreklad(kod_jazyka), typ_jedla.id_typu, typ_jedla.text.getPreklad(kod_jazyka), dlzka_pripravy, mnozstvo_kalorii, obrazok.metadata);
             foreach (var surovina in suroviny_jedla)
             {
                 TSurovina s = new TSurovina(surovina.surovina.ID, surovina.surovina.nazov.getPreklad(kod_jazyka),
