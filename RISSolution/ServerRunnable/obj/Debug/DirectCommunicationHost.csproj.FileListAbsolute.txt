@@ -1,2 +1,0 @@
-C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DirectCommunicationHost\obj\Debug\DirectCommunicationHost.csprojResolveAssemblyReference.cache
-C:\Users\DjBoreC\Documents\GitHubVisualStudio\RIS\DataBaseWorker\DataBaseWorker\DirectCommunicationHost\bin\Debug\DirectCommunicationHost.exe.config

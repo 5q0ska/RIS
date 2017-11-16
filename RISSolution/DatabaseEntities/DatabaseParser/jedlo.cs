@@ -25,6 +25,7 @@ namespace DatabaseEntities
         public int id_typu { get; set; }
         public Nullable<int> mnozstvo_kalorii { get; set; }
         public Nullable<int> dlzka_pripravy { get; set; }
+        public Nullable<int> image { get; set; }
     
         public virtual ICollection<menu_jedlo> menu_jedlo { get; set; }
         public virtual ICollection<jedlo_surovina> jedlo_surovina { get; set; }

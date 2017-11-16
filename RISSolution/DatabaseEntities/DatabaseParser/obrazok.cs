@@ -19,6 +19,7 @@ namespace DatabaseEntities
             this.akcia = new HashSet<akcia>();
             this.denne_menu = new HashSet<denne_menu>();
             this.menu = new HashSet<menu>();
+            this.jedlo = new HashSet<jedlo>();
         }
     
         public int id_obrazka { get; set; }
@@ -27,5 +28,6 @@ namespace DatabaseEntities
         public virtual ICollection<akcia> akcia { get; set; }
         public virtual ICollection<denne_menu> denne_menu { get; set; }
         public virtual ICollection<menu> menu { get; set; }
+        public virtual ICollection<jedlo> jedlo { get; set; }
     }
 }

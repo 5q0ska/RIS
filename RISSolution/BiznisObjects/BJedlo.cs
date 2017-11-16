@@ -56,12 +56,12 @@ namespace BiznisObjects
             get { return entity.dlzka_pripravy; }
             set { entity.dlzka_pripravy = value; }
         }
-        /*
+
         public BObrazok obrazok
         {
             get { return new BObrazok(entity.obrazok); }
             set { entity.obrazok = value.entityObrazok; }
-        }*/
+        }
 
         /// <summary>
         /// Položky menu ,v ktorých sa nachádza dané jedlo

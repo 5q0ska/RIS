@@ -1,1 +1,0 @@
-D:\Workspace\RIS\RIS\RISSolution\ServerRunnable\bin\Release\RISServer.exe.config
