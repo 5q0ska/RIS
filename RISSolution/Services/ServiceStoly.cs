@@ -37,5 +37,30 @@ namespace Services
         {
             throw new System.NotImplementedException();
         }
+
+        public TObjednavka Objednavka(string id)
+        {
+            BObjednavka.BObjednavkaCol objednavka = new BObjednavka.BObjednavkaCol(_ctx);
+            objednavka.GetAll();
+
+            return objednavka.FirstOrDefault(x => x.Key == Int32.Parse(id)).Value.ToTransferObject();
+        }
+
+        public ICollection<TObjednavka> VsetkyObjednavky()
+        {
+            BObjednavka.BObjednavkaCol objednavka = new BObjednavka.BObjednavkaCol(_ctx);
+            objednavka.GetAll();
+
+            IList<TObjednavka> objednavky = objednavka.ToTransferList();
+
+            return objednavky;
+        }
+
+        public TObjednavka VytvorObjednavku(int stol, int ucet, double suma)
+        {
+            var objednavka = new BObjednavka(stol, ucet, suma, _ctx);
+            objednavka = new BObjednavka(objednavka.entityObjednavka);
+            return objednavka.ToTransferObject();
+        }
     }
 }
