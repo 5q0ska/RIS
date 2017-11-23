@@ -14,13 +14,18 @@ namespace DatabaseEntities
     
     public partial class menu_jedlo
     {
+        public menu_jedlo()
+        {
+            this.objednavka_menu = new HashSet<objednavka_menu>();
+        }
+    
         public int id_jedla { get; set; }
         public int id_menu { get; set; }
         public double cena { get; set; }
-        public int id_typu { get; set; }
         public int id_podniku { get; set; }
     
         public virtual jedlo jedlo { get; set; }
         public virtual menu menu { get; set; }
+        public virtual ICollection<objednavka_menu> objednavka_menu { get; set; }
     }
 }

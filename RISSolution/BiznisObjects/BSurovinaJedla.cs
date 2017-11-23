@@ -7,10 +7,8 @@ namespace BiznisObjects
     public class BSurovinaJedla
     {
 
-       
         public int id_surovina { get; set; }
         public int id_jedla { get; set; }
-        public int id_typu { get; set; }
         public double mnozstvo { get; set; }
 
         public BJedlo jedlo { get; set; }
@@ -32,7 +30,6 @@ namespace BiznisObjects
         {
             id_surovina = js.id_surovina;
             id_jedla = js.id_jedla;
-            id_typu = js.id_typu;
             mnozstvo = js.mnozstvo;
             
             jedlo = new BJedlo(js.jedlo);
@@ -45,7 +42,6 @@ namespace BiznisObjects
         {
             id_surovina = -1;
             id_jedla = -1;
-            id_typu = 0;
             mnozstvo = 0;
 
             jedlo = new BJedlo();
@@ -56,7 +52,6 @@ namespace BiznisObjects
         {
             id_jedla = entityJedloSurovina.id_jedla;
             id_surovina = entityJedloSurovina.id_surovina;
-            id_typu = entityJedloSurovina.id_typu;
 
             jedlo = new BJedlo(entityJedloSurovina.jedlo);
             surovina = new BSurovina(entityJedloSurovina.surovina);
@@ -66,7 +61,6 @@ namespace BiznisObjects
         private void FillEntity()
         {
             entityJedloSurovina.id_surovina = id_surovina;
-            entityJedloSurovina.id_typu = id_typu;
             entityJedloSurovina.id_jedla = id_jedla;
             entityJedloSurovina.jedlo = jedlo.entity;
             entityJedloSurovina.surovina = surovina.entitySurovina;

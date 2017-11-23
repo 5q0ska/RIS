@@ -15,11 +15,13 @@ namespace DatabaseEntities
     public partial class objednavka_menu
     {
         public int id_polozky { get; set; }
-        public int id_menu { get; set; }
         public int id_objednavky { get; set; }
+        public int id_jedla { get; set; }
+        public int id_menu { get; set; }
         public int id_podniku { get; set; }
+        public int mnozstvo { get; set; }
     
-        public virtual menu menu { get; set; }
+        public virtual menu_jedlo menu_jedlo { get; set; }
         public virtual objednavka objednavka { get; set; }
     }
 }

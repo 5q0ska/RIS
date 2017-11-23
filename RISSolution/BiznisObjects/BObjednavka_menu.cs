@@ -11,8 +11,9 @@ namespace BiznisObjects
         public int id_menu { get; set; }
         public int id_objednavky { get; set; }
         public int id_podniku { get; set; }
+        public int id_jedla { get; set; }
 
-        public BMenu menu { get; set; }
+        public BMenu_jedlo menu_jedlo { get; set; }
         public BObjednavka objednavka { get; set; }
 
         public objednavka_menu entityObjednavkaMenu { get; set; }
@@ -29,7 +30,7 @@ namespace BiznisObjects
             id_objednavky = om.id_objednavky;
             id_podniku = om.id_podniku;
 
-            menu = new BMenu(om.menu);
+            menu_jedlo = new BMenu_jedlo(om.menu_jedlo);
             objednavka = new BObjednavka(om.objednavka);
 
             entityObjednavkaMenu = om;
@@ -41,8 +42,9 @@ namespace BiznisObjects
             id_menu = 0;
             id_objednavky = 0;
             id_podniku = 0;
+            id_jedla = 0;
 
-            menu = new BMenu();
+            menu_jedlo = new BMenu_jedlo();
             objednavka = new BObjednavka();
 
             entityObjednavkaMenu = new objednavka_menu();
@@ -55,7 +57,7 @@ namespace BiznisObjects
             id_objednavky = entityObjednavkaMenu.id_objednavky;
             id_podniku = entityObjednavkaMenu.id_podniku;
 
-            menu = new BMenu(entityObjednavkaMenu.menu);
+            menu_jedlo = new BMenu_jedlo(entityObjednavkaMenu.menu_jedlo);
             objednavka = new BObjednavka(entityObjednavkaMenu.objednavka);
         }
 
@@ -66,7 +68,7 @@ namespace BiznisObjects
             entityObjednavkaMenu.id_objednavky = id_objednavky;
             entityObjednavkaMenu.id_podniku = id_podniku;
 
-            entityObjednavkaMenu.menu = menu.entityMenu;
+            entityObjednavkaMenu.menu_jedlo = menu_jedlo.entityMenuJedlo;
             entityObjednavkaMenu.objednavka = objednavka.entityObjednavka;
         }
 

@@ -20,7 +20,6 @@ namespace DatabaseEntities
             this.denne_menu = new HashSet<denne_menu>();
             this.menu_jedlo = new HashSet<menu_jedlo>();
             this.menu_napoj = new HashSet<menu_napoj>();
-            this.objednavka_menu = new HashSet<objednavka_menu>();
         }
     
         public Nullable<int> text_id { get; set; }
@@ -35,7 +34,6 @@ namespace DatabaseEntities
         public virtual ICollection<menu_jedlo> menu_jedlo { get; set; }
         public virtual ICollection<menu_napoj> menu_napoj { get; set; }
         public virtual podnik podnik { get; set; }
-        public virtual ICollection<objednavka_menu> objednavka_menu { get; set; }
         public virtual obrazok obrazok { get; set; }
         public virtual text text { get; set; }
         public virtual text text1 { get; set; }

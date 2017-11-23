@@ -18,7 +18,6 @@ namespace BiznisObjects
         public ICollection<BDenne_menu> denne_menu { get; set; }
         public ICollection<BMenu_jedlo> menu_jedlo { get; set; }
         public ICollection<BMenu_napoj> menu_napoj { get; set; }
-        public ICollection<BObjednavka_menu> objednavka_menu { get; set; }
         
         public BPodnik podnik { get; set; }
         public BObrazok obrazok { get; set; }
@@ -76,13 +75,7 @@ namespace BiznisObjects
             {
                 BMenu_napoj pom = new BMenu_napoj(menuNapoj);
                 menu_napoj.Add(pom);
-            }
-            objednavka_menu = new List<BObjednavka_menu>();
-            foreach (var objednavkaMenu in entityMenu.objednavka_menu)
-            {
-                BObjednavka_menu pom = new BObjednavka_menu(objednavkaMenu);
-                objednavka_menu.Add(pom);
-            }
+            }            
         }
 
         private void Reset()

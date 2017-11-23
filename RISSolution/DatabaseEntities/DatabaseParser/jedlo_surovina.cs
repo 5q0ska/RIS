@@ -16,7 +16,6 @@ namespace DatabaseEntities
     {
         public int id_surovina { get; set; }
         public int id_jedla { get; set; }
-        public int id_typu { get; set; }
         public double mnozstvo { get; set; }
     
         public virtual jedlo jedlo { get; set; }

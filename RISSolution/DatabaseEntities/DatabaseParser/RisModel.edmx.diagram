@@ -5,70 +5,70 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="95a51ae07dee40d2b9442a937739ad29" Name="Diagram1">
-        <EntityTypeShape EntityType="risModel.akcia" Width="1.5" PointX="3" PointY="23.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.den_v_tyzdni" Width="1.5" PointX="3" PointY="20.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.denne_menu" Width="1.5" PointX="11.25" PointY="24.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.jazyk" Width="1.5" PointX="0.75" PointY="17" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.jedlo" Width="1.5" PointX="7.375" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.jedlo_surovina" Width="1.5" PointX="7.5" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.menu" Width="1.5" PointX="6" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.menu_jedlo" Width="1.5" PointX="11.25" PointY="28" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.menu_napoj" Width="1.5" PointX="8.25" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.napoj" Width="1.5" PointX="3" PointY="31.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.napoj_surovina" Width="1.5" PointX="5.25" PointY="34.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.objednavka" Width="1.5" PointX="9" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.objednavka_menu" Width="1.5" PointX="11.25" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.obrazok" Width="1.5" PointX="3.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.otvaracie_hodiny" Width="1.5" PointX="5.25" PointY="20" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.platnost_zaznamu" Width="1.5" PointX="3.75" PointY="27.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.podnik" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.preklad" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.stol" Width="1.875" PointX="1.875" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.surovina" Width="1.5" PointX="3" PointY="37.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.text" Width="1.5" PointX="0.75" PointY="20.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.typ_jedla" Width="1.5" PointX="3" PointY="40.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.typ_napoja" Width="1.5" PointX="8.25" PointY="26.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.typ_uctu" Width="1.5" PointX="4.5" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.ucet" Width="1.5" PointX="6.75" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="risModel.zmena_otvaracich_hodin" Width="1.5" PointX="8.25" PointY="19.875" IsExpanded="true" />
-        <AssociationConnector Association="risModel.Relationship32" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship8" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship9" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship12" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship14" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship28" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.denne_menu_v_menu" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship10" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship16" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.a" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.aaa" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.jedlo_typy" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship27" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.suroviny_jedla" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.aa" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.aaaa" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.menu_podniku" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.objednavka_menu_prepojenie" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship15" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship29" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship31" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship37" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.napoje_v_menu" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.napoje_k_surovinam" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship24" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.suroviny_k_napojom" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.objednavky_stolu" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.objednavky_z_menu" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship4" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship11" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship13" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship23" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship25" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship26" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship33" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.Relationship7" ManuallyRouted="false" />
-        <AssociationConnector Association="risModel.napoj_typy" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="risModel.akcia" Width="1.5" PointX="6" PointY="18.75" />
+        <EntityTypeShape EntityType="risModel.den_v_tyzdni" Width="1.5" PointX="3" PointY="36.625" />
+        <EntityTypeShape EntityType="risModel.denne_menu" Width="1.5" PointX="5.25" PointY="15.125" />
+        <EntityTypeShape EntityType="risModel.jazyk" Width="1.5" PointX="0.75" PointY="25.5" />
+        <EntityTypeShape EntityType="risModel.jedlo" Width="1.5" PointX="5.25" PointY="31.375" />
+        <EntityTypeShape EntityType="risModel.jedlo_surovina" Width="1.5" PointX="7.5" PointY="31" />
+        <EntityTypeShape EntityType="risModel.menu" Width="1.5" PointX="3" PointY="14.375" />
+        <EntityTypeShape EntityType="risModel.menu_jedlo" Width="1.5" PointX="7.5" PointY="24.25" />
+        <EntityTypeShape EntityType="risModel.menu_napoj" Width="1.5" PointX="8.25" PointY="20.375" />
+        <EntityTypeShape EntityType="risModel.napoj" Width="1.5" PointX="3" PointY="26" />
+        <EntityTypeShape EntityType="risModel.napoj_surovina" Width="1.5" PointX="5.25" PointY="28" />
+        <EntityTypeShape EntityType="risModel.objednavka" Width="1.5" PointX="7.5" PointY="9" />
+        <EntityTypeShape EntityType="risModel.objednavka_menu" Width="1.5" PointX="9.75" PointY="24.125" />
+        <EntityTypeShape EntityType="risModel.obrazok" Width="1.5" PointX="0.75" PointY="15.875" />
+        <EntityTypeShape EntityType="risModel.otvaracie_hodiny" Width="1.5" PointX="5.25" PointY="36.5" />
+        <EntityTypeShape EntityType="risModel.platnost_zaznamu" Width="1.5" PointX="0.75" PointY="22.75" />
+        <EntityTypeShape EntityType="risModel.podnik" Width="1.5" PointX="0.75" PointY="12.5" />
+        <EntityTypeShape EntityType="risModel.preklad" Width="1.5" PointX="3" PointY="19.375" />
+        <EntityTypeShape EntityType="risModel.stol" Width="1.5" PointX="5.25" PointY="11.125" />
+        <EntityTypeShape EntityType="risModel.surovina" Width="1.5" PointX="3" PointY="29.5" />
+        <EntityTypeShape EntityType="risModel.text" Width="1.5" PointX="0.75" PointY="18.75" />
+        <EntityTypeShape EntityType="risModel.typ_jedla" Width="1.5" PointX="3" PointY="39.375" />
+        <EntityTypeShape EntityType="risModel.typ_napoja" Width="1.5" PointX="5.25" PointY="22.875" />
+        <EntityTypeShape EntityType="risModel.typ_uctu" Width="1.5" PointX="3" PointY="8.5" />
+        <EntityTypeShape EntityType="risModel.ucet" Width="1.5" PointX="5.25" PointY="8.25" />
+        <EntityTypeShape EntityType="risModel.zmena_otvaracich_hodin" Width="1.5" PointX="8.25" PointY="36.375" />
+        <AssociationConnector Association="risModel.FK_Relationship32" />
+        <AssociationConnector Association="risModel.FK_Relationship8" />
+        <AssociationConnector Association="risModel.FK_Relationship9" />
+        <AssociationConnector Association="risModel.FK_Relationship12" />
+        <AssociationConnector Association="risModel.FK_Relationship14" />
+        <AssociationConnector Association="risModel.FK_Relationship28" />
+        <AssociationConnector Association="risModel.FK_denne_menu_v_menu" />
+        <AssociationConnector Association="risModel.FK_Relationship10" />
+        <AssociationConnector Association="risModel.FK_Relationship16" />
+        <AssociationConnector Association="risModel.FK_a" />
+        <AssociationConnector Association="risModel.FK_aaa" />
         <AssociationConnector Association="risModel.fk_jedlo_obrazok1" />
+        <AssociationConnector Association="risModel.FK_jedlo_typy" />
+        <AssociationConnector Association="risModel.FK_Relationship27" />
+        <AssociationConnector Association="risModel.FK_suroviny_jedla" />
+        <AssociationConnector Association="risModel.FK_aa" />
+        <AssociationConnector Association="risModel.FK_aaaa" />
+        <AssociationConnector Association="risModel.FK_menu_podniku" />
+        <AssociationConnector Association="risModel.FK_Relationship15" />
+        <AssociationConnector Association="risModel.FK_Relationship29" />
+        <AssociationConnector Association="risModel.FK_Relationship31" />
+        <AssociationConnector Association="risModel.FK_Relationship37" />
+        <AssociationConnector Association="risModel.FK_menu_jedlo_to_objednavka_menu_relation" />
+        <AssociationConnector Association="risModel.FK_napoje_v_menu" />
+        <AssociationConnector Association="risModel.FK_napoje_k_surovinam" />
+        <AssociationConnector Association="risModel.FK_Relationship24" />
+        <AssociationConnector Association="risModel.FK_suroviny_k_napojom" />
+        <AssociationConnector Association="risModel.FK_objednavky_stolu" />
+        <AssociationConnector Association="risModel.FK_objednavky_z_menu" />
+        <AssociationConnector Association="risModel.FK_Relationship4" />
+        <AssociationConnector Association="risModel.FK_Relationship11" />
+        <AssociationConnector Association="risModel.FK_Relationship13" />
+        <AssociationConnector Association="risModel.FK_Relationship23" />
+        <AssociationConnector Association="risModel.FK_Relationship25" />
+        <AssociationConnector Association="risModel.FK_Relationship26" />
+        <AssociationConnector Association="risModel.FK_Relationship33" />
+        <AssociationConnector Association="risModel.FK_Relationship7" />
+        <AssociationConnector Association="risModel.napoj_typy" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
