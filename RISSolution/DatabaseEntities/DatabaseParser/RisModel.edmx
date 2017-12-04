@@ -118,11 +118,11 @@
         </EntityType>
         <EntityType Name="napoj_typy">
           <Key>
-            <PropertyRef Name="id_napoja" />
-            <PropertyRef Name="id_typu" />
+            <PropertyRef Name="napoj_id_napoja" />
+            <PropertyRef Name="typ_napoja_id_typu" />
           </Key>
-          <Property Name="id_napoja" Type="int" Nullable="false" />
-          <Property Name="id_typu" Type="int" Nullable="false" />
+          <Property Name="napoj_id_napoja" Type="int" Nullable="false" />
+          <Property Name="typ_napoja_id_typu" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="objednavka">
           <Key>
@@ -187,7 +187,7 @@
           </Key>
           <Property Name="kod_jazyka" Type="varchar" MaxLength="5" Nullable="false" />
           <Property Name="text_id" Type="int" Nullable="false" />
-          <Property Name="preklad" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="preklad1" Type="varchar" MaxLength="150" Nullable="false" />
         </EntityType>
         <EntityType Name="stol">
           <Key>

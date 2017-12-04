@@ -5,32 +5,32 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="95a51ae07dee40d2b9442a937739ad29" Name="Diagram1">
-        <EntityTypeShape EntityType="risModel.akcia" Width="1.5" PointX="6" PointY="18.75" />
-        <EntityTypeShape EntityType="risModel.den_v_tyzdni" Width="1.5" PointX="3" PointY="36.625" />
-        <EntityTypeShape EntityType="risModel.denne_menu" Width="1.5" PointX="5.25" PointY="15.125" />
-        <EntityTypeShape EntityType="risModel.jazyk" Width="1.5" PointX="0.75" PointY="25.5" />
-        <EntityTypeShape EntityType="risModel.jedlo" Width="1.5" PointX="5.25" PointY="31.375" />
-        <EntityTypeShape EntityType="risModel.jedlo_surovina" Width="1.5" PointX="7.5" PointY="31" />
-        <EntityTypeShape EntityType="risModel.menu" Width="1.5" PointX="3" PointY="14.375" />
-        <EntityTypeShape EntityType="risModel.menu_jedlo" Width="1.5" PointX="7.5" PointY="24.25" />
-        <EntityTypeShape EntityType="risModel.menu_napoj" Width="1.5" PointX="8.25" PointY="20.375" />
-        <EntityTypeShape EntityType="risModel.napoj" Width="1.5" PointX="3" PointY="26" />
-        <EntityTypeShape EntityType="risModel.napoj_surovina" Width="1.5" PointX="5.25" PointY="28" />
-        <EntityTypeShape EntityType="risModel.objednavka" Width="1.5" PointX="7.5" PointY="9" />
-        <EntityTypeShape EntityType="risModel.objednavka_menu" Width="1.5" PointX="9.75" PointY="24.125" />
-        <EntityTypeShape EntityType="risModel.obrazok" Width="1.5" PointX="0.75" PointY="15.875" />
-        <EntityTypeShape EntityType="risModel.otvaracie_hodiny" Width="1.5" PointX="5.25" PointY="36.5" />
-        <EntityTypeShape EntityType="risModel.platnost_zaznamu" Width="1.5" PointX="0.75" PointY="22.75" />
-        <EntityTypeShape EntityType="risModel.podnik" Width="1.5" PointX="0.75" PointY="12.5" />
-        <EntityTypeShape EntityType="risModel.preklad" Width="1.5" PointX="3" PointY="19.375" />
-        <EntityTypeShape EntityType="risModel.stol" Width="1.5" PointX="5.25" PointY="11.125" />
-        <EntityTypeShape EntityType="risModel.surovina" Width="1.5" PointX="3" PointY="29.5" />
-        <EntityTypeShape EntityType="risModel.text" Width="1.5" PointX="0.75" PointY="18.75" />
-        <EntityTypeShape EntityType="risModel.typ_jedla" Width="1.5" PointX="3" PointY="39.375" />
-        <EntityTypeShape EntityType="risModel.typ_napoja" Width="1.5" PointX="5.25" PointY="22.875" />
-        <EntityTypeShape EntityType="risModel.typ_uctu" Width="1.5" PointX="3" PointY="8.5" />
-        <EntityTypeShape EntityType="risModel.ucet" Width="1.5" PointX="5.25" PointY="8.25" />
-        <EntityTypeShape EntityType="risModel.zmena_otvaracich_hodin" Width="1.5" PointX="8.25" PointY="36.375" />
+        <EntityTypeShape EntityType="risModel.akcia" PointX="6" PointY="16.75" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.den_v_tyzdni" PointX="3" PointY="27.375" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.denne_menu" PointX="5.25" PointY="13.125" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.jazyk" PointX="0.75" PointY="23.5" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.jedlo" PointX="8.25" PointY="23.375" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.jedlo_surovina" PointX="5.25" PointY="30.375" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.menu" PointX="3" PointY="12.375" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.menu_jedlo" PointX="10.5" PointY="18.25" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.menu_napoj" PointX="5.25" PointY="21.25" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.napoj" PointX="3" PointY="23.875" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.napoj_surovina" PointX="8.25" PointY="30.25" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.objednavka" PointX="10.5" PointY="8" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.objednavka_menu" PointX="12.75" PointY="18.125" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.obrazok" PointX="0.75" PointY="10.5" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.otvaracie_hodiny" PointX="8.25" PointY="27.25" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.platnost_zaznamu" PointX="0.75" PointY="20.75" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.podnik" PointX="0.75" PointY="13.375" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.preklad" PointX="3" PointY="17.25" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.stol" PointX="8.25" PointY="7.125" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.surovina" PointX="3" PointY="30.125" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.text" PointX="0.75" PointY="16.75" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.typ_jedla" PointX="3" PointY="33.375" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.typ_napoja" PointX="8.25" PointY="20.75" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.typ_uctu" PointX="6" PointY="9.75" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.ucet" PointX="8.25" PointY="9.5" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.zmena_otvaracich_hodin" PointX="5.25" PointY="27.125" Width="1.5" />
         <AssociationConnector Association="risModel.FK_Relationship32" />
         <AssociationConnector Association="risModel.FK_Relationship8" />
         <AssociationConnector Association="risModel.FK_Relationship9" />
