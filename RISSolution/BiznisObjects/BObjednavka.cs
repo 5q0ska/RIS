@@ -35,12 +35,12 @@ namespace BiznisObjects
             //stol = new BStol(o.stol);
             //ucet = new BUcet(o.ucet);
 
-            /*objednavka_menu = new List<BObjednavka_menu>();
+            objednavka_menu = new List<BObjednavka_menu>();
             foreach (var objednavkaMenu in o.objednavka_menu)
             {
                 BObjednavka_menu pom = new BObjednavka_menu(objednavkaMenu);
                 objednavka_menu.Add(pom);
-            }*/
+            }
         }
 
         /// <summary>
@@ -96,6 +96,13 @@ namespace BiznisObjects
                 }
             }
 
+            public TObjednavka GetById(int id)
+            {
+                var temp = from a in risContext.objednavka where a.id_objednavky == id select a;
+                var bObjednavka = new BObjednavka(temp.ToList()[0]);
+                return bObjednavka.ToTransferObject();
+            }
+
             public IList<TObjednavka> ToTransferList()
             {
                 IList<TObjednavka> result = new List<TObjednavka>();
@@ -110,7 +117,12 @@ namespace BiznisObjects
 
         public TObjednavka ToTransferObject()
         {
-            return new TObjednavka(id_objednavky, id_stola, id_uctu, potvrdena, suma);
+            IList<TObjednavkaMenu> polozky = new List<TObjednavkaMenu>();
+            foreach (var bObjednavkaMenu in objednavka_menu)
+            {
+                polozky.Add(bObjednavkaMenu.ToTransferObject());
+            }
+            return new TObjednavka(id_objednavky, id_stola, id_uctu, potvrdena, suma, polozky);
         }
     }
 }

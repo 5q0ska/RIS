@@ -42,10 +42,31 @@ namespace IServices
         ICollection<TObjednavka> VsetkyObjednavky();
 
         [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            UriTemplate = "objednavka/{id}/polozky")]
+        ICollection<TObjednavkaMenu> PolozkyObjednavky(string id);
+
+        [OperationContract]
         [WebInvoke(Method = "POST",
            RequestFormat = WebMessageFormat.Json,
            BodyStyle = WebMessageBodyStyle.Wrapped,
            UriTemplate = "objednavka/nova")]
         TObjednavka VytvorObjednavku(int stol, int ucet, double suma);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+           RequestFormat = WebMessageFormat.Json,
+           BodyStyle = WebMessageBodyStyle.Wrapped,
+           UriTemplate = "objednavka/polozka/nova")]
+        TObjednavkaMenu PridajPolozku(int objednavka, int podnik, int menu, int jedlo);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            UriTemplate = "objednavka/polozka")]
+        TObjednavkaMenu ZmenMnoztvo(int id, int mnozstvo);
     }
 }

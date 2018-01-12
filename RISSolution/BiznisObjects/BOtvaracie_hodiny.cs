@@ -7,8 +7,6 @@ namespace BiznisObjects
 {
     public class BOtvaracie_hodiny
     {
-        private otvaracie_hodiny otvaracieHodiny;
-
         public int id_podniku { get; set; }
         public int cislo_dna { get; set; }
         public DateTime cas_otvorenia { get; set; }

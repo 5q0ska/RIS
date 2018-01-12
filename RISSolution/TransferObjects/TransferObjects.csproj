@@ -48,6 +48,7 @@
     <Compile Include="TMenu.cs" />
     <Compile Include="TNapoj.cs" />
     <Compile Include="TObjednavka.cs" />
+    <Compile Include="TObjednavkaMenu.cs" />
     <Compile Include="TOtvaracieHodiny.cs" />
     <Compile Include="TPodnik.cs" />
     <Compile Include="TStol.cs" />

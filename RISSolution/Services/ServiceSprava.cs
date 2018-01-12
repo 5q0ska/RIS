@@ -87,7 +87,7 @@ namespace Services
                 {
                     bjedlo.updatefromTransferObject(jedlo, risContext);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     return false;
                 }
@@ -112,10 +112,6 @@ namespace Services
             BTyp_jedla.BTypJedlaCol kolBTypJedlaCol = new BTyp_jedla.BTypJedlaCol(risContext);
             kolBTypJedlaCol.GetAll();
             return kolBTypJedlaCol.toList(id_jazyka);
-
         }
-
-        
-
     }
 }

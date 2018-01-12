@@ -34,12 +34,12 @@ namespace BiznisObjects
 
         public BMenu(menu m)
         {
-            text_id = (int) m.text_id;
+            if (m.text_id != null) text_id = (int) m.text_id;
             id_menu = m.id_menu;
             id_podniku = m.id_podniku;
-            id_obrazka = (int) m.id_obrazka;
-            nazov = (int) m.nazov;
-            typ_platnosti = (int) m.typ_platnosti;
+            if (m.id_obrazka != null) id_obrazka = (int) m.id_obrazka;
+            if (m.nazov != null) nazov = (int) m.nazov;
+            if (m.typ_platnosti != null) typ_platnosti = (int) m.typ_platnosti;
             entityMenu = m;
             naplnListy();
 

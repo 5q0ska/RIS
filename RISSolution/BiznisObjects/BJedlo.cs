@@ -141,10 +141,7 @@ namespace BiznisObjects
                 if (konkretnaSurovina != null)
                 {
                     TSurovina pridavana = (TSurovina) konkretnaSurovina;
-                    if (surovinaJedla.mnozstvo != null)
-                    {
-                        pridavana.Mnozstvo = surovinaJedla.mnozstvo;
-                    }
+                    pridavana.Mnozstvo = surovinaJedla.mnozstvo;
                     result.Add(pridavana);
                 }
 

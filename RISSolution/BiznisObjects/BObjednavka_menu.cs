@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DatabaseEntities;
+using TransferObjects;
 
 namespace BiznisObjects
 {
@@ -12,6 +13,7 @@ namespace BiznisObjects
         public int id_objednavky { get; set; }
         public int id_podniku { get; set; }
         public int id_jedla { get; set; }
+        public int mnozstvo { get; set; }
 
         public BMenu_jedlo menu_jedlo { get; set; }
         public BObjednavka objednavka { get; set; }
@@ -25,15 +27,24 @@ namespace BiznisObjects
 
         public BObjednavka_menu(objednavka_menu om)
         {
-            id_polozky = om.id_polozky;
-            id_menu = om.id_menu;
-            id_objednavky = om.id_objednavky;
-            id_podniku = om.id_podniku;
-
-            menu_jedlo = new BMenu_jedlo(om.menu_jedlo);
-            objednavka = new BObjednavka(om.objednavka);
-
             entityObjednavkaMenu = om;
+            FillBObject();
+        }
+
+        public BObjednavka_menu(int objednavka, int podnik, int menu, int jedlo, risTabulky risContext)
+        {
+            entityObjednavkaMenu = new objednavka_menu();
+            entityObjednavkaMenu.id_objednavky = objednavka;
+            entityObjednavkaMenu.id_podniku = podnik;
+            entityObjednavkaMenu.id_menu = menu;
+            entityObjednavkaMenu.id_jedla = jedlo;
+            entityObjednavkaMenu.mnozstvo = 1;
+            if (risContext != null)
+            {
+                risContext.objednavka_menu.Add(entityObjednavkaMenu);
+                risContext.SaveChanges();
+            }
+            FillBObject();
         }
 
         private void Reset()
@@ -43,9 +54,10 @@ namespace BiznisObjects
             id_objednavky = 0;
             id_podniku = 0;
             id_jedla = 0;
+            mnozstvo = 0;
 
-            menu_jedlo = new BMenu_jedlo();
-            objednavka = new BObjednavka();
+            //menu_jedlo = new BMenu_jedlo();
+            //objednavka = new BObjednavka();
 
             entityObjednavkaMenu = new objednavka_menu();
         }
@@ -56,9 +68,11 @@ namespace BiznisObjects
             id_menu = entityObjednavkaMenu.id_menu;
             id_objednavky = entityObjednavkaMenu.id_objednavky;
             id_podniku = entityObjednavkaMenu.id_podniku;
+            id_jedla = entityObjednavkaMenu.id_jedla;
+            mnozstvo = entityObjednavkaMenu.mnozstvo;
 
-            menu_jedlo = new BMenu_jedlo(entityObjednavkaMenu.menu_jedlo);
-            objednavka = new BObjednavka(entityObjednavkaMenu.objednavka);
+            //menu_jedlo = new BMenu_jedlo(entityObjednavkaMenu.menu_jedlo);
+            //objednavka = new BObjednavka(entityObjednavkaMenu.objednavka);
         }
 
         private void FillEntity()
@@ -67,9 +81,11 @@ namespace BiznisObjects
             entityObjednavkaMenu.id_menu = id_menu;
             entityObjednavkaMenu.id_objednavky = id_objednavky;
             entityObjednavkaMenu.id_podniku = id_podniku;
+            entityObjednavkaMenu.id_jedla = id_jedla;
+            entityObjednavkaMenu.mnozstvo = mnozstvo;
 
-            entityObjednavkaMenu.menu_jedlo = menu_jedlo.entityMenuJedlo;
-            entityObjednavkaMenu.objednavka = objednavka.entityObjednavka;
+            //entityObjednavkaMenu.menu_jedlo = menu_jedlo.entityMenuJedlo;
+            //entityObjednavkaMenu.objednavka = objednavka.entityObjednavka;
         }
 
         public bool Save(risTabulky risContext)
@@ -78,10 +94,9 @@ namespace BiznisObjects
 
             try
             {
-                var temp = from a in risContext.objednavka_menu where a.id_objednavky == id_objednavky &&
-                               a.id_menu == id_menu select a;
+                var temp = risContext.objednavka_menu.First(i => i.id_polozky == id_polozky);
 
-                if (!temp.Any()) // INSERT
+                if (temp == null) // INSERT
                 {
                     this.FillEntity();
                     risContext.objednavka_menu.Add(entityObjednavkaMenu);
@@ -90,7 +105,7 @@ namespace BiznisObjects
                 }
                 else // UPDATE
                 {
-                    entityObjednavkaMenu = temp.Single();
+                    entityObjednavkaMenu = temp;
                     this.FillEntity();
                     risContext.SaveChanges();
                     success = true;
@@ -110,7 +125,7 @@ namespace BiznisObjects
 
             try
             {
-                var temp = risContext.objednavka_menu.First(i => i.id_objednavky == id_objednavky && i.id_menu == id_menu);
+                var temp = risContext.objednavka_menu.First(i => i.id_polozky == id_polozky);
                 risContext.objednavka_menu.Remove(temp);
                 risContext.SaveChanges();
                 Reset();
@@ -124,14 +139,17 @@ namespace BiznisObjects
             return success;
         }
 
-        public bool Get(risTabulky risContext, int idObjednavka, int idMenu)
+        public bool Get(risTabulky risContext, int id_polozky)
         {
             bool success = false;
             try
             {
-                var temp = from a in risContext.objednavka_menu where a.id_objednavky == idObjednavka &&
-                           a.id_menu == idMenu select a;
-                entityObjednavkaMenu = temp.Single();
+                var temp = risContext.objednavka_menu.First(i => i.id_polozky == id_polozky);
+                if (temp == null)
+                {
+                    return false;
+                }
+                entityObjednavkaMenu = temp;
                 this.FillBObject();
                 success = true;
             }
@@ -141,6 +159,11 @@ namespace BiznisObjects
             }
 
             return success;
+        }
+
+        public TObjednavkaMenu ToTransferObject()
+        {
+            return new TObjednavkaMenu(id_polozky, id_objednavky, id_podniku, id_menu, id_jedla, mnozstvo);
         }
 
         public class BObjednavka_menuCol : Dictionary<string, BObjednavka_menu>

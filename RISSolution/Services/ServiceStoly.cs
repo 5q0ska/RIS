@@ -56,11 +56,44 @@ namespace Services
             return objednavky;
         }
 
+        public ICollection<TObjednavkaMenu> PolozkyObjednavky(string id)
+        {
+            BObjednavka.BObjednavkaCol objednavka = new BObjednavka.BObjednavkaCol(_ctx);
+            var obj = objednavka.GetById(Convert.ToInt32(id));
+
+            return obj.Items;
+        }
+
         public TObjednavka VytvorObjednavku(int stol, int ucet, double suma)
         {
             var objednavka = new BObjednavka(stol, ucet, suma, _ctx);
             objednavka = new BObjednavka(objednavka.entityObjednavka);
             return objednavka.ToTransferObject();
+        }
+
+        public TObjednavkaMenu PridajPolozku(int objednavka, int podnik, int menu, int jedlo)
+        {
+            var polozka = new BObjednavka_menu(objednavka,podnik,menu,jedlo, _ctx);
+            return polozka.ToTransferObject();
+        }
+
+        public TObjednavkaMenu ZmenMnoztvo(int id, int mnozstvo)
+        {
+            if (mnozstvo > 0)
+            {
+                var bObjednavkaMenu = new BObjednavka_menu();
+                bObjednavkaMenu.Get(_ctx, id);
+                bObjednavkaMenu.mnozstvo = mnozstvo;
+                bObjednavkaMenu.Save(_ctx);                
+                return bObjednavkaMenu.ToTransferObject();
+            } else if (mnozstvo == 0)
+            {
+                var bObjednavkaMenu = new BObjednavka_menu();
+                bObjednavkaMenu.id_polozky = id;
+                bObjednavkaMenu.Del(_ctx);
+                return bObjednavkaMenu.ToTransferObject();
+            }
+            return null;            
         }
     }
 }

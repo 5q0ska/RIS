@@ -22,13 +22,17 @@ namespace TransferObjects
         [DataMember]
         public double Sum { get; set; }
 
-        public TObjednavka(int id_objednavky, int id_stola, int id_uctu, int potvrdena, double suma)
+        [DataMember]
+        public ICollection<TObjednavkaMenu> Items { get; set; }
+
+        public TObjednavka(int id_objednavky, int id_stola, int id_uctu, int potvrdena, double suma, ICollection<TObjednavkaMenu> polozky)
         {
             this.Id = id_objednavky;
             this.Table = id_stola;
             this.Account = id_uctu;
             this.Accepted = potvrdena;
             this.Sum = suma;
+            this.Items = polozky;
         }
     }
 }

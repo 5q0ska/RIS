@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using DatabaseEntities;
 using TransferObjects;
-using TransferObjects;
 
 namespace BiznisObjects
 {
