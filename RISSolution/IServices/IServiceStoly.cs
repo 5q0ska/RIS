@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
-using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using TransferObjects;
 
@@ -23,6 +21,13 @@ namespace IServices
             BodyStyle = WebMessageBodyStyle.Wrapped, 
             UriTemplate = "menu")]
         ICollection<TJedlo> Menu();
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            UriTemplate = "stoly")]
+        ICollection<TStol> Stoly();
 
         [OperationContract]
         ICollection<TJedlo> DenneMenu();
@@ -47,6 +52,13 @@ namespace IServices
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "objednavka/{id}/polozky")]
         ICollection<TObjednavkaMenu> PolozkyObjednavky(string id);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            UriTemplate = "objednavky/neuvarene")]
+        ICollection<TObjednavka> NeuvareneJedla();
 
         [OperationContract]
         [WebInvoke(Method = "POST",

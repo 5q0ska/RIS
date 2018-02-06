@@ -84,16 +84,37 @@ namespace Services
                 var bObjednavkaMenu = new BObjednavka_menu();
                 bObjednavkaMenu.Get(_ctx, id);
                 bObjednavkaMenu.mnozstvo = mnozstvo;
-                bObjednavkaMenu.Save(_ctx);                
+                bObjednavkaMenu.Save(_ctx);
                 return bObjednavkaMenu.ToTransferObject();
-            } else if (mnozstvo == 0)
+            }
+            else if (mnozstvo == 0)
             {
                 var bObjednavkaMenu = new BObjednavka_menu();
                 bObjednavkaMenu.id_polozky = id;
                 bObjednavkaMenu.Del(_ctx);
                 return bObjednavkaMenu.ToTransferObject();
             }
-            return null;            
+            return null;
+        }
+
+        public ICollection<TStol> Stoly()
+        {
+            BStol.BStolCol stol = new BStol.BStolCol();
+            stol.GetAll(_ctx);
+
+            IList<TStol> stoly = stol.ToTransferList();
+
+            return stoly;
+        }
+
+        public ICollection<TObjednavka> NeuvareneJedla()
+        {
+            BObjednavka.BObjednavkaCol objednavka = new BObjednavka.BObjednavkaCol(_ctx);
+            objednavka.GetAllNotAccepted();
+
+            IList<TObjednavka> objednavky = objednavka.ToTransferList();
+
+            return objednavky;
         }
     }
 }

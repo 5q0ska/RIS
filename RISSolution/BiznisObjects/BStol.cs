@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DatabaseEntities;
+using TransferObjects;
 
 namespace BiznisObjects
 {
@@ -157,6 +158,21 @@ namespace BiznisObjects
                 }
             }
 
+            public IList<TStol> ToTransferList()
+            {
+                IList<TStol> result = new List<TStol>();
+                foreach (var stol in this)
+                {
+                    TStol stolTemp = stol.Value.ToTransferObject();
+                    result.Add(stolTemp);
+                }
+                return result;
+            }
+        }
+
+        private TStol ToTransferObject()
+        {
+            return new TStol(id_stola,pocet_miest);
         }
     }
 }

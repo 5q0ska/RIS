@@ -82,17 +82,37 @@ namespace BiznisObjects
                 try
                 {
                     var temp = from a in risContext.objednavka select a;
-                    List<objednavka> tempList = temp.ToList();
-                    foreach (var a in tempList)
-                    {
-                        this.Add(a.id_objednavky, new BObjednavka(a));
-                    }
+                    AddAllFromQuery(temp);
 
                     return true;
                 }
                 catch
                 {
                     return false;
+                }
+            }
+
+            public bool GetAllNotAccepted()
+            {
+                try
+                {
+                    var temp = from a in risContext.objednavka where a.potvrdena == null select a;
+                    AddAllFromQuery(temp);
+
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+
+            private void AddAllFromQuery(IQueryable<objednavka> temp)
+            {
+                List<objednavka> tempList = temp.ToList();
+                foreach (var a in tempList)
+                {
+                    this.Add(a.id_objednavky, new BObjednavka(a));
                 }
             }
 
