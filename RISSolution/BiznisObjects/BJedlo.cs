@@ -63,6 +63,8 @@ namespace BiznisObjects
             set { entity.obrazok = value.entityObrazok; }
         }
 
+        public double? Cena { get; set; }
+
         /// <summary>
         /// Položky menu ,v ktorých sa nachádza dané jedlo
         /// </summary>
@@ -346,6 +348,19 @@ namespace BiznisObjects
                         this.Add(a.id_jedla, new BJedlo(a));
                     }
 
+                    /*
+                     * URCITE TREBA ODSTRANIT TIETO RIADKY - su pouzite len kvoli ziskaniu nejakej ceny
+                     */
+                    var menuJedloQuery = from a in risContext.menu_jedlo select a;
+                    List<menu_jedlo> menuJedloZoznam = menuJedloQuery.ToList();
+                    foreach (var menuJedlo in menuJedloZoznam)
+                    {
+                        if (this.TryGetValue(menuJedlo.id_jedla, out BJedlo jedlo))
+                        {
+                            jedlo.Cena = menuJedlo.cena;
+                        }
+                    }
+
                     return true;
                 }
                 catch
@@ -401,6 +416,11 @@ namespace BiznisObjects
                         jedlo.Value.typ_jedla.id_typu, jedlo.Value.typ_jedla.text.getPreklad(kod_jazyka), jedlo.Value.dlzka_pripravy,
                         jedlo.Value.mnozstvo_kalorii, metadata);
                     jedloTemp.LanguageCode = kod_jazyka;
+                    if (jedlo.Value.Cena != null)
+                    {
+                        // jedlo by nemalo mat svoju cenu!
+                        jedloTemp.Cena = (double) jedlo.Value.Cena;
+                    }
                     result.Add(jedloTemp);
                 }
                 return result;

@@ -32,6 +32,9 @@ namespace TransferObjects
         public string Image { get; set; }
 
         [DataMember]
+        public double Cena { get; set; }        
+
+        [DataMember]
         public ICollection<TSurovina> RawMaterial
         {
             get { return zoznam_surovin; }
