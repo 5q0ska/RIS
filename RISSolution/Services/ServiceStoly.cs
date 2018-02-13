@@ -20,6 +20,7 @@ namespace Services
             BJedlo.BJedloCol bjedla = new BJedlo.BJedloCol(_ctx);
             bjedla.GetAll();
 
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return (TJedlo) bjedla.FirstOrDefault(x => x.Key == Int32.Parse(id)).Value.toTransferObject("sk");
         }
 
@@ -29,7 +30,8 @@ namespace Services
             bjedla.GetAll();
             
             IList<TJedlo> listJedal = bjedla.toTransferList("sk").Cast<TJedlo>().ToList();
-            
+
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return listJedal;
         }
 
@@ -43,6 +45,7 @@ namespace Services
             BObjednavka.BObjednavkaCol objednavka = new BObjednavka.BObjednavkaCol(_ctx);
             objednavka.GetAll();
 
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return objednavka.FirstOrDefault(x => x.Key == Int32.Parse(id)).Value.ToTransferObject();
         }
 
@@ -53,6 +56,7 @@ namespace Services
 
             IList<TObjednavka> objednavky = objednavka.ToTransferList();
 
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return objednavky;
         }
 
@@ -61,6 +65,7 @@ namespace Services
             BObjednavka.BObjednavkaCol objednavka = new BObjednavka.BObjednavkaCol(_ctx);
             var obj = objednavka.GetById(Convert.ToInt32(id));
 
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return obj.Items;
         }
 
@@ -68,13 +73,21 @@ namespace Services
         {
             var objednavka = new BObjednavka(stol, ucet, suma, _ctx);
             objednavka = new BObjednavka(objednavka.entityObjednavka);
+
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return objednavka.ToTransferObject();
         }
 
-        public TObjednavkaMenu PridajPolozku(int objednavka, int podnik, int menu, int jedlo)
+        public TObjednavka PridajPolozku(int objednavka, int podnik, int menu, int jedlo)
         {
-            var polozka = new BObjednavka_menu(objednavka,podnik,menu,jedlo, _ctx);
-            return polozka.ToTransferObject();
+            // Vytvorenie novej polozky v objednavke
+            new BObjednavka_menu(objednavka,podnik,menu,jedlo, _ctx);
+
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
+
+            // nacitanie objednavky
+            BObjednavka.BObjednavkaCol objCol = new BObjednavka.BObjednavkaCol(_ctx);
+            return objCol.GetById(objednavka);
         }
 
         public TObjednavkaMenu ZmenMnoztvo(int id, int mnozstvo)
@@ -85,6 +98,7 @@ namespace Services
                 bObjednavkaMenu.Get(_ctx, id);
                 bObjednavkaMenu.mnozstvo = mnozstvo;
                 bObjednavkaMenu.Save(_ctx);
+                WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
                 return bObjednavkaMenu.ToTransferObject();
             }
             else if (mnozstvo == 0)
@@ -92,6 +106,7 @@ namespace Services
                 var bObjednavkaMenu = new BObjednavka_menu();
                 bObjednavkaMenu.id_polozky = id;
                 bObjednavkaMenu.Del(_ctx);
+                WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
                 return bObjednavkaMenu.ToTransferObject();
             }
             return null;
@@ -104,6 +119,7 @@ namespace Services
 
             IList<TStol> stoly = stol.ToTransferList();
 
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return stoly;
         }
 
@@ -114,6 +130,7 @@ namespace Services
 
             IList<TObjednavka> objednavky = objednavka.ToTransferList();
 
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return objednavky;
         }
     }

@@ -14,6 +14,12 @@ namespace TransferObjects
         public int Accepted { get; set; }
 
         [DataMember]
+        public string DatumObjednania  { get; set; }
+
+        [DataMember]
+        public string DatumZaplatenia { get; set; }
+
+        [DataMember]
         public int Table { get; set; }
 
         [DataMember]

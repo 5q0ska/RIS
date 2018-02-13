@@ -74,7 +74,7 @@ namespace IServices
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "objednavka/polozka/nova")]
-        TObjednavkaMenu PridajPolozku(int objednavka, int podnik, int menu, int jedlo);
+        TObjednavka PridajPolozku(int objednavka, int podnik, int menu, int jedlo);
 
         [OperationContract]
         [WebInvoke(Method = "POST",

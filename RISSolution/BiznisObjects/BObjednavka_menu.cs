@@ -33,12 +33,14 @@ namespace BiznisObjects
 
         public BObjednavka_menu(int objednavka, int podnik, int menu, int jedlo, risTabulky risContext)
         {
-            entityObjednavkaMenu = new objednavka_menu();
-            entityObjednavkaMenu.id_objednavky = objednavka;
-            entityObjednavkaMenu.id_podniku = podnik;
-            entityObjednavkaMenu.id_menu = menu;
-            entityObjednavkaMenu.id_jedla = jedlo;
-            entityObjednavkaMenu.mnozstvo = 1;
+            entityObjednavkaMenu = new objednavka_menu
+            {
+                id_objednavky = objednavka,
+                id_podniku = podnik,
+                id_menu = menu,
+                id_jedla = jedlo,
+                mnozstvo = 1
+            };
             if (risContext != null)
             {
                 risContext.objednavka_menu.Add(entityObjednavkaMenu);

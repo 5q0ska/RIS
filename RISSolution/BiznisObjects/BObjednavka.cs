@@ -11,9 +11,9 @@ namespace BiznisObjects
         public int id_objednavky { get; set; }
         public int id_stola { get; set; }
         public int id_uctu { get; set; }
-        public DateTime datum_objednania { get; set; }
+        public DateTime? datum_objednania { get; set; }
         public int potvrdena { get; set; }
-        public DateTime datum_zaplatenia { get; set; }
+        public DateTime? datum_zaplatenia { get; set; }
         public double suma { get; set; }
 
         public BStol stol { get; set; }
@@ -52,11 +52,13 @@ namespace BiznisObjects
         /// <param name="risContext">kontext databázy</param>
         public BObjednavka(int id_stola, int id_uctu, double suma, risTabulky risContext)
         {
-            entityObjednavka = new objednavka();
-            entityObjednavka.id_stola = id_stola;
-            entityObjednavka.id_uctu = id_uctu;
-            entityObjednavka.suma = suma;
-            entityObjednavka.datum_objednania = DateTime.Now;
+            entityObjednavka = new objednavka
+            {
+                id_stola = id_stola,
+                id_uctu = id_uctu,
+                suma = suma,
+                datum_objednania = DateTime.Now
+            };
             if (risContext != null)
             {
                 risContext.objednavka.Add(entityObjednavka);
@@ -142,7 +144,16 @@ namespace BiznisObjects
             {
                 polozky.Add(bObjednavkaMenu.ToTransferObject());
             }
-            return new TObjednavka(id_objednavky, id_stola, id_uctu, potvrdena, suma, polozky);
+            TObjednavka tObjednavka = new TObjednavka(id_objednavky, id_stola, id_uctu, potvrdena, suma, polozky);
+            if (datum_objednania != null)
+            {                
+                tObjednavka.DatumObjednania = datum_objednania.Value.ToString();
+            }
+            if (datum_zaplatenia != null)
+            {
+                tObjednavka.DatumZaplatenia = datum_zaplatenia.Value.ToString();
+            }
+            return tObjednavka;
         }
     }
 }
