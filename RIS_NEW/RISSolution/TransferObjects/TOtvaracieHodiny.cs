@@ -1,0 +1,6 @@
+﻿namespace TransferObjects
+{
+    class TOtvaracieHodiny
+    {
+    }
+}

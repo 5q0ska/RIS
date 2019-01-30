@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="95a51ae07dee40d2b9442a937739ad29" Name="Diagram1">
+        <EntityTypeShape EntityType="risModel.akcia" PointX="6" PointY="16.75" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.den_v_tyzdni" PointX="3" PointY="27.375" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.denne_menu" PointX="5.25" PointY="13.125" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.jazyk" PointX="0.75" PointY="23.5" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.jedlo" PointX="8.25" PointY="23.375" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.jedlo_surovina" PointX="5.25" PointY="30.375" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.menu" PointX="3" PointY="12.375" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.menu_jedlo" PointX="10.5" PointY="18.25" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.menu_napoj" PointX="5.25" PointY="21.25" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.napoj" PointX="3" PointY="23.875" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.napoj_surovina" PointX="8.25" PointY="30.25" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.objednavka" PointX="10.5" PointY="8" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.objednavka_menu" PointX="12.75" PointY="18.125" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.obrazok" PointX="0.75" PointY="10.5" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.otvaracie_hodiny" PointX="8.25" PointY="27.25" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.platnost_zaznamu" PointX="0.75" PointY="20.75" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.podnik" PointX="0.75" PointY="13.375" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.preklad" PointX="3" PointY="17.25" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.stol" PointX="8.25" PointY="7.125" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.surovina" PointX="3" PointY="30.125" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.text" PointX="0.75" PointY="16.75" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.typ_jedla" PointX="3" PointY="33.375" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.typ_napoja" PointX="8.25" PointY="20.75" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.typ_uctu" PointX="6" PointY="9.75" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.ucet" PointX="8.25" PointY="9.5" Width="1.5" />
+        <EntityTypeShape EntityType="risModel.zmena_otvaracich_hodin" PointX="5.25" PointY="27.125" Width="1.5" />
+        <AssociationConnector Association="risModel.FK_Relationship32" />
+        <AssociationConnector Association="risModel.FK_Relationship8" />
+        <AssociationConnector Association="risModel.FK_Relationship9" />
+        <AssociationConnector Association="risModel.FK_Relationship12" />
+        <AssociationConnector Association="risModel.FK_Relationship14" />
+        <AssociationConnector Association="risModel.FK_Relationship28" />
+        <AssociationConnector Association="risModel.FK_denne_menu_v_menu" />
+        <AssociationConnector Association="risModel.FK_Relationship10" />
+        <AssociationConnector Association="risModel.FK_Relationship16" />
+        <AssociationConnector Association="risModel.FK_a" />
+        <AssociationConnector Association="risModel.FK_aaa" />
+        <AssociationConnector Association="risModel.fk_jedlo_obrazok1" />
+        <AssociationConnector Association="risModel.FK_jedlo_typy" />
+        <AssociationConnector Association="risModel.FK_Relationship27" />
+        <AssociationConnector Association="risModel.FK_suroviny_jedla" />
+        <AssociationConnector Association="risModel.FK_aa" />
+        <AssociationConnector Association="risModel.FK_aaaa" />
+        <AssociationConnector Association="risModel.FK_menu_podniku" />
+        <AssociationConnector Association="risModel.FK_Relationship15" />
+        <AssociationConnector Association="risModel.FK_Relationship29" />
+        <AssociationConnector Association="risModel.FK_Relationship31" />
+        <AssociationConnector Association="risModel.FK_Relationship37" />
+        <AssociationConnector Association="risModel.FK_menu_jedlo_to_objednavka_menu_relation" />
+        <AssociationConnector Association="risModel.FK_napoje_v_menu" />
+        <AssociationConnector Association="risModel.FK_napoje_k_surovinam" />
+        <AssociationConnector Association="risModel.FK_Relationship24" />
+        <AssociationConnector Association="risModel.FK_suroviny_k_napojom" />
+        <AssociationConnector Association="risModel.FK_objednavky_stolu" />
+        <AssociationConnector Association="risModel.FK_objednavky_z_menu" />
+        <AssociationConnector Association="risModel.FK_Relationship4" />
+        <AssociationConnector Association="risModel.FK_Relationship11" />
+        <AssociationConnector Association="risModel.FK_Relationship13" />
+        <AssociationConnector Association="risModel.FK_Relationship23" />
+        <AssociationConnector Association="risModel.FK_Relationship25" />
+        <AssociationConnector Association="risModel.FK_Relationship26" />
+        <AssociationConnector Association="risModel.FK_Relationship33" />
+        <AssociationConnector Association="risModel.FK_Relationship7" />
+        <AssociationConnector Association="risModel.napoj_typy" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
