@@ -15,70 +15,73 @@ namespace Services
     {
         private readonly risTabulky _ctx = new risTabulky();
 
-        public TJedlo Food(string id)
+        public TFood Food(string id)
         {
-            BJedlo.BJedloCol bjedla = new BJedlo.BJedloCol(_ctx);
+            BFood.BFoodCol bjedla = new BFood.BFoodCol(_ctx);
             bjedla.GetAll();
 
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
-            return (TJedlo) bjedla.FirstOrDefault(x => x.Key == Int32.Parse(id)).Value.toTransferObject("sk");
+            return (TFood) bjedla.FirstOrDefault(x => x.Key == Int32.Parse(id)).Value.toTransferObject("sk");
         }
 
-        public ICollection<TJedlo> Menu()
+        public ICollection<TFood> Menu()
         {
-            BJedlo.BJedloCol bjedla = new BJedlo.BJedloCol(_ctx);
+            BFood.BFoodCol bjedla = new BFood.BFoodCol(_ctx);
             bjedla.GetAll();
             
-            IList<TJedlo> listJedal = bjedla.toTransferList("sk").Cast<TJedlo>().ToList();
+            IList<TFood> listJedal = bjedla.toTransferList("sk").Cast<BFood>().ToList();
 
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return listJedal;
         }
 
-        public ICollection<TJedlo> DenneMenu()
+        public ICollection<TFood> DenneMenu()
         {
             throw new System.NotImplementedException();
         }
 
-        public TObjednavka Objednavka(string id)
+        public BFoodOrder Objednavka(string id)
         {
-            BObjednavka.BObjednavkaCol objednavka = new BObjednavka.BObjednavkaCol(_ctx);
+            BFoodOrder.BFoodOrderCol objednavka = new BFoodOrder.BFoodOrderCol(_ctx);
             objednavka.GetAll();
 
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return objednavka.FirstOrDefault(x => x.Key == Int32.Parse(id)).Value.ToTransferObject();
         }
 
-        public ICollection<TObjednavka> VsetkyObjednavky()
+        public ICollection<TFoodOrder> VsetkyObjednavky()
         {
-            BObjednavka.BObjednavkaCol objednavka = new BObjednavka.BObjednavkaCol(_ctx);
+            BFoodOrder.BFoodOrderCol objednavka = new BFoodOrder.BFoodOrderCol(_ctx);
             objednavka.GetAll();
 
-            IList<TObjednavka> objednavky = objednavka.ToTransferList();
+            IList<TFoodOrder> objednavky = objednavka.ToTransferList();
 
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return objednavky;
         }
 
+        /* ercisk
         public ICollection<TObjednavkaMenu> PolozkyObjednavky(string id)
         {
-            BObjednavka.BObjednavkaCol objednavka = new BObjednavka.BObjednavkaCol(_ctx);
+            BFoodOrder.BFoodOrderCol objednavka = new BFoodOrder.BFoodOrderCol(_ctx);
             var obj = objednavka.GetById(Convert.ToInt32(id));
 
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return obj.Items;
         }
+        */
 
-        public TObjednavka VytvorObjednavku(int stol, int ucet, double suma)
+        public TFoodOrder VytvorObjednavku(int stol, int ucet, double suma)
         {
-            var objednavka = new BObjednavka(stol, ucet, suma, _ctx);
-            objednavka = new BObjednavka(objednavka.entityObjednavka);
+            var objednavka = new BFoodOrder(stol, ucet, suma, _ctx);
+            objednavka = new BFoodOrder(objednavka.entityFoodOrder);
 
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return objednavka.ToTransferObject();
         }
 
-        public TObjednavka PridajPolozku(int objednavka, int podnik, int menu, int jedlo)
+        /* ercisk
+        public BFoodOrder PridajPolozku(int objednavka, int podnik, int menu, int jedlo)
         {
             // Vytvorenie novej polozky v objednavke
             new BObjednavka_menu(objednavka,podnik,menu,jedlo, _ctx);
@@ -86,7 +89,7 @@ namespace Services
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
 
             // nacitanie objednavky
-            BObjednavka.BObjednavkaCol objCol = new BObjednavka.BObjednavkaCol(_ctx);
+            BFoodOrder.BFoodOrderCol objCol = new BFoodOrder.BFoodOrderCol(_ctx);
             return objCol.GetById(objednavka);
         }
 
@@ -111,24 +114,25 @@ namespace Services
             }
             return null;
         }
+        */ // ercisk
 
-        public ICollection<TStol> Stoly()
+        public ICollection<TTable> Stoly()
         {
-            BStol.BStolCol stol = new BStol.BStolCol();
+            BTable.BTableCol stol = new BTable.BTableCol();
             stol.GetAll(_ctx);
 
-            IList<TStol> stoly = stol.ToTransferList();
+            IList<TTable> stoly = stol.ToTransferList();
 
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return stoly;
         }
 
-        public ICollection<TObjednavka> NeuvareneJedla()
+        public ICollection<TFoodOrder> NeuvareneJedla()
         {
-            BObjednavka.BObjednavkaCol objednavka = new BObjednavka.BObjednavkaCol(_ctx);
+            BFoodOrder.BFoodOrderCol objednavka = new BFoodOrder.BFoodOrderCol(_ctx);
             objednavka.GetAllNotAccepted();
 
-            IList<TObjednavka> objednavky = objednavka.ToTransferList();
+            IList<TFoodOrder> objednavky = objednavka.ToTransferList();
 
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return objednavky;

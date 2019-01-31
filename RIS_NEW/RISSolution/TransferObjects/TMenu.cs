@@ -1,6 +1,0 @@
-﻿namespace TransferObjects
-{
-    class TMenu
-    {
-    }
-}

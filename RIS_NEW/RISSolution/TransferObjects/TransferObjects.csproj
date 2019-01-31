@@ -40,24 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TAkcia.cs" />
-    <Compile Include="TDenneMenu.cs" />
-    <Compile Include="TJazyk.cs" />
-    <Compile Include="TJedlo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TMenu.cs" />
-    <Compile Include="TNapoj.cs" />
-    <Compile Include="TObjednavka.cs" />
-    <Compile Include="TObjednavkaMenu.cs" />
-    <Compile Include="TOtvaracieHodiny.cs" />
-    <Compile Include="TPodnik.cs" />
-    <Compile Include="TStol.cs" />
-    <Compile Include="TSurovina.cs" />
     <Compile Include="TransferEntity.cs" />
-    <Compile Include="TTypJedla.cs" />
-    <Compile Include="TTypNapoja.cs" />
-    <Compile Include="TUcet.cs" />
-    <Compile Include="TZmenaOtvaracichHodin.cs" />
+    <Compile Include="TFood.cs" />
+    <Compile Include="TFoodType.cs" />
+    <Compile Include="TAddition.cs" />
+    <Compile Include="TAlergen.cs" />
+    <Compile Include="TOrderFoods.cs" />
+    <Compile Include="TFoodOrder.cs" />
+    <Compile Include="TTable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -249,11 +249,14 @@ namespace BiznisObjects
         public class BFoodCol : Dictionary<int, BFood>
         {
 
-            public BFoodCol()
+            private risTabulky risContext;
+
+            public BFoodCol(risTabulky risContext)
             {
+                this.risContext = risContext;
             }
 
-            public bool GetAll(risTabulky risContext)
+            public bool GetAll()
             {
                 try
                 {

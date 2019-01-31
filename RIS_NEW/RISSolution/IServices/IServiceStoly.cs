@@ -13,52 +13,54 @@ namespace IServices
             ResponseFormat = WebMessageFormat.Json, 
             BodyStyle = WebMessageBodyStyle.Wrapped, 
             UriTemplate = "food/{id}")]
-        TJedlo Food(string id);
+        TFood Food(string id);
 
         [OperationContract]
         [WebInvoke(Method = "GET", 
             ResponseFormat = WebMessageFormat.Json, 
             BodyStyle = WebMessageBodyStyle.Wrapped, 
             UriTemplate = "menu")]
-        ICollection<TJedlo> Menu();
+        ICollection<TFood> Menu();
 
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "stoly")]
-        ICollection<TStol> Stoly();
+        ICollection<TTable> Stoly();
 
         [OperationContract]
-        ICollection<TJedlo> DenneMenu();
+        ICollection<TFood> DenneMenu();
 
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "objednavka/{id}")]
-        TObjednavka Objednavka(string id);
+        TFoodOrder Objednavka(string id);
 
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "objednavky")]
-        ICollection<TObjednavka> VsetkyObjednavky();
+        ICollection<TFoodOrder> VsetkyObjednavky();
 
+        /* ercisk
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "objednavka/{id}/polozky")]
         ICollection<TObjednavkaMenu> PolozkyObjednavky(string id);
+        */ // ercisk
 
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "objednavky/neuvarene")]
-        ICollection<TObjednavka> NeuvareneJedla();
+        ICollection<TFoodOrder> NeuvareneJedla();
 
         [OperationContract]
         [WebInvoke(Method = "POST",
@@ -66,7 +68,7 @@ namespace IServices
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "objednavka/nova")]
-        TObjednavka VytvorObjednavku(int stol, int ucet, double suma);
+        TFoodOrder VytvorObjednavku(int stol, int ucet, double suma);
 
         [OperationContract]
         [WebInvoke(Method = "POST",
@@ -74,8 +76,9 @@ namespace IServices
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "objednavka/polozka/nova")]
-        TObjednavka PridajPolozku(int objednavka, int podnik, int menu, int jedlo);
+        TFoodOrder PridajPolozku(int objednavka, int podnik, int menu, int jedlo);
 
+        /* ercisk
         [OperationContract]
         [WebInvoke(Method = "POST",
             RequestFormat = WebMessageFormat.Json,
@@ -83,5 +86,6 @@ namespace IServices
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "objednavka/polozka")]
         TObjednavkaMenu ZmenMnoztvo(int id, int mnozstvo);
+        */ // ercisk
     }
 }

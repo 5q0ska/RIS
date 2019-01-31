@@ -16,8 +16,8 @@ namespace IServices
         [WebInvoke(Method = "GET",
            ResponseFormat = WebMessageFormat.Json,
            BodyStyle = WebMessageBodyStyle.Wrapped,
-           UriTemplate = "jedlo/{id_jedla}/{id_jazyka}")]
-        TJedlo Jedlo(string id_jedla, string id_jazyka);
+           UriTemplate = "jedlo/{id_jedla}")]
+        TFood Jedlo(string id_jedla);
 
        /* [OperationContract]
         ICollection<TJedlo> vsetkyJedla(String startingWith, String id_jazyka);
