@@ -56,6 +56,7 @@
     <Compile Include="IServiceSprava.cs" />
     <Compile Include="IServiceStoly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IServiceSession.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DatabaseEntities\DatabaseParser\DatabaseEntities.csproj">

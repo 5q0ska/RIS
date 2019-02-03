@@ -14,6 +14,7 @@ namespace Services
     public class ServiceStoly : IServiceStoly
     {
         private readonly risTabulky _ctx = new risTabulky();
+        private int id_objednavka;
 
         public TFood Food(string id)
         {
@@ -21,7 +22,7 @@ namespace Services
             bjedla.GetAll();
 
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
-            return (TFood) bjedla.FirstOrDefault(x => x.Key == Int32.Parse(id)).Value.toTransferObject("sk");
+            return (TFood) bjedla.FirstOrDefault(x => x.Key == Int32.Parse(id)).Value.toTransferObject();
         }
 
         public ICollection<TFood> Menu()
@@ -29,7 +30,7 @@ namespace Services
             BFood.BFoodCol bjedla = new BFood.BFoodCol(_ctx);
             bjedla.GetAll();
             
-            IList<TFood> listJedal = bjedla.toTransferList("sk").Cast<BFood>().ToList();
+            IList<TFood> listJedal = bjedla.toTransferList().Cast<TFood>().ToList();
 
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return listJedal;
@@ -40,7 +41,7 @@ namespace Services
             throw new System.NotImplementedException();
         }
 
-        public BFoodOrder Objednavka(string id)
+        public TFoodOrder Objednavka(string id)
         {
             BFoodOrder.BFoodOrderCol objednavka = new BFoodOrder.BFoodOrderCol(_ctx);
             objednavka.GetAll();
@@ -71,20 +72,21 @@ namespace Services
         }
         */
 
-        public TFoodOrder VytvorObjednavku(int stol, int ucet, double suma)
+        public TFoodOrder VytvorObjednavku(int id_jedla, int y, int m, int d, int h, int mi, int s, int mils)
         {
-            var objednavka = new BFoodOrder(stol, ucet, suma, _ctx);
+
+            DateTimeOffset t = new DateTimeOffset(y, m, d, h, mi, s, mils, TimeSpan.Zero);
+            var objednavka = new BFoodOrder(id_objednavka++, id_jedla, t, _ctx);
             objednavka = new BFoodOrder(objednavka.entityFoodOrder);
 
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return objednavka.ToTransferObject();
         }
 
-        /* ercisk
-        public BFoodOrder PridajPolozku(int objednavka, int podnik, int menu, int jedlo)
+        public TFoodOrder PridajPolozku(int objednavka, int jedlo)
         {
             // Vytvorenie novej polozky v objednavke
-            new BObjednavka_menu(objednavka,podnik,menu,jedlo, _ctx);
+            new BFoodOrder(objednavka,jedlo, DateTimeOffset.Now, _ctx);
 
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
 
@@ -92,7 +94,7 @@ namespace Services
             BFoodOrder.BFoodOrderCol objCol = new BFoodOrder.BFoodOrderCol(_ctx);
             return objCol.GetById(objednavka);
         }
-
+        /* ercisk
         public TObjednavkaMenu ZmenMnoztvo(int id, int mnozstvo)
         {
             if (mnozstvo > 0)
@@ -114,7 +116,6 @@ namespace Services
             }
             return null;
         }
-        */ // ercisk
 
         public ICollection<TTable> Stoly()
         {
@@ -136,6 +137,60 @@ namespace Services
 
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return objednavky;
+        }
+        */ // ercisk
+
+        public bool zaplat(int id_objednavky)
+        {
+            try
+            {
+                TFoodOrder temp = Objednavka(id_objednavky + "");
+                temp.IsPaid = 1;
+                _ctx.SaveChanges();
+                WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool odosli(int id_objednavky)
+        {
+            try
+            {
+                TFoodOrder temp = Objednavka(id_objednavky + "");
+                temp.IsSended = 1;
+                _ctx.SaveChanges();
+                WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool vymazJedlo(int id_objednavky, int id_jedla)
+        {
+            try
+            {
+                BOrderFoods.BOrderFoodsCol objednavka = new BOrderFoods.BOrderFoodsCol();
+                objednavka.GetAll(_ctx);
+
+                WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
+                BOrderFoods t = objednavka.FirstOrDefault(x => x.Value.FoodId == Int32.Parse(id_jedla + "") && x.Value.OrderId == Int32.Parse(id_objednavky + "")).Value.ToTransferObject();
+                _ctx.order_foods.Remove(t.entityOrderFoods);
+                _ctx.SaveChanges();
+
+                WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

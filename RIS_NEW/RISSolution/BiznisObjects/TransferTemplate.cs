@@ -15,7 +15,7 @@ namespace BiznisObjects
         /// </summary>
         /// <param name="id_jazyka">id jazyka v ktorom mmajú byť texty prenosovej entity</param>
         /// <returns></returns>
-         TransferEntity toTransferObject(String id_jazyka);
+         TransferEntity toTransferObject();
 
         /// <summary>
         ///   Aktualizuje biznis objekt a príslušný záznam v databáze na základe dát z prenosovej entity
@@ -35,7 +35,7 @@ namespace BiznisObjects
         /// </summary>
         /// <param name="kod_jazyka">id jazyka v ktorom je prenosový objekt</param>
         /// <returns>kolekcia prenosových objektov</returns>
-        IList<TransferEntity> toTransferList(String kod_jazyka);
+        IList<TransferEntity> toTransferList();
     }
 
 }

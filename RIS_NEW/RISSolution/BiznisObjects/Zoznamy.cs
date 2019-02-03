@@ -28,7 +28,7 @@ namespace BiznisObjects
 
         public static BRisUser dajUcet(String login, risTabulky risContext)
         {
-            return new BRisUser(risContext.ris_user.First(p => p.name==(login)));
+            return new BRisUser(risContext.ris_user.First(p => p.email==(login)));
         }
 
     }

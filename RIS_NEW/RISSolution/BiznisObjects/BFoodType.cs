@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DatabaseEntities;
+using TransferObjects;
 
 
 namespace BiznisObjects
@@ -142,12 +143,14 @@ namespace BiznisObjects
 
         public class BFoodTypeCol : Dictionary<int, BFoodType>
         {
+            private risTabulky risContext;
 
-            public BFoodTypeCol()
+            public BFoodTypeCol(risTabulky risContext)
             {
+                this.risContext = risContext;
             }
 
-            public bool GetAll(risTabulky risContext)
+            public bool GetAll()
             {
                 try
                 {
@@ -160,13 +163,25 @@ namespace BiznisObjects
 
                     return true;
                 }
-                catch
+                catch (Exception)
                 {
                     return false;
                 }
             }
 
+
+            public IList<TFoodType> toList()
+            {
+                IList<TFoodType> result = new List<TFoodType>();
+                foreach (var typJedla in this)
+                {
+                    result.Add(new TFoodType(typJedla.Value.FoodTypeId, typJedla.Value.Name));
+                }
+                return result;
+            }
+
         }
+
 
     }
 }

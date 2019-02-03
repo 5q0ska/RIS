@@ -19,14 +19,21 @@ namespace IServices
            UriTemplate = "jedlo/{id_jedla}")]
         TFood Jedlo(string id_jedla);
 
-       /* [OperationContract]
-        ICollection<TJedlo> vsetkyJedla(String startingWith, String id_jazyka);
-
         [OperationContract]
-        IList<TTypJedla> typyJedal(String id_jazyka);
+        [WebInvoke(Method = "GET",
+           ResponseFormat = WebMessageFormat.Json,
+           BodyStyle = WebMessageBodyStyle.Wrapped,
+           UriTemplate = "jedla/{id_kategorie}")]
+        ICollection<TFood> JedlaKategorie(int id_kategorie);
 
-        [OperationContract]
-        Boolean update_jedlo(String session,TJedlo jedlo);
-        */
+        /* [OperationContract]
+         ICollection<TJedlo> vsetkyJedla(String startingWith, String id_jazyka);
+
+         [OperationContract]
+         IList<TTypJedla> typyJedal(String id_jazyka);
+
+         [OperationContract]
+         Boolean update_jedlo(String session,TJedlo jedlo);
+         */
     }
 }

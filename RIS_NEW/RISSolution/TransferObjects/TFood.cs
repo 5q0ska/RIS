@@ -84,7 +84,7 @@ namespace TransferObjects
             this.list_food_alergens = foodAlergens;
         }
 
-        public TFood(int FoodId)
+        public TFood(int FoodId, int foodTypeId)
         {
             this.FoodId = FoodId;
             this.FoodTypeId = 0;

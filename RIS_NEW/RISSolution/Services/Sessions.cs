@@ -5,13 +5,14 @@ using System.Text;
 using System.Web.Services.Protocols;
 using BiznisObjects;
 using DatabaseEntities;
+using IServices;
 
 namespace Services
 {
     /// <summary>
     ///  Zoznám prihlasení
     /// </summary>
-    public class Sessions
+    public class Sessions : IServiceSession
     {
         
         private readonly int ADMIN = 1;
@@ -39,14 +40,16 @@ namespace Services
         /// </returns>
         public Boolean JeAdmin(String session)
         {
-            /*
             if (prihlasenia[session] != null)
             {
-                return (prihlasenia[session].typ_uctu.id == ADMIN);
+
+                /*
+                    return (prihlasenia[session].typ_uctu.id == ADMIN);
+                    
+                */ // ercisk 
+                return true;                  
             }
-            throw new SoapException("You are not logged in", SoapException.ClientFaultCode);
-            */ // ercisk
-            return true;           
+            throw new SoapException("You are not logged in", SoapException.ClientFaultCode);          
         }
 
         /// <summary>
@@ -58,28 +61,28 @@ namespace Services
         /// </returns>
         public Boolean jeStol(String session)
         {
-            /*
             if (prihlasenia[session] != null)
             {
+                /*
                 return (prihlasenia[session].typ_uctu.id == STOL);
+                */ // ercisk
+                return true;
             }
             throw new SoapException("You are not logged in", SoapException.ClientFaultCode);
-            */ // ercisk
-            return true;           
         }
 
         /// <summary>
         ///  Prihlas učet
         /// </summary>
-        /// <param name="meno">prihlasovací login</param>
+        /// <param name="email">prihlasovací login</param>
         /// <param name="heslo">prihlasovacie heslo</param>
         /// <returns>
         ///    session prihlasenia
         /// </returns>
-        public String logIn(String meno, String heslo)
+        public String logIn(String email, String heslo)
         {
             String hash = GetCrypt(heslo);
-            BRisUser ucet=Zoznamy.dajUcet(meno,risContext);
+            BRisUser ucet=Zoznamy.dajUcet(email,risContext);
             if (ucet != null)
             {
                 if (ucet.Password == hash)
@@ -119,5 +122,37 @@ namespace Services
             return hash;
         }
 
+        public bool logOut(string email)
+        {
+            BRisUser ucet = Zoznamy.dajUcet(email, risContext);
+            string kluc = "";
+
+            if (ucet != null)
+            {
+                foreach (var p in prihlasenia)
+                {
+                    if (p.Value.Email == email)
+                    {
+                        kluc = p.Key;
+                    }
+                }
+            }
+            return prihlasenia.Remove(kluc);
+        }
+
+        public BRisUser registruj(string meno, string priezvisko, string email, string heslo)
+        {
+            BRisUser ret = new BRisUser();
+            ret.Name = meno;
+            ret.RisUserId = int.Parse(DateTime.Now.Minute + "" + DateTime.Now.Millisecond);
+            ret.Email = email;
+            ret.Password = GetCrypt(heslo);
+            ret.Surname = priezvisko;
+            ret.FillEntity();
+
+            risContext.ris_user.Add(ret.entityRisUser);
+            risContext.SaveChanges();
+            return ret;
+        }
     }
 }

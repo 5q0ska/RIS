@@ -40,12 +40,12 @@ namespace Services
         /// <param name="id_jedla">identifikátor jedla</param>
         /// <param name="id_jazyka">identifikátor jazyka pre prenosovú entitu</param>
         /// <returns>informácie o jedle</returns>
-        public TFood Jedlo(string id_jedla, string id_jazyka)
+        public TFood Jedlo(string id_jedla)
         {
             risTabulky risContext = aDBExecutor.risContext;
             BFood jedlo = Zoznamy.dajJedlo(Int32.Parse(id_jedla), risContext);
 
-            TFood result = (TFood) jedlo.toTransferObject(id_jazyka);
+            TFood result = (TFood) jedlo.toTransferObject();
            /* result.TypeId = jedlo.typ_jedla.id_typu;
             if (jedlo.dlzka_pripravy.HasValue) result.Length = jedlo.dlzka_pripravy;
             if (jedlo.mnozstvo_kalorii.HasValue) result.AmountOfCalories = jedlo.mnozstvo_kalorii;
@@ -62,12 +62,12 @@ namespace Services
         /// <param name="startingWith">zadaný reťazec</param>
         /// <param name="id_jazyka">id jazyka</param>
         /// <returns></returns>
-        public ICollection<TFood> vsetkyJedla(String startingWith, String id_jazyka)
+        public ICollection<TFood> vsetkyJedla(String startingWith)
         {
             risTabulky risContext = aDBExecutor.risContext;
             BFood.BFoodCol result = new BFood.BFoodCol(risContext);
             result.GetNameStartingWith(startingWith);
-            return (ICollection<TFood>) result.toTransferList(id_jazyka);
+            return (ICollection<TFood>) result.toTransferList();
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace Services
         /// <returns> <c>TRUE</c> ,ak sa podarilo
         ///         <c>FALSE</cd> , ak sa nepodarilo
         ///  </returns>
-        public Boolean update_jedlo(String session,TJedlo jedlo)
+        public Boolean update_jedlo(String session,TFood jedlo)
         {
             if (sessions.JeAdmin(session))
             {
@@ -99,19 +99,34 @@ namespace Services
             }
         }
 
-        public IList<TSurovina> surovinyJedla(int id_jedla, String id_jazyka)
+        public IList<TAddition> surovinyJedla(int id_jedla)
         {
             risTabulky risContext = aDBExecutor.risContext;
             BFood jedlo=Zoznamy.dajJedlo(id_jedla, risContext);
-            return jedlo.PE_suroviny_jedla(id_jazyka);
+            IList<TAddition> temp = new List<TAddition>();
+            /* ercisk
+            foreach (var t in jedlo.FoodAdditions)
+            {
+                temp.Add(t)
+            }
+            */ // ercisk
+            return temp;
         }
 
-        public IList<TFoodType> typyJedal(String id_jazyka)
+        public IList<TFoodType> typyJedal()
         {
             risTabulky risContext = aDBExecutor.risContext;
             BFoodType.BFoodTypeCol kolBTypJedlaCol = new BFoodType.BFoodTypeCol(risContext);
             kolBTypJedlaCol.GetAll();
-            return kolBTypJedlaCol.toList(id_jazyka);
+            return kolBTypJedlaCol.toList();
+        }
+
+        public ICollection<TFood> JedlaKategorie(int id_kategorie)
+        {
+            risTabulky risContext = aDBExecutor.risContext;
+            BFood.BFoodCol result = new BFood.BFoodCol(risContext);
+            result.GetFoodType(id_kategorie);
+            return (ICollection<TFood>)result.toTransferList();
         }
     }
 }

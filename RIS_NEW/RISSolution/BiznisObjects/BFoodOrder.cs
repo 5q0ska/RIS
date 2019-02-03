@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DatabaseEntities;
-
+using TransferObjects;
 
 namespace BiznisObjects
 {
@@ -24,6 +24,25 @@ namespace BiznisObjects
         public BFoodOrder()
         {
             this.Reset();
+        }
+
+        public BFoodOrder(int objednavka, int jedlo, DateTimeOffset cas, risTabulky risContext)
+        {
+            entityFoodOrder = new food_order
+            {
+                food_order_id = objednavka,
+                order_date = cas,
+                discount_price = 0,
+                is_paid = 0,
+                is_sended = 0,
+                total_price = 0
+            };
+            if (risContext != null)
+            {
+                risContext.food_order.Add(entityFoodOrder);
+                risContext.SaveChanges();
+            }
+            FillBObject();
         }
 
         public BFoodOrder(food_order foodOrder)
@@ -186,12 +205,14 @@ namespace BiznisObjects
 
         public class BFoodOrderCol : Dictionary<int, BFoodOrder>
         {
+            private risTabulky risContext;
 
-            public BFoodOrderCol()
+            public BFoodOrderCol(risTabulky r)
             {
+                risContext = r;
             }
 
-            public bool GetAll(risTabulky risContext)
+            public bool GetAll()
             {
                 try
                 {
@@ -209,6 +230,50 @@ namespace BiznisObjects
                     return false;
                 }
             }
+
+            public IList<TFoodOrder> ToTransferList()
+            {
+                IList<TFoodOrder> result = new List<TFoodOrder>();
+                foreach (var objednavka in this)
+                {
+                    TFoodOrder objednavkaTemp = objednavka.Value.ToTransferObject();
+                    result.Add(objednavkaTemp);
+                }
+                return result;
+            }
+
+            public TFoodOrder GetById(int id)
+            {
+                var temp = from a in risContext.food_order where a.food_order_id == id select a;
+                var bObjednavka = new BFoodOrder(temp.ToList()[0]);
+                return bObjednavka.ToTransferObject();
+            }
         }
+
+        public TFoodOrder ToTransferObject()
+        {
+            /* ercisk
+            IList<TObjednavkaMenu> polozky = new List<TObjednavkaMenu>();
+            foreach (var bObjednavkaMenu in objednavka_menu)
+            {
+                polozky.Add(bObjednavkaMenu.ToTransferObject());
+            }
+            TObjednavka tObjednavka = new TObjednavka(id_objednavky, id_stola, id_uctu, potvrdena, suma, polozky);
+            if (datum_objednania != null)
+            {
+                tObjednavka.DatumObjednania = datum_objednania.Value.ToString();
+            }
+            if (datum_zaplatenia != null)
+            {
+                tObjednavka.DatumZaplatenia = datum_zaplatenia.Value.ToString();
+            }
+            */ // ercisk
+
+            TFoodOrder tObjednavka = new TFoodOrder(FoodOrderId, OrderDate, TotalPrice, IsPaid, IsSended, DiscountPrice);
+            return tObjednavka;
+        }
+
+
+
     }
 }

@@ -116,7 +116,7 @@ namespace BiznisObjects
             }
         }
 
-        private void FillEntity()
+        public void FillEntity()
         {
             entityRisUser.ris_user_id = RisUserId;
             entityRisUser.email = Email;

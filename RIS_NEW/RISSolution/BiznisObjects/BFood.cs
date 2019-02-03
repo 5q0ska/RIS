@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using DatabaseEntities;
-
+using TransferObjects;
 
 namespace BiznisObjects
 {
 
-    public class BFood
+    public class BFood : TransferTemplate
     {
         public int FoodId { get; set; }
         public int FoodTypeId { get; set; }
@@ -246,9 +246,11 @@ namespace BiznisObjects
             return success;
         }
 
-        public class BFoodCol : Dictionary<int, BFood>
+        /// <summary>
+        /// Zoznám jedal ako dictionary s id a jedlom
+        /// </summary>
+        public class BFoodCol : Dictionary<int, BFood>, TransferTemplateList
         {
-
             private risTabulky risContext;
 
             public BFoodCol(risTabulky risContext)
@@ -256,12 +258,65 @@ namespace BiznisObjects
                 this.risContext = risContext;
             }
 
+            /// <summary>
+            /// Naplní zoznám jedal všetkými jedlami z databázy
+            /// </summary>
+            /// <returns>
+            ///    <c>TRUE</c> , ak došlo k úspešnému načitaniu
+            ///    <c>FALSE</c> , ak nedošlo k úspešenému načitaniu
+            /// </returns>
             public bool GetAll()
             {
                 try
                 {
                     var temp = from a in risContext.food select a;
                     List<food> tempList = temp.ToList();
+                    foreach (var a in tempList)
+                    {
+                        this.Add(a.food_id, new BFood(a));
+                    }
+
+                    /*
+                     * URCITE TREBA ODSTRANIT TIETO RIADKY - su pouzite len kvoli ziskaniu nejakej ceny
+                     */
+                     /* ercisk
+                    var menuJedloQuery = from a in risContext.menu_jedlo select a;
+                    List<menu_jedlo> menuJedloZoznam = menuJedloQuery.ToList();
+                    foreach (var menuJedlo in menuJedloZoznam)
+                    {
+                        if (this.TryGetValue(menuJedlo.id_jedla, out BJedlo jedlo))
+                        {
+                            jedlo.Cena = menuJedlo.cena;
+                        }
+                    }
+                    */ // ercisk
+
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+
+            /// <summary>
+            /// Naplní zoznam surovín všetkými jedlami v databáze ,ktorých názvy začínajú na text ,ktorý je parametrom
+            /// </summary>
+            /// <param name="startingString">text, na ktorý majú začínať nazvy , aspoň 3 písmena</param>
+            /// <param name="risContext">kontext databázy</param>
+            /// <returns>
+            ///    <c>TRUE</c> , ak došlo k úspešnému načitaniu
+            ///    <c>FALSE</c> , ak nedošlo k úspešenému načitaniu
+            /// </returns>
+            public bool GetNameStartingWith(String startingString)
+            {
+                try
+                {
+                    var jedla = from a in risContext.food where a.name.Contains(startingString) select a;
+
+
+                    List<food> tempList = jedla.ToList();
+                    this.Clear();
                     foreach (var a in tempList)
                     {
                         this.Add(a.food_id, new BFood(a));
@@ -274,6 +329,190 @@ namespace BiznisObjects
                     return false;
                 }
             }
+
+            public bool GetFoodType(int foodType)
+            {
+                try
+                {
+                    var jedla = from a in risContext.food where a.food_type_id == foodType select a;
+
+
+                    List<food> tempList = jedla.ToList();
+                    this.Clear();
+                    foreach (var a in tempList)
+                    {
+                        this.Add(a.food_id, new BFood(a));
+                    }
+
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+
+            public IList<TransferEntity> toTransferList()
+            {
+                IList<TransferEntity> result = new List<TransferEntity>();
+                foreach (var jedlo in this)
+                {
+                    var metadata = new byte[10];
+                    if (jedlo.Value.Image != null)
+                    {
+                        metadata = jedlo.Value.Image;
+                    }
+                    TFood jedloTemp = new TFood(jedlo.Value.FoodId, jedlo.Value.FoodTypeId, jedlo.Value.Name, jedlo.Value.PriceWithoutAdditions, jedlo.Value.PreparationTime, jedlo.Value.Weight, jedlo.Value.PriceWithAdditions, jedlo.Value.Description, metadata);
+
+                        jedloTemp.PriceWithoutAdditions = (double)jedlo.Value.PriceWithoutAdditions;
+
+                    result.Add(jedloTemp);
+                }
+                return result;
+            }
         }
+
+        public TransferEntity toTransferObject()
+        {
+            TFood result = new TFood(FoodId, FoodTypeId, Name, PriceWithoutAdditions, PreparationTime, Weight, PriceWithAdditions, Description, Image);
+            foreach (var surovina in FoodAdditions)
+            {
+                TAddition s = new TAddition(surovina.AdditionId, surovina.Addition.Name, surovina.Addition.Weight, surovina.Addition.Price, surovina.Addition.Description);
+                result.PridajPrilohu(s);
+            }
+            return result;
+        }
+
+        public void updatefromTransferObject(TransferEntity transferEntity, risTabulky risContext)
+        {
+            if (transferEntity.GetType() == typeof(TFood))
+            {
+                TFood jedlo = (TFood)transferEntity;
+                if (jedlo.FoodId != null)
+                {
+                    if (!jedlo.FoodTypeId.Equals(FoodTypeId))
+                    {
+                        entityFood.food_type_id = jedlo.FoodTypeId;
+                    }
+
+                    if (!jedlo.Name.Equals(Name))
+                    {
+                        entityFood.name = jedlo.Name;
+                    }
+
+                    if (!jedlo.PriceWithoutAdditions.Equals(PriceWithoutAdditions))
+                    {
+                        entityFood.price_without_additions = jedlo.PriceWithoutAdditions;
+                    }
+
+                    if (!jedlo.PreparationTime.Equals(PreparationTime))
+                    {
+                        entityFood.preparation_time = jedlo.PreparationTime;
+                    }
+
+                    if (!jedlo.Weight.Equals(Weight))
+                    {
+                        entityFood.weight = jedlo.Weight;
+                    }
+
+                    if (!jedlo.PriceWithAdditions.Equals(PriceWithAdditions))
+                    {
+                        entityFood.price_with_additions = jedlo.PriceWithAdditions;
+                    }
+
+                    if (!jedlo.Description.Equals(Description))
+                    {
+                        entityFood.description = jedlo.Description;
+                    }
+
+                    foreach (var surovina in FoodAdditions)
+                    {
+                        TAddition tempSurovina = jedlo.FoodAdditions.First(p => p.AdditionId == surovina.AdditionId);
+                        if (tempSurovina != null)
+                        {
+                            if (!surovina.Addition.Price.Equals(tempSurovina.Price))
+                            {
+                                surovina.Addition.Price = tempSurovina.Price;
+                            }
+                        }
+                        else
+                        {
+                            entityFood.food_additions.Remove(surovina.entityFoodAdditions);
+                        }
+
+                    }
+
+
+                    foreach (var surovina in jedlo.FoodAdditions)
+                    {
+                        food_additions temp_bsurovina = entityFood.food_additions.First(p => p.addition_id == surovina.AdditionId);
+                        if (temp_bsurovina == null)
+                        {
+                            entityFood.food_additions.Add(risContext.food_additions.First(p => p.addition_id == surovina.AdditionId));
+                        }
+                    }
+
+                    /* ercisk
+                    foreach (var preklad in jedlo)
+                    {
+                        preklad temp_preklad = entity.text.preklad.First(p => p.kod_jazyka.Equals(preklad.Key));
+                        if (temp_preklad == null)
+                        {
+                            preklad prkl = new preklad();
+                            prkl.kod_jazyka = preklad.Key;
+                            prkl.preklad1 = preklad.Value;
+                            prkl.text = nazov.entityText;
+
+                            risContext.preklad.Add(prkl);
+                            entity.text.preklad.Add(prkl);
+                        }
+                        else
+                        {
+                            temp_preklad.preklad1 = preklad.Value;
+                        }
+                    }
+
+                    foreach (var preklad in nazov.preklad)
+                    {
+                        String temp_preklad = jedlo.Translations.Keys.First(p => p.Equals(preklad.kod_jazyka));
+                        if (temp_preklad == null)
+                        {
+                            nazov.preklad.Remove(preklad);
+                        }
+                    }
+                    */ //ercisk
+
+                    risContext.SaveChanges();
+
+
+                }
+                else
+                {
+                    this.Reset();
+                    entityFood = new food();
+
+                    /* ercisk
+                    entityFood. = jedlo.AmountOfCalories;
+                    entityFood.dlzka_pripravy = jedlo.Length;
+
+                    foreach (var suroviny in jedlo.RawMaterial)
+                    {
+                        surovina surovinaTemp = risContext.surovina.First(p => p.id_surovina == suroviny.Id);
+                        if (surovinaTemp != null)
+                        {
+                            jedlo_surovina tempJedloSurovina = new jedlo_surovina();
+                            tempJedloSurovina.jedlo = entity;
+                            tempJedloSurovina.surovina = surovinaTemp;
+                            tempJedloSurovina.mnozstvo = suroviny.Mnozstvo;
+                            entityFood.jedlo_surovina.Add(tempJedloSurovina);
+                        }
+                    }
+
+                    */ // ercisk
+
+                }
+            }
+        }
+
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DatabaseEntities;
+using TransferObjects;
 
 
 namespace BiznisObjects
@@ -157,6 +158,32 @@ namespace BiznisObjects
                     return false;
                 }
             }
+
+        }
+        public BOrderFoods ToTransferObject()
+        {
+            /* ercisk
+            IList<TObjednavkaMenu> polozky = new List<TObjednavkaMenu>();
+            foreach (var bObjednavkaMenu in objednavka_menu)
+            {
+                polozky.Add(bObjednavkaMenu.ToTransferObject());
+            }
+            TObjednavka tObjednavka = new TObjednavka(id_objednavky, id_stola, id_uctu, potvrdena, suma, polozky);
+            if (datum_objednania != null)
+            {
+                tObjednavka.DatumObjednania = datum_objednania.Value.ToString();
+            }
+            if (datum_zaplatenia != null)
+            {
+                tObjednavka.DatumZaplatenia = datum_zaplatenia.Value.ToString();
+            }
+            */ // ercisk
+
+            order_foods t = new order_foods();
+            t.food_id = FoodId;
+            t.order_id = OrderId;
+            BOrderFoods tObjednavka = new BOrderFoods(t);
+            return tObjednavka;
         }
     }
 }
