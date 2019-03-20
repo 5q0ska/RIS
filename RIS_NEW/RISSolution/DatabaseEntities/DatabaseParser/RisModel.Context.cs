@@ -36,7 +36,7 @@ namespace DatabaseEntities
         public DbSet<food_type> food_type { get; set; }
         public DbSet<order_foods> order_foods { get; set; }
         public DbSet<ris_user> ris_user { get; set; }
-        public DbSet<table> table { get; set; }
+        public DbSet<dining_table> dining_table { get; set; }
         public DbSet<table_reservations> table_reservations { get; set; }
         public DbSet<user_orders> user_orders { get; set; }
     }

@@ -72,27 +72,27 @@ namespace Services
         }
         */
 
-        public TFoodOrder VytvorObjednavku(int id_jedla, int y, int m, int d, int h, int mi, int s, int mils)
+        public TFoodOrder VytvorObjednavku(string id_jedla, string y, string m, string d, string h, string mi, string s, string mils)
         {
 
-            DateTimeOffset t = new DateTimeOffset(y, m, d, h, mi, s, mils, TimeSpan.Zero);
-            var objednavka = new BFoodOrder(id_objednavka++, id_jedla, t, _ctx);
+            DateTimeOffset t = new DateTimeOffset(int.Parse(y), int.Parse(m), int.Parse(d), int.Parse(h), int.Parse(mi), int.Parse(s), int.Parse(mils), TimeSpan.Zero);
+            var objednavka = new BFoodOrder(id_objednavka++, int.Parse(id_jedla), t, _ctx);
             objednavka = new BFoodOrder(objednavka.entityFoodOrder);
 
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             return objednavka.ToTransferObject();
         }
 
-        public TFoodOrder PridajPolozku(int objednavka, int jedlo)
+        public TFoodOrder PridajPolozku(string objednavka, string jedlo)
         {
             // Vytvorenie novej polozky v objednavke
-            new BFoodOrder(objednavka,jedlo, DateTimeOffset.Now, _ctx);
+            new BFoodOrder(int.Parse(objednavka), int.Parse(jedlo), DateTimeOffset.Now, _ctx);
 
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
 
             // nacitanie objednavky
             BFoodOrder.BFoodOrderCol objCol = new BFoodOrder.BFoodOrderCol(_ctx);
-            return objCol.GetById(objednavka);
+            return objCol.GetById(int.Parse(objednavka));
         }
         /* ercisk
         public TObjednavkaMenu ZmenMnoztvo(int id, int mnozstvo)
@@ -140,7 +140,7 @@ namespace Services
         }
         */ // ercisk
 
-        public bool zaplat(int id_objednavky)
+        public bool zaplat(string id_objednavky)
         {
             try
             {
@@ -156,7 +156,7 @@ namespace Services
             }
         }
 
-        public bool odosli(int id_objednavky)
+        public bool odosli(string id_objednavky)
         {
             try
             {
@@ -172,7 +172,7 @@ namespace Services
             }
         }
 
-        public bool vymazJedlo(int id_objednavky, int id_jedla)
+        public bool vymazJedlo(string id_objednavky, string id_jedla)
         {
             try
             {
@@ -191,6 +191,38 @@ namespace Services
             {
                 return false;
             }
+        }
+
+        public bool test(string text)
+        {
+            Console.WriteLine("prebehol test: " + text);
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "prebehol test: " + text);
+            return true;
+        }
+
+        public bool test2()
+        {
+            Console.WriteLine("prebehol test bez parametru");
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "prebehol test bez parametru");
+            return true;
+        }
+
+        public ICollection<TAlergen> test3()
+        {
+            Console.WriteLine("prebehol test 3");
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "prebehol test 3");
+            ICollection<TAlergen> ret = new List<TAlergen>();
+            ret.Add(new TAlergen(133, "test"));
+            return ret;
+        }
+
+        public ICollection<TAlergen> test4()
+        {
+            Console.WriteLine("prebehol test 4");
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
+            ICollection<TAlergen> ret = new List<TAlergen>();
+            ret.Add(new TAlergen(133, "test"));
+            return ret;
         }
     }
 }

@@ -42,6 +42,8 @@ namespace RISServerNew
                 ("An exception occurred: {0}", ce.Message);
                 selfHost.Abort();
             }
+
+            Console.ReadLine();
         }
     }
 }

@@ -77,7 +77,7 @@
     <Compile Include="food_type.cs" />
     <Compile Include="order_foods.cs" />
     <Compile Include="ris_user.cs" />
-    <Compile Include="table.cs" />
+    <Compile Include="dining_table.cs" />
     <Compile Include="user_orders.cs" />
     <Compile Include="table_reservations.cs" />
   </ItemGroup>

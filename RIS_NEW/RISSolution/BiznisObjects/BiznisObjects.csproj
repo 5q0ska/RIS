@@ -72,7 +72,7 @@
     <Compile Include="BFoodType.cs" />
     <Compile Include="BOrderFoods.cs" />
     <Compile Include="BRisUser.cs" />
-    <Compile Include="BTable.cs" />
+    <Compile Include="BDiningTable.cs" />
     <Compile Include="BTableReservations.cs" />
     <Compile Include="BUserOrders.cs" />
   </ItemGroup>

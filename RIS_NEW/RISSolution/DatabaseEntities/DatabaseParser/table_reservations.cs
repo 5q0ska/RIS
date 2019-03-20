@@ -9,7 +9,7 @@ namespace DatabaseEntities
         public int user_id { get; set; }
         public DateTimeOffset date_time { get; set; }
 
-        public virtual table table { get; set; }
+        public virtual dining_table dining_table { get; set; }
         public virtual ris_user user { get; set; }
     }
 }

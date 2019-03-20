@@ -70,8 +70,8 @@ namespace IServices
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
-            UriTemplate = "objednavky/nova/{jedlo}/{y}_{m}_{d}_{h}_{mi}_{s}_{mil}")]
-        TFoodOrder VytvorObjednavku(int jedlo, int y, int m, int d, int h, int mi, int s, int mils);
+            UriTemplate = "objednavky/nova/{jedlo}/{y}_{m}_{d}_{h}_{mi}_{s}_{mils}")]
+        TFoodOrder VytvorObjednavku(string jedlo, string y, string m, string d, string h, string mi, string s, string mils);
 
         [OperationContract]
         [WebInvoke(Method = "POST",
@@ -79,7 +79,7 @@ namespace IServices
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "objednavky/{objednavka}/pridat/{jedlo}")]
-        TFoodOrder PridajPolozku(int objednavka, int jedlo);
+        TFoodOrder PridajPolozku(string objednavka, string jedlo);
 
         /* ercisk
         [OperationContract]
@@ -88,7 +88,7 @@ namespace IServices
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "objednavka/polozka")]
-        TObjednavkaMenu ZmenMnoztvo(int id, int mnozstvo);
+        TObjednavkaMenu ZmenMnoztvo(string id, string mnozstvo);
         */ // ercisk
 
         [OperationContract]
@@ -97,7 +97,7 @@ namespace IServices
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "zaplat/{objednavka}")]
-        bool zaplat(int objednavka);
+        bool zaplat(string objednavka);
 
         [OperationContract]
         [WebInvoke(Method = "POST",
@@ -105,7 +105,7 @@ namespace IServices
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "odosli/{objednavka}")]
-        bool odosli(int objednavka);
+        bool odosli(string objednavka);
 
         [OperationContract]
         [WebInvoke(Method = "POST",
@@ -113,6 +113,34 @@ namespace IServices
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "vymaz_jedlo/{id_objednavky}/jedlo/{id_jedla}")]
-        bool vymazJedlo(int id_objednavky, int id_jedla);
+        bool vymazJedlo(string id_objednavky, string id_jedla);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            UriTemplate = "test/{text}")]
+        bool test(string text);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            UriTemplate = "testtest")]
+        bool test2();
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            UriTemplate = "testtesttest")]
+        ICollection<TAlergen> test3();
+
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+           ResponseFormat = WebMessageFormat.Json,
+           BodyStyle = WebMessageBodyStyle.Wrapped,
+           UriTemplate = "testtesttesttest")]
+        ICollection<TAlergen> test4();
     }
 }

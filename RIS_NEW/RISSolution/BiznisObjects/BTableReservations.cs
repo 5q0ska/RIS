@@ -29,7 +29,7 @@ namespace BiznisObjects
             UserId = tableReservations.user_id;
             DateTime = tableReservations.date_time;
 
-            Table = new BTable(tableReservations.table);
+            Table = new BTable(tableReservations.dining_table);
             User = new BRisUser(tableReservations.user);
 
             entityTableReservations = tableReservations;
@@ -53,7 +53,7 @@ namespace BiznisObjects
             UserId = entityTableReservations.user_id;
             DateTime = entityTableReservations.date_time;
 
-            Table = new BTable(entityTableReservations.table);
+            Table = new BTable(entityTableReservations.dining_table);
             User = new BRisUser(entityTableReservations.user);
         }
 
@@ -62,7 +62,7 @@ namespace BiznisObjects
             entityTableReservations.table_id = TableId;
             entityTableReservations.user_id = UserId;
             entityTableReservations.date_time = DateTime;
-            entityTableReservations.table = Table.entityTable;
+            entityTableReservations.dining_table = Table.entityDiningTable;
             entityTableReservations.user = User.entityRisUser;
         }
 
