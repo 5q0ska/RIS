@@ -48,7 +48,7 @@
     <Compile Include="TAlergen.cs" />
     <Compile Include="TOrderFoods.cs" />
     <Compile Include="TFoodOrder.cs" />
-    <Compile Include="TTable.cs" />
+    <Compile Include="TDiningTable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

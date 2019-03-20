@@ -12,7 +12,7 @@ namespace DatabaseEntities
         }
 
         public int food_order_id { get; set; }
-        public DateTimeOffset order_date { get; set; }
+        public DateTime order_date { get; set; }
         public double total_price { get; set; }
         public int is_paid { get; set; }
         public int is_sended { get; set; }

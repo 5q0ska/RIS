@@ -10,7 +10,7 @@ namespace BiznisObjects
     public class BFoodOrder
     {
         public int FoodOrderId { get; set; }
-        public DateTimeOffset OrderDate { get; set; }
+        public DateTime OrderDate { get; set; }
         public double TotalPrice { get; set; }
         public int IsPaid { get; set; }
         public int IsSended { get; set; }
@@ -26,7 +26,7 @@ namespace BiznisObjects
             this.Reset();
         }
 
-        public BFoodOrder(int objednavka, int jedlo, DateTimeOffset cas, risTabulky risContext)
+        public BFoodOrder(int objednavka, int jedlo, DateTime cas, risTabulky risContext)
         {
             entityFoodOrder = new food_order
             {
@@ -75,7 +75,7 @@ namespace BiznisObjects
         private void Reset()
         {
             FoodOrderId = 0;
-            OrderDate = DateTimeOffset.MinValue;
+            OrderDate = DateTime.MinValue;
             TotalPrice = 0;
             IsPaid = 0;
             IsSended = 0;

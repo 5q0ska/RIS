@@ -11,8 +11,8 @@
           </Key>
           <Property Name="Addition_Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="Weight" Type="real" Nullable="false" />
-          <Property Name="Price" Type="real" Nullable="false" />
+          <Property Name="Weight" Type="double" Nullable="false" />
+          <Property Name="Price" Type="double" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="Alergen">
@@ -35,12 +35,12 @@
           <Property Name="Food_Id" Type="int" Nullable="false" />
           <Property Name="Food_Type_Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="Price_Without_Additions" Type="real" Nullable="false" />
+          <Property Name="Price_Without_Additions" Type="double" Nullable="false" />
           <Property Name="Preparation_Time" Type="int" Nullable="false" />
-          <Property Name="Weight" Type="real" Nullable="false" />
-          <Property Name="Price_With_Additions" Type="real" />
+          <Property Name="Weight" Type="double" Nullable="false" />
+          <Property Name="Price_With_Additions" Type="double" />
           <Property Name="Description" Type="varchar" MaxLength="100" />
-          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="Image" Type="blob" />
         </EntityType>
         <EntityType Name="Food_Additions">
           <Key>
@@ -64,10 +64,10 @@
           </Key>
           <Property Name="Food_Order_Id" Type="int" Nullable="false" />
           <Property Name="Order_Date" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
-          <Property Name="Total_Price" Type="real" Nullable="false" />
+          <Property Name="Total_Price" Type="double" Nullable="false" />
           <Property Name="Is_Paid" Type="int" Nullable="false" />
           <Property Name="Is_Sended" Type="int" Nullable="false" />
-          <Property Name="Discount_Price" Type="real" />
+          <Property Name="Discount_Price" Type="double" />
         </EntityType>
         <EntityType Name="Food_Rating">
           <Key>
@@ -110,8 +110,8 @@
           <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Surname" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="Image" Type="varbinary(max)" />
-          <Property Name="Discount_Price" Type="real" />
+          <Property Name="Image" Type="blob" />
+          <Property Name="Discount_Price" Type="double" />
           <Property Name="Actual_Order_Id" Type="int" />
         </EntityType>
         <EntityType Name="Table_Reservations">
@@ -385,7 +385,7 @@
             <PropertyRef Name="Food_Order_Id" />
           </Key>
           <Property Name="Food_Order_Id" Type="Int32" Nullable="false" />
-          <Property Name="Order_Date" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Order_Date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="Total_Price" Type="Single" Nullable="false" />
           <Property Name="Is_Paid" Type="Int32" Nullable="false" />
           <Property Name="Is_Sended" Type="Int32" Nullable="false" />
@@ -434,7 +434,7 @@
           </Key>
           <Property Name="Table_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="User_Id" Type="Int32" Nullable="false" />
-          <Property Name="Date_Time" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Date_Time" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="RIS_User" Relationship="Self.FK_Table_Reservations_2" FromRole="Table_Reservations" ToRole="RIS_User" />
         </EntityType>
         <EntityType Name="User_Orders">

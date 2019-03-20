@@ -75,7 +75,7 @@ namespace Services
         public TFoodOrder VytvorObjednavku(string id_jedla, string y, string m, string d, string h, string mi, string s, string mils)
         {
 
-            DateTimeOffset t = new DateTimeOffset(int.Parse(y), int.Parse(m), int.Parse(d), int.Parse(h), int.Parse(mi), int.Parse(s), int.Parse(mils), TimeSpan.Zero);
+            DateTime t = new DateTime(int.Parse(y), int.Parse(m), int.Parse(d), int.Parse(h), int.Parse(mi), int.Parse(s), int.Parse(mils), System.Globalization.Calendar.CurrentEra);
             var objednavka = new BFoodOrder(id_objednavka++, int.Parse(id_jedla), t, _ctx);
             objednavka = new BFoodOrder(objednavka.entityFoodOrder);
 
@@ -86,7 +86,7 @@ namespace Services
         public TFoodOrder PridajPolozku(string objednavka, string jedlo)
         {
             // Vytvorenie novej polozky v objednavke
-            new BFoodOrder(int.Parse(objednavka), int.Parse(jedlo), DateTimeOffset.Now, _ctx);
+            new BFoodOrder(int.Parse(objednavka), int.Parse(jedlo), DateTime.Now, _ctx);
 
             WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
 

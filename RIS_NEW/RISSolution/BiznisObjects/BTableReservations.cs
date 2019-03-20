@@ -11,7 +11,7 @@ namespace BiznisObjects
     {
         public string TableId { get; set; }
         public int UserId { get; set; }
-        public DateTimeOffset DateTime { get; set; }
+        public DateTime DateTime { get; set; }
 
         public BTable Table { get; set; }
         public BRisUser User { get; set; }
@@ -39,7 +39,7 @@ namespace BiznisObjects
         {
             TableId = "";
             UserId = 0;
-            DateTime = DateTimeOffset.MinValue;
+            DateTime = DateTime.MinValue;
 
             Table = new BTable();
             User = new BRisUser();
